@@ -113,7 +113,7 @@ module.exports.info = (url, callback, args) ->
   args.push url
 
   # call youtube-dl
-  youtubedl = spawn cmd, args, spawnOptions
+  youtubedl = spawn cmd, args
 
   err = info = false
   
