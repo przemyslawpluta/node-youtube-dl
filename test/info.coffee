@@ -1,4 +1,4 @@
-youtube = require '../lib/youtube-dl'
+youtube = require 'youtube-dl'
 
 # call youtube module
 youtube.info process.argv[2], (err, info) ->

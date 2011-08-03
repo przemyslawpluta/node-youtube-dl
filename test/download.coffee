@@ -1,4 +1,4 @@
-youtube = require '../lib/youtube-dl'
+youtube = require 'youtube-dl'
 
 
 # call youtube script
