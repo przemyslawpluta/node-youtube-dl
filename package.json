@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "keywords": ["youtube", "download"],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/fent/node-youtube-dl",
   "repository": {
     "type": "git",
