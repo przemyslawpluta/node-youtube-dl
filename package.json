@@ -9,7 +9,7 @@
     "url": "git://github.com/fent/node-youtube-dl.git"
   },
   "author": "Roly Fentanes (https://github.com/fent)",
-  "main": "./lib/youtube-dl.coffee",
+  "main": "./lib/youtube-dl.js",
   "directories": {
     "lib": "./lib"
   },
