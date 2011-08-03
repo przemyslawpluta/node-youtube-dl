@@ -14,3 +14,6 @@ task 'watch', 'Build and watch for changes', ->
   child = spawn 'coffee', ['-w', '-o', 'lib', '-c', 'src']
   child.stdout.on 'data', datacb
   child.stderr.on 'data', datacb
+  child2 = spawn 'coffee', ['-w', '-c', 'scripts']
+  child2.stdout.on 'data', datacb
+  child2.stderr.on 'data', datacb
