@@ -87,7 +87,7 @@ Installation
 ------------
 Using npm:
 
-    $ npm install youtube-dl
+    npm install youtube-dl
 
 This will install this node module along with the latest version of [youtube-dl][] into your module folder. It will also create a symlink to youtube-dl so you run it from the command line.
 
