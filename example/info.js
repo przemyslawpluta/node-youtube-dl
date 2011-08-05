@@ -1,4 +1,4 @@
-youtube = require('youtube-dl');
+youtube = require('./../lib/youtube-dl');
 
 youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
   

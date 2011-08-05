@@ -1,4 +1,5 @@
-youtubedl = require('youtube-dl');
+youtubedl = require('./../lib/youtube-dl');
+
 
 // will be called when a state changes
 stateChange = function(state, data) {
@@ -10,14 +11,16 @@ stateChange = function(state, data) {
 
 // will be called during download progress of a video
 progress = function(data) {
-  console.log(data.eta + ' ' + data.percent + '% at ' + data.speed);
+  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
 }
 
 // called when youtube-dl finishes
-finished = function(err) {
+finished = function(err, data) {
   if (err)
     throw err;
-  console.log('Download finished!')
+  console.log('\nDownload finished!');
+  console.log('Time Taken: ' + data.timeTaken);
+  console.log('Average Speed: ' + data.averageSpeed);
 },
 
 youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA', './',

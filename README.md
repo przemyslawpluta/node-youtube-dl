@@ -20,14 +20,18 @@ Usage
 
       // will be called during download progress of a video
       function(data) {
-        console.log(data.eta + ' ' + data.percent + '% at ' + data.speed);
+        process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
       },
 
       // called when youtube-dl finishes
-      function(err) {
+      function(err, data) {
         if (err)
           throw err;
         console.log('Download finished!')
+        console.log('Time Taken: ' + data.timeTaken);
+        console.log('Time Taken in ms: ' + data.timeTakenms);
+        console.log('Average Speed: ' + data.averageSpeed);
+        console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
       },
 
       // optional arguments passed to youtube-dl

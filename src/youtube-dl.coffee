@@ -1,5 +1,5 @@
 # module dependencies
-spawn = require('child_process').spawn
+{spawn} = require 'child_process'
 fs    = require 'fs'
 path  = require 'path'
 
@@ -46,21 +46,75 @@ fs.stat file, (err, stats) ->
         throw new Error 'youtube-dl file does not exist. tried to download it but failed.'
 
 
-# command to be called
-cmd = file
+# rounds a number to n decimal places
+round = (num, n) ->
+  dec = Math.pow 10, n
+  Math.round(num * dec + 0.1) / dec
+
+
+# converts from bytes, kb, mb, and gb to bytes
+toBytes = (s) ->
+  speed = parseFloat(s.substring 0, s.length - 3)
+  switch s.substr(-3, 1).toLowerCase()
+    when 'b'
+      speed
+    when 'k'
+      speed * 1024
+    when 'm'
+      speed * 1024 * 1024
+    when 'g'
+      speed * 1024 * 1024 * 1024
+
+
+# converts bytes to human readable unit
+# thank you Amir from StackOverflow
+units = ' KMGTPEZYXWVU'
+getHumanSize = (bytes) ->
+  return 0 if bytes <= 0
+  t2 = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), 12)
+  (Math.round(bytes * 100 / Math.pow(1024, t2)) / 100) +
+    units.charAt(t2).replace(' ', '') + 'B'
+
+
+# converts ms to human readable time
+getHumanTime = (ms) ->
+  x = ms / 1000
+  ms %= 1000
+  s = Math.round(x % 60)
+  x /= 60
+  m = Math.round(x % 60)
+  x /= 60
+  h = Math.round(x % 24)
+  d = Math.round(x / 24)
+
+  str = ''
+  if d > 0
+    str += "#{d} day#{if d > 1 then 's'}, "
+    set = true
+  if set or h > 0
+    str += "#{h} hour#{if h > 1 then 's'}, "
+    set = true
+  if set or m > 0
+    str += "#{m} minute#{if m > 1 then 's'}, "
+    set = true
+  if set or s > 0
+    str += "#{s} second#{if s > 1 then 's'}, "
+  "#{str}#{ms} ms"
 
 
 # main download function
+regex = /(\d+\.\d)% of (\d+\.\d+\w) at\s+([^\s]+) ETA ((\d|-)+:(\d|-)+)/
 module.exports.download = (url, dest, stateChange, download, callback, args) ->
   # setup settings
   args = parseOpts args
   args.push url
 
   # call youtube-dl
-  youtubedl = spawn cmd, args, { cwd: dest }
+  youtubedl = spawn file, args, { cwd: dest }
+  speed = []
+  start = new Date().getTime()
   
   err = video = size = state = false
-  regex = /(\d+\.\d)% of (\d+\.\d+\w) at\s+([^\s]+) ETA ((\d|-)+:(\d|-)+)/
 
   youtubedl.stdout.on 'data', (data) ->
     data = data.toString()
@@ -73,6 +127,8 @@ module.exports.download = (url, dest, stateChange, download, callback, args) ->
           stateChange state,
             video: video
             size:  size = result[2]
+
+        speed.push toBytes result[3]
         download
           percent: result[1]
           speed:   result[3]
@@ -97,7 +153,18 @@ module.exports.download = (url, dest, stateChange, download, callback, args) ->
     err = data.substring 7, data.length - 1
   
   youtubedl.on 'exit', (code) ->
-    callback err
+    averageSpeed = 0
+    for i in speed
+      averageSpeed += i
+    averageSpeed /= speed.length
+
+    timeTaken = new Date().getTime() - start
+
+    callback err,
+      timeTakenms: timeTaken
+      timeTaken: getHumanTime timeTaken
+      averageSpeedBytes: round averageSpeed, 2
+      averageSpeed: getHumanSize(averageSpeed) + '/s'
 
 
 # gets info from a video
@@ -113,7 +180,7 @@ module.exports.info = (url, callback, args) ->
   args.push url
 
   # call youtube-dl
-  youtubedl = spawn cmd, args
+  youtubedl = spawn file, args
 
   err = info = false
   

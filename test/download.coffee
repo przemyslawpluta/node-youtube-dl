@@ -7,7 +7,7 @@ youtube.download process.argv[2], './', ((state, data) ->
     if data
       console.log 'data: ' + data
   ), ((data) ->
-    console.log "Downloading: #{data.percent}%, #{data.speed}, #{data.eta}"
+    process.stdout.write "Downloading: #{data.percent}%, #{data.speed}, #{data.eta}\r"
   ), ((err) ->
     if err
       console.log 'error: ' + err
