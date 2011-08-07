@@ -87,9 +87,8 @@ Running that will produce something like
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
 
-Installation
+Install
 ------------
-Using npm:
 
     npm install youtube-dl
 
