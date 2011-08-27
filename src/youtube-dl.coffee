@@ -1,7 +1,8 @@
 # module dependencies
-{spawn} = require 'child_process'
-fs    = require 'fs'
-path  = require 'path'
+{spawn}        = require 'child_process'
+{EventEmitter} = require 'events'
+fs             = require 'fs'
+path           = require 'path'
 
 
 # arguments we dont want users to use with youtube-dl
@@ -22,7 +23,7 @@ badArgs = [
 ]
 
 # helps parse options used in youtube-dl command
-parseOpts = (args = []) ->
+parseOpts = (args) ->
   for arg in badArgs
     if (pos = hasArg args, arg) isnt -1
       args.splice pos, 1
@@ -104,7 +105,7 @@ getHumanTime = (ms) ->
 
 # main download function
 regex = /(\d+\.\d)% of (\d+\.\d+\w) at\s+([^\s]+) ETA ((\d|-)+:(\d|-)+)/
-module.exports.download = (url, dest, stateChange, download, callback, args) ->
+module.exports.download = (url, dest = './', args = []) ->
   # setup settings
   args = parseOpts args
   args.push url
@@ -112,31 +113,32 @@ module.exports.download = (url, dest, stateChange, download, callback, args) ->
   # call youtube-dl
   youtubedl = spawn file, args, { cwd: dest }
   speed = []
-  start = new Date().getTime()
+  start = Date.now()
   
-  err = video = size = state = false
+  video = size = state = null
+  emitter = new EventEmitter()
 
   youtubedl.stdout.on 'data', (data) ->
     data = data.toString()
 
     # check if video is uploading so script can start
     # calling the download progress function
-    if state is 'Downloading video'
-      if result = regex.exec data
-        if size is false
-          stateChange state,
-            video: video
-            size:  size = result[2]
+    if state is 'download' and result = regex.exec data
+      if not size
+        emitter.emit state,
+          video: video
+          size:  size = result[2]
 
+      if result[3] isnt '---b/s'
         speed.push toBytes result[3]
-        download
-          percent: result[1]
-          speed:   result[3]
-          eta:     result[4]
+      emitter.emit 'progress',
+        percent: result[1]
+        speed:   result[3]
+        eta:     result[4]
 
     # about to start downloading video
     else if (pos = data.indexOf '[download] ') is 0
-      state = 'Downloading video'
+      state = 'download'
       
     # check if this is any other state
     else if (pos = data.indexOf ']') isnt -1
@@ -146,11 +148,13 @@ module.exports.download = (url, dest, stateChange, download, callback, args) ->
       if (pos = state.indexOf ':') isnt -1
         video = state.substring 0, pos
         state = state.substring pos + 2
-      stateChange state, video
+      emitter.emit state, video
   
   youtubedl.stderr.on 'data', (data) ->
     data = data.toString()
+    console.log data
     err = data.substring 7, data.length - 1
+    emitter.emit 'error', err
   
   youtubedl.on 'exit', (code) ->
     averageSpeed = 0
@@ -158,17 +162,19 @@ module.exports.download = (url, dest, stateChange, download, callback, args) ->
       averageSpeed += i
     averageSpeed /= speed.length
 
-    timeTaken = new Date().getTime() - start
+    timeTaken = Date.now() - start
 
-    callback err,
+    emitter.emit 'end',
       timeTakenms: timeTaken
       timeTaken: getHumanTime timeTaken
       averageSpeedBytes: round averageSpeed, 2
       averageSpeed: getHumanSize(averageSpeed) + '/s'
+  
+  emitter
 
 
 # gets info from a video
-module.exports.info = (url, callback, args) ->
+module.exports.info = (url, callback, args = []) ->
   # setup settings
   args = parseOpts args
   args = [

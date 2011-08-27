@@ -1,30 +1,32 @@
 youtubedl = require('./../lib/youtube-dl');
 
 
-// will be called when a state changes
-stateChange = function(state, data) {
-  console.log(state);
-  if (state == 'Downloading video') {
-    console.log('Video size: ' + data.size);
-  }
-}
-
-// will be called during download progress of a video
-progress = function(data) {
-  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
-}
-
-// called when youtube-dl finishes
-finished = function(err, data) {
-  if (err)
-    throw err;
-  console.log('\nDownload finished!');
-  console.log('Time Taken: ' + data.timeTaken);
-  console.log('Average Speed: ' + data.averageSpeed);
-},
-
-youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA', './',
-  stateChange, progress, finished,
-
+dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA', './',
   // optional arguments passed to youtube-dl
   ['--max-quality=18']);
+
+
+// will be called when the download starts
+dl.on('download', function(data) {
+  console.log('Download started');
+  console.log('Video size: ' + data.size);
+});
+
+// will be called during download progress of a video
+dl.on('progress', function(data) {
+  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
+});
+
+// catches any errors
+dl.on('error', function(err) {
+  throw err;
+});
+
+// called when youtube-dl finishes
+dl.on('end', function(data) {
+  console.log('\nDownload finished!');
+  console.log('Time Taken: ' + data.timeTaken);
+  console.log('Time Taken in ms: ' + data.timeTakenms);
+  console.log('Average Speed: ' + data.averageSpeed);
+  console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
+});

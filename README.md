@@ -1,5 +1,3 @@
-A [youtube-dl][] driver for node.
-
 Usage
 ------------------
 
@@ -7,57 +5,48 @@ Usage
 
 ###Downloading videos
 
-    youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
+    dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
       './videos',
-
-      // will be called when a state changes
-      function(state, data) {
-        console.log(state);
-        if (state == 'Downloading video') {
-          console.log('Video size: ' + data.size);
-        }
-      },
-
-      // will be called during download progress of a video
-      function(data) {
-        process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
-      },
-
-      // called when youtube-dl finishes
-      function(err, data) {
-        if (err)
-          throw err;
-        console.log('Download finished!')
-        console.log('Time Taken: ' + data.timeTaken);
-        console.log('Time Taken in ms: ' + data.timeTakenms);
-        console.log('Average Speed: ' + data.averageSpeed);
-        console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
-      },
-
       // optional arguments passed to youtube-dl
       ['--max-quality=18']);
 
+    // will be called when the download starts
+    dl.on('download', function(data) {
+      console.log('Download started');
+      console.log('Video size: ' + data.size);
+    });
+
+    // will be called during download progress of a video
+    dl.on('progress', function(data) {
+      process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
+    });
+
+    // catches any errors
+    dl.on('error', function(err) {
+      throw err;
+    });
+
+    // called when youtube-dl finishes
+    dl.on('end', function(data) {
+      console.log('\nDownload finished!');
+      console.log('Time Taken: ' + data.timeTaken);
+      console.log('Time Taken in ms: ' + data.timeTakenms);
+      console.log('Average Speed: ' + data.averageSpeed);
+      console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
+    });
+
+
 This example can be found in the *example* folder, and will produce an output that looks like the following when ran.
 
-    Setting language
-    Downloading video webpage
-    Downloading video info webpage
-    Extracting video information
-    Downloading video
+    Download started
     Video size: 918.31k
-    --:-- 0.1% at ---b/s
-    --:-- 0.3% at ---b/s
-    00:12 0.8% at 75.62k/s
-    00:06 1.6% at 135.69k/s
-    00:03 3.4% at 223.15k/s
-    00:04 6.9% at 171.27k/s
-    00:05 13.8% at 135.40k/s
-    00:03 26.1% at 194.62k/s
-    00:03 50.5% at 140.90k/s
-    00:02 62.8% at 169.02k/s
-    00:00 87.3% at 210.18k/s
-    00:00 100.0% at 181.41k/s
+    00:00 100.0% at 206.12k/s
     Download finished!
+    Time Taken: 7 seconds, 27 ms
+    Time Taken in ms: 7027
+    Average Speed: 333.74KB/s
+    Average Speed in Bytes: 341750.78
+
 
 ###Getting video information
 
@@ -93,6 +82,12 @@ Install
     npm install youtube-dl
 
 This will install this node module along with the latest version of [youtube-dl][] into your module folder. It will also create a symlink to youtube-dl so you run it from the command line.
+
+
+### API Change
+
+Note that the API has changed in version 1.1.0. It now uses emitters to handle the download, progress, and finished events. I'm sorry for any of the invonvenience this may have caused but I'm new at this node.js thing and I just found out emitters are the best way to do this.
+
 
 Issues and the Future
 ---------------------
