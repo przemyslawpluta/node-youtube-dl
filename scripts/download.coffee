@@ -12,6 +12,18 @@ filepath = folder + filename
 symlink = path.dirname(process.env._) + filename
 
 
+# removes symlink only if it exists
+removeLink = ->
+  linkExists = (try
+      fs.readlinkSync symlink
+      true
+    catch err
+      false
+  )
+  if linkExists
+    fs.unlinkSync symlink
+
+
 # download youtube-dl
 switch process.env.npm_lifecycle_event
   when 'preinstall', 'update'
@@ -29,15 +41,7 @@ switch process.env.npm_lifecycle_event
           fs.mkdirSync folder, 0744
 
         # remove symlink if it exists
-        
-        linkExists = (try
-            fs.readlinkSync symlink
-            true
-          catch err
-            false
-        )
-        if linkExists
-          fs.unlinkSync symlink
+        removeLink()
 
         # write, chdmod, and symlink file when finished
         fs.writeFileSync filepath, content
@@ -49,4 +53,4 @@ switch process.env.npm_lifecycle_event
 
   when 'preuninstall'
     # remove symlink
-    fs.unlinkSync symlink
+    removeLink()
