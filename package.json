@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "keywords": ["youtube", "download"],
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/fent/node-youtube-dl",
   "repository": {
     "type": "git",
@@ -10,13 +10,13 @@
   },
   "author": "Roly Fentanes (https://github.com/fent)",
   "main": "./lib/youtube-dl.js",
+  "bin": "./bin/youtube-dl",
   "directories": {
     "lib": "./lib"
   },
   "scripts": {
-    "preinstall": "node ./scripts/download.js",
-    "update": "node ./scripts/download.js",
-    "preuninstall": "node ./scripts/download.js"
+    "install": "node ./scripts/download.js",
+    "update": "node ./scripts/download.js"
   },
   "engines": {
     "node": "*"
