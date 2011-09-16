@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "keywords": ["youtube", "download"],
-  "version": "1.1.2",
+  "version": "1.2.0",
   "homepage": "https://github.com/fent/node-youtube-dl",
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   "scripts": {
     "install": "node ./scripts/download.js",
     "update": "node ./scripts/download.js"
+  },
+  "devDependencies": {
+    "vows": ">=0.5.11"
   },
   "engines": {
     "node": "*"

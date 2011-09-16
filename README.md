@@ -13,7 +13,8 @@ Usage
     // will be called when the download starts
     dl.on('download', function(data) {
       console.log('Download started');
-      console.log('Video size: ' + data.size);
+      console.log('filename: ' + data.filename);
+      console.log('size: ' + data.size);
     });
 
     // will be called during download progress of a video
@@ -29,6 +30,8 @@ Usage
     // called when youtube-dl finishes
     dl.on('end', function(data) {
       console.log('\nDownload finished!');
+      console.log('Filename: ' + data.filename);
+      console.log('Size: ' + data.size);
       console.log('Time Taken: ' + data.timeTaken);
       console.log('Time Taken in ms: ' + data.timeTakenms);
       console.log('Average Speed: ' + data.averageSpeed);
@@ -42,6 +45,8 @@ This example can be found in the *example* folder, and will produce an output th
     Video size: 918.31k
     00:00 100.0% at 206.12k/s
     Download finished!
+    Filename: 90AiXO1pAiA.mp4
+    Size: 918.31k
     Time Taken: 7 seconds, 27 ms
     Time Taken in ms: 7027
     Average Speed: 333.74KB/s
@@ -60,6 +65,7 @@ This example can be found in the *example* folder, and will produce an output th
         console.log('url: ' + info.url);
         console.log('thumbnail: ' + info.thumbnail);
         console.log('description: ' + info.description);
+        console.log('filename: ' + info.filename);
       }
       
       // optional arguments passed to youtube-dl
@@ -72,6 +78,8 @@ Running that will produce something like
     url: http://v2.lscache2.c.youtube.com/videoplayback?sparams=id%2Cexpire%2Cip%2Cipbits%2Citag%2Calgorithm%2Cburst%2Cfactor%2Coc%3AU0hPSFFQVF9FSkNOOV9JSlhJ&fexp=904410%2C907048%2C910100&algorithm=throttle-factor&itag=34&ipbits=0&burst=40&sver=3&signature=4093330AC1A5B0CAF8709A0416A4B593A75BB892.21F2F12C418003492D9877E1570DC7AEE6DBEEBA&expire=1303156800&key=yt1&ip=0.0.0.0&factor=1.25&id=58ab2368ea835e08
     thumbnail: http://i4.ytimg.com/vi/WKsjaOqDXgg/default.jpg
     description: An old Red Dwarf eposide where Ace Rimmer saves the Princess Bonjella.
+    filename: WKsjaOqDXgg.webm
+
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 

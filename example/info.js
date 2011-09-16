@@ -10,6 +10,7 @@ youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
     console.log('url: ' + info.url);
     console.log('thumbnail: ' + info.thumbnail);
     console.log('description: ' + info.description);
+    console.log('filename: ' + info.filename);
   }
   
   // optional arguments passed to youtube-dl
