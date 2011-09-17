@@ -1,3 +1,11 @@
+Install
+------------
+
+    npm install youtube-dl
+
+Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can be used in command line.
+
+
 Usage
 ------------------
 
@@ -82,19 +90,6 @@ Running that will produce something like
 
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
-
-
-Install
-------------
-
-    npm install youtube-dl
-
-This will install this node module along with the latest version of [youtube-dl][] into your module folder. Use the -g option on the npm install command to install globally and add a symlink to youtube-dl so it can be used in command line.
-
-
-### API Change
-
-Note that the API has changed in version 1.1.0. It now uses emitters to handle the download, progress, and finished events. I'm sorry for any of the invonvenience this may have caused but I'm new at this node.js thing and I just found out emitters are the best way to do this.
 
 
 Issues and the Future
