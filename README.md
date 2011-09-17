@@ -9,42 +9,46 @@ Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can b
 Usage
 ------------------
 
-    youtubedl = require('youtube-dl');
+```javascript
+var youtubedl = require('youtube-dl');
+```
 
 ###Downloading videos
 
-    dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
-      './videos',
-      // optional arguments passed to youtube-dl
-      ['--max-quality=18']);
+```javascript
+var dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
+  './videos',
+  // optional arguments passed to youtube-dl
+  ['--max-quality=18']);
 
-    // will be called when the download starts
-    dl.on('download', function(data) {
-      console.log('Download started');
-      console.log('filename: ' + data.filename);
-      console.log('size: ' + data.size);
-    });
+// will be called when the download starts
+dl.on('download', function(data) {
+  console.log('Download started');
+  console.log('filename: ' + data.filename);
+  console.log('size: ' + data.size);
+});
 
-    // will be called during download progress of a video
-    dl.on('progress', function(data) {
-      process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
-    });
+// will be called during download progress of a video
+dl.on('progress', function(data) {
+  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
+});
 
-    // catches any errors
-    dl.on('error', function(err) {
-      throw err;
-    });
+// catches any errors
+dl.on('error', function(err) {
+  throw err;
+});
 
-    // called when youtube-dl finishes
-    dl.on('end', function(data) {
-      console.log('\nDownload finished!');
-      console.log('Filename: ' + data.filename);
-      console.log('Size: ' + data.size);
-      console.log('Time Taken: ' + data.timeTaken);
-      console.log('Time Taken in ms: ' + data.timeTakenms);
-      console.log('Average Speed: ' + data.averageSpeed);
-      console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
-    });
+// called when youtube-dl finishes
+dl.on('end', function(data) {
+  console.log('\nDownload finished!');
+  console.log('Filename: ' + data.filename);
+  console.log('Size: ' + data.size);
+  console.log('Time Taken: ' + data.timeTaken);
+  console.log('Time Taken in ms: ' + data.timeTakenms);
+  console.log('Average Speed: ' + data.averageSpeed);
+  console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
+});
+```
 
 
 This example can be found in the *example* folder, and will produce an output that looks like the following when ran.
@@ -63,22 +67,24 @@ This example can be found in the *example* folder, and will produce an output th
 
 ###Getting video information
 
-    youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
-      
-      // called when video page is downloaded and info extracted
-      function(err, info) {
-        if (err)
-          throw err;
-        console.log('title: ' + info.title);
-        console.log('url: ' + info.url);
-        console.log('thumbnail: ' + info.thumbnail);
-        console.log('description: ' + info.description);
-        console.log('filename: ' + info.filename);
-      }
-      
-      // optional arguments passed to youtube-dl
-      // ['--username=user', '--password=hunter2']
-      );
+```javascript
+youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
+  
+  // called when video page is downloaded and info extracted
+  function(err, info) {
+    if (err)
+      throw err;
+    console.log('title: ' + info.title);
+    console.log('url: ' + info.url);
+    console.log('thumbnail: ' + info.thumbnail);
+    console.log('description: ' + info.description);
+    console.log('filename: ' + info.filename);
+  }
+  
+  // optional arguments passed to youtube-dl
+  // ['--username=user', '--password=hunter2']
+  );
+```
 
 Running that will produce something like
 
