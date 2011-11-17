@@ -1,11 +1,3 @@
-Install
-------------
-
-    npm install youtube-dl
-
-Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can be used in command line.
-
-
 Usage
 ------------------
 
@@ -96,6 +88,23 @@ Running that will produce something like
 
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
+
+
+Install
+------------
+
+    npm install youtube-dl
+
+Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can be used in command line.
+
+
+Tests
+-------
+Tests are written with [vows](http://vowsjs.org/)
+
+```bash
+npm test
+```
 
 
 Issues and the Future
