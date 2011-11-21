@@ -1,13 +1,14 @@
-Usage
-------------------
+# youtube-dl [![Build Status](https://secure.travis-ci.org/fent/node-youtube-dl.png)](http://travis-ci.org/fent/node-youtube-dl)
+
+Download videos from youtube in node.js using [youtube-dl](http://rg3.github.com/youtube-dl/).
+
+
+# Usage
+
+## Downloading videos
 
 ```javascript
 var youtubedl = require('youtube-dl');
-```
-
-###Downloading videos
-
-```javascript
 var dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
   './videos',
   // optional arguments passed to youtube-dl
@@ -57,10 +58,11 @@ This example can be found in the *example* folder, and will produce an output th
     Average Speed in Bytes: 341750.78
 
 
-###Getting video information
+## Getting video information
 
 ```javascript
-youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
+var youtubedl = require('youtube-dl');
+youtubedl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
   
   // called when video page is downloaded and info extracted
   function(err, info) {
@@ -90,16 +92,15 @@ Running that will produce something like
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
 
-Install
-------------
+# Install
 
     npm install youtube-dl
 
 Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can be used in command line.
 
 
-Tests
--------
+# Tests
+
 Tests are written with [vows](http://vowsjs.org/)
 
 ```bash
@@ -107,11 +108,15 @@ npm test
 ```
 
 
-Issues and the Future
----------------------
+# Issues and the Future
 
 I haven't tested this with playlists yet because I haven't needed to use them. But my guess is they probably work with the download function but not the info function.
 
 
 [youtube-dl]: http://rg3.github.com/youtube-dl/
 [youtube-dl documentation]: http://rg3.github.com/youtube-dl/documentation.html
+
+
+# License
+
+MIT
