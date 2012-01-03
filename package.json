@@ -1,7 +1,7 @@
 {
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
-  "keywords": ["youtube", "download"],
+  "keywords": ["youtube", "video", "download"],
   "version": "1.2.1",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "test": "vows ./test/*.js --spec"
   },
   "devDependencies": {
-    "vows": ">=0.5.11"
+    "vows": "0.5.x"
   },
   "engines": {
     "node": "*"
