@@ -1,5 +1,5 @@
 var vows = require('vows')
-  ytdl   = require('./../lib/youtube-dl'),
+  ytdl   = require('..'),
   fs     = require('fs'),
   path   = require('path'),
   assert = require('assert'),
