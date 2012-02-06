@@ -22,5 +22,23 @@ vows.describe('info').addBatch({
       assert.include(info, 'filename');
       assert.isString(info.filename);
     }
-  }
+  },
+  'from a video (mp4 only)': {
+	    'topic': function() {
+	      ytdl.info(video, this.callback, ['-f 18/22/37/38']);
+	    },
+
+	    'info returned': function(err, info) {
+	      assert.include(info, 'title');
+	      assert.isString(info.title);
+	      assert.include(info, 'url');
+	      assert.isString(info.url);
+	      assert.include(info, 'thumbnail');
+	      assert.isString(info.thumbnail);
+	      assert.include(info, 'description');
+	      assert.isString(info.description);
+	      assert.include(info, 'filename');
+	      assert.isString(info.filename);
+	    }
+	  }
 }).export(module);
