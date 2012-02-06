@@ -7,10 +7,12 @@ var vows = require('vows')
 vows.describe('info').addBatch({
   'from a video': {
     'topic': function() {
-      ytdl.info(video, this.callback);
+      ytdl.info(video, this.callback, ['-f', '18/22/37/38']);
     },
 
     'info returned': function(err, info) {
+      assert.isNull(err);
+      assert.isObject(info);
       assert.include(info, 'title');
       assert.isString(info.title);
       assert.include(info, 'url');
