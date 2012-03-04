@@ -1,7 +1,7 @@
-youtubedl = require('..');
+var ytdl = require('..');
 
 
-dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
+dl = ytdl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
   __dirname,
   // optional arguments passed to youtube-dl
   ['--max-quality=18']);

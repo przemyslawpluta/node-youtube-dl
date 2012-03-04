@@ -1,6 +1,6 @@
-youtube = require('..');
+var ytdl = require('..');
 
-youtube.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
+ytdl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
   
   // called when video page is downloaded and info extracted
   function(err, info) {

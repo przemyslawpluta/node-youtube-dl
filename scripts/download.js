@@ -4,7 +4,7 @@ var fs    = require('fs')
   , exec  = require('child_process').exec
 
 
-var folder = path.normalize(__dirname + '/../bin')
+var folder = path.join(__dirname, '..', 'bin')
   , filename = '/youtube-dl'
   , filepath = folder + filename
 
