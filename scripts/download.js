@@ -4,10 +4,17 @@ var fs    = require('fs')
   , exec  = require('child_process').exec
 
 
-var folder = path.join(__dirname, '..', 'bin')
-  , filename = '/youtube-dl'
-  , filepath = folder + filename
+var dir = path.join(__dirname, '..', 'bin')
+  , filename = 'youtube-dl'
+  , filepath = path.join(dir, filename)
+  , n = 0
+  ;
 
+
+// make bin dir if it doesn't exists
+if (!path.existsSync(dir)) {
+  fs.mkdirSync(dir, 0744);
+}
 
 // download latst version of youtube-dl
 https.get({
@@ -18,23 +25,10 @@ https.get({
     throw Error('Response Error: ' + res.statusCode);
   }
 
-  var content = '';
-  res.on('data', function(data) {
-    return content += data;
-  });
-
+  res.pipe(fs.createWriteStream(filepath));
   res.on('end', function() {
-    // make bin folder if it doesn't exists
-    if (!path.existsSync(folder)) {
-      fs.mkdirSync(folder, 0744);
-    }
-
-    // write file when finished
-    fs.writeFileSync(filepath, content);
-
-    // make it executable
+    // make file executable
     fs.chmodSync(filepath, 0711);
-
     console.log('Finished!');
   });
 
