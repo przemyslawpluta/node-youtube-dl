@@ -1,9 +1,11 @@
-var vows   = require('vows')
-  , ytdl   = require('..')
-  , fs     = require('fs')
-  , path   = require('path')
-  , assert = require('assert')
-  , video  = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
+var vows       = require('vows')
+  , ytdl       = require('..')
+  , fs         = require('fs')
+  , path       = require('path')
+  , existsSync = fs.existsSync || path.existsSync
+  , assert     = require('assert')
+  , video      = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
+  ;
 
 
 vows.describe('download').addBatch({
@@ -36,7 +38,7 @@ vows.describe('download').addBatch({
     'file was downloaded': function(err, data) {
       // check existance
       var filepath = path.join(__dirname, data.filename);
-      assert.isTrue(fs.existsSync(filepath));
+      assert.isTrue(existsSync(filepath));
 
       // delete file after each test
       fs.unlinkSync(filepath);
