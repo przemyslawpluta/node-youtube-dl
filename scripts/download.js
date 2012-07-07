@@ -1,7 +1,9 @@
-var fs    = require('fs')
-  , path  = require('path')
-  , https = require('https')
-  , exec  = require('child_process').exec
+var fs         = require('fs')
+  , path       = require('path')
+  , existsSync = fs.existsSync || path.existsSync
+  , https      = require('https')
+  , exec       = require('child_process').exec
+  ;
 
 
 var dir = path.join(__dirname, '..', 'bin')
@@ -12,7 +14,7 @@ var dir = path.join(__dirname, '..', 'bin')
 
 
 // make bin dir if it doesn't exists
-if (!fs.existsSync(dir)) {
+if (!existsSync(dir)) {
   fs.mkdirSync(dir, 0744);
 }
 
