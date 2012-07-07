@@ -12,7 +12,7 @@ var dir = path.join(__dirname, '..', 'bin')
 
 
 // make bin dir if it doesn't exists
-if (!path.existsSync(dir)) {
+if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, 0744);
 }
 
