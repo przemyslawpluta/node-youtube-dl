@@ -2,6 +2,7 @@
 
 Download videos from youtube in node.js using [youtube-dl](http://rg3.github.com/youtube-dl/).
 
+I also made a [pure Javascript youtube downloading module](https://github.com/fent/node-ytdl). The reason I'm maintaining this one is because it supports a lot more video sites besides youtube. But if you're only interested in downloading from youtube, you should consider using the better module. It's better in that it doesn't have to spawn a child process, so it uses less memory and it's faster. And you get direct access to the download stream, meaning you can pipe it or pause it or whatever with it.
 
 # Usage
 
