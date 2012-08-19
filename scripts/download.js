@@ -2,20 +2,18 @@ var fs         = require('fs')
   , path       = require('path')
   , existsSync = fs.existsSync || path.existsSync
   , https      = require('https')
-  , exec       = require('child_process').exec
   ;
 
 
 var dir = path.join(__dirname, '..', 'bin')
   , filename = 'youtube-dl'
   , filepath = path.join(dir, filename)
-  , n = 0
   ;
 
 
 // make bin dir if it doesn't exists
 if (!existsSync(dir)) {
-  fs.mkdirSync(dir, 0744);
+  fs.mkdirSync(dir, 484);
 }
 
 // download latst version of youtube-dl
@@ -30,7 +28,7 @@ https.get({
   res.pipe(fs.createWriteStream(filepath));
   res.on('end', function() {
     // make file executable
-    fs.chmodSync(filepath, 0711);
+    fs.chmodSync(filepath, 457);
     console.log('Finished!');
   });
 

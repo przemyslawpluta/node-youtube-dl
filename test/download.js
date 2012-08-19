@@ -21,6 +21,7 @@ vows.describe('download').addBatch({
       },
 
     'data returned': function(err, data) {
+      assert.isObject(data);
       assert.include(data, 'filename');
       assert.isString(data.filename);
       assert.include(data, 'size');
