@@ -27,6 +27,7 @@ vows.describe('download').addBatch({
       },
 
     'data returned': function(err, progress, data) {
+      console.log('data', progress, data);
       assert.isObject(progress);
       assert.include(progress, 'percent');
       assert.isString(progress.percent);
