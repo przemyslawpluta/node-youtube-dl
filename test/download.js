@@ -38,11 +38,11 @@ vows.describe('download').addBatch({
 
     'file was downloaded': function(err, data) {
       process.nextTick(function() {
-        // delete file after each test
+        // Delete file after each test.
         fs.unlink(filepath);
       });
 
-      // check existance
+      // Check existance.
       var filepath = path.join(__dirname, data.filename);
       assert.isTrue(existsSync(filepath));
     }

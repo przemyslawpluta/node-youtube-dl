@@ -11,12 +11,12 @@ var dir = path.join(__dirname, '..', 'bin')
   ;
 
 
-// make bin dir if it doesn't exists
+// Make bin dir if it doesn't exists.
 if (!existsSync(dir)) {
   fs.mkdirSync(dir, 484);
 }
 
-// download youtube-dl
+// Download youtube-dl.
 http.get({
     host: 'youtube-dl.org'
   , path: '/downloads/2013.05.14/youtube-dl'
@@ -27,7 +27,7 @@ http.get({
 
   res.pipe(fs.createWriteStream(filepath));
   res.on('end', function() {
-    // make file executable
+    // Make file executable.
     fs.chmodSync(filepath, 457);
     console.log('Finished!');
   });

@@ -2,7 +2,7 @@ var ytdl = require('..');
 
 ytdl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
   
-  // called when video page is downloaded and info extracted
+  // Called when video page is downloaded and info extracted.
   function(err, info) {
     if (err)
       throw err;
@@ -13,6 +13,6 @@ ytdl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
     console.log('filename: ' + info.filename);
   }
   
-  // optional arguments passed to youtube-dl
+  // Optional arguments passed to youtube-dl.
   // ['--username=user', '--password=hunter2']
   );
