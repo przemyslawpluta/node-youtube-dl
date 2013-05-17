@@ -15,17 +15,31 @@ vows.describe('download').addBatch({
             cb = this.callback;
 
         dl.on('error', cb);
+
+        var progress;
+        dl.on('progress', function(data) {
+          progress = data;
+        });
+
         dl.on('end', function(data) {
-          cb(null, data);
+          cb(null, progress, data);
         });
       },
 
-    'data returned': function(err, data) {
+    'data returned': function(err, progress, data) {
+      assert.isObject(progress);
+      assert.include(progress, 'percent');
+      assert.isString(progress, 'percent');
+      assert.include(progress, 'speed');
+      assert.isString(progress, 'speed');
+      assert.include(progress, 'eta');
+      assert.isString(progress, 'eta');
+
       assert.isObject(data);
       assert.include(data, 'filename');
-      assert.isString(data.filename);
+      assert.equal(data.filename, 'lol-90AiXO1pAiA.flv');
       assert.include(data, 'size');
-      assert.isString(data.size);
+      assert.equal(data.size, '1.26MiB');
       assert.include(data, 'timeTakenms');
       assert.isNumber(data.timeTakenms);
       assert.include(data, 'timeTaken');
@@ -36,7 +50,7 @@ vows.describe('download').addBatch({
       assert.isString(data.averageSpeed);
     },
 
-    'file was downloaded': function(err, data) {
+    'file was downloaded': function(err, progress, data) {
       process.nextTick(function() {
         // Delete file after each test.
         fs.unlink(filepath);
