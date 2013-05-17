@@ -1,7 +1,7 @@
 var fs         = require('fs')
   , path       = require('path')
   , existsSync = fs.existsSync || path.existsSync
-  , https      = require('https')
+  , http      = require('http')
   ;
 
 
@@ -16,10 +16,10 @@ if (!existsSync(dir)) {
   fs.mkdirSync(dir, 484);
 }
 
-// download latst version of youtube-dl
-https.get({
-    host: 'raw.github.com'
-  , path: '/rg3/youtube-dl/master/youtube-dl'
+// download youtube-dl
+http.get({
+    host: 'youtube-dl.org'
+  , path: '/downloads/2013.05.14/youtube-dl'
 }, function(res) {
   if (res.statusCode !== 200) {
     throw Error('Response Error: ' + res.statusCode);
