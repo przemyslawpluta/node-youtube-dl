@@ -29,11 +29,11 @@ vows.describe('download').addBatch({
     'data returned': function(err, progress, data) {
       assert.isObject(progress);
       assert.include(progress, 'percent');
-      assert.isString(progress, 'percent');
+      assert.isString(progress.percent);
       assert.include(progress, 'speed');
-      assert.isString(progress, 'speed');
+      assert.isString(progress.speed);
       assert.include(progress, 'eta');
-      assert.isString(progress, 'eta');
+      assert.isString(progress.eta);
 
       assert.isObject(data);
       assert.include(data, 'filename');
