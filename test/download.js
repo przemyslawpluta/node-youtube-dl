@@ -27,6 +27,8 @@ vows.describe('download').addBatch({
       },
 
     'data returned': function(err, progress, data) {
+      if (err) throw err;
+
       assert.isObject(progress);
       assert.include(progress, 'percent');
       assert.isString(progress.percent);
@@ -51,6 +53,8 @@ vows.describe('download').addBatch({
     },
 
     'file was downloaded': function(err, progress, data) {
+      if (err) throw err;
+
       process.nextTick(function() {
         // Delete file after each test.
         fs.unlink(filepath);
