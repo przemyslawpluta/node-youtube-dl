@@ -19,7 +19,7 @@ if (!existsSync(dir)) {
 // Download youtube-dl.
 http.get({
     host: 'youtube-dl.org'
-  , path: '/downloads/2013.05.14/youtube-dl'
+  , path: '/downloads/2013.07.12/youtube-dl'
 }, function(res) {
   if (res.statusCode !== 200) {
     throw Error('Response Error: ' + res.statusCode);
