@@ -19,7 +19,7 @@
     "test": "vows ./test/*.js --spec"
   },
   "dependencies": {
-    "event-stream": "~2.1.8"
+    "event-stream": "~3.0.16"
   },
   "devDependencies": {
     "vows": "0.5.x"
