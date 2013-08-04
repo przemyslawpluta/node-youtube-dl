@@ -12,6 +12,7 @@ dl.on('download', function(data) {
   console.log('Download started');
   console.log('filename: ' + data.filename);
   console.log('size: ' + data.size);
+  console.log();
 });
 
 // Will be called during download progress of a video.
@@ -26,7 +27,7 @@ dl.on('error', function(err) {
 
 // Called when youtube-dl finishes.
 dl.on('end', function(data) {
-  console.log('\nDownload finished!');
+  console.log('\n\nDownload finished!');
   console.log('Filename: ' + data.filename);
   console.log('Size: ' + data.size);
   console.log('Time Taken: ' + data.timeTaken);
