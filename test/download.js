@@ -30,25 +30,17 @@ vows.describe('download').addBatch({
       if (err) throw err;
 
       assert.isObject(progress);
-      assert.include(progress, 'percent');
       assert.isString(progress.percent);
-      assert.include(progress, 'speed');
       assert.isString(progress.speed);
-      assert.include(progress, 'eta');
       assert.isString(progress.eta);
 
       assert.isObject(data);
-      assert.include(data, 'filename');
+      assert.equal(data.id, '90AiXO1pAiA');
       assert.equal(data.filename, 'lol-90AiXO1pAiA.flv');
-      assert.include(data, 'size');
       assert.equal(data.size, '1.26MiB');
-      assert.include(data, 'timeTakenms');
       assert.isNumber(data.timeTakenms);
-      assert.include(data, 'timeTaken');
       assert.isString(data.timeTaken);
-      assert.include(data, 'averageSpeedBytes');
       assert.isNumber(data.averageSpeedBytes);
-      assert.include(data, 'averageSpeed');
       assert.isString(data.averageSpeed);
     },
 

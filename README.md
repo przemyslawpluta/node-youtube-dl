@@ -35,12 +35,13 @@ dl.on('error', function(err) {
 // called when youtube-dl finishes
 dl.on('end', function(data) {
   console.log('\nDownload finished!');
-  console.log('Filename: ' + data.filename);
-  console.log('Size: ' + data.size);
-  console.log('Time Taken: ' + data.timeTaken);
-  console.log('Time Taken in ms: ' + data.timeTakenms);
-  console.log('Average Speed: ' + data.averageSpeed);
-  console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
+  console.log('ID:', data.id);
+  console.log('Filename:', data.filename);
+  console.log('Size:', data.size);
+  console.log('Time Taken:', data.timeTaken);
+  console.log('Time Taken in ms:', + data.timeTakenms);
+  console.log('Average Speed:', data.averageSpeed);
+  console.log('Average Speed in Bytes:', data.averageSpeedBytes);
 });
 ```
 
@@ -48,16 +49,19 @@ dl.on('end', function(data) {
 This example can be found in the *example* folder, and will produce an output that looks like the following when ran.
 
     Download started
-    Video size: 918.31k
-    00:00 100.0% at 206.12k/s
-    Download finished!
-    Filename: 90AiXO1pAiA.mp4
-    Size: 918.31k
-    Time Taken: 7 seconds, 27 ms
-    Time Taken in ms: 7027
-    Average Speed: 333.74KB/s
-    Average Speed in Bytes: 341750.78
+    filename: lol-90AiXO1pAiA.mp4
+    size: 918.57KiB
 
+    00:00 100.0% at 2.00MiB/s
+
+    Download finished!
+    ID: 90AiXO1pAiA
+    Filename: lol-90AiXO1pAiA.mp4
+    Size: 918.57KiB
+    Time Taken: 2 seconds, 178 ms
+    Time Taken in ms: 2178
+    Average Speed: 211.24B/s
+    Average Speed in Bytes: 211.24
 
 ## Getting video information
 
@@ -85,11 +89,14 @@ youtubedl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
 
 Running that will produce something like
 
+    id: WKsjaOqDXgg
     title: Ace Rimmer to the Rescue
-    url: http://v2.lscache2.c.youtube.com/videoplayback?sparams=id%2Cexpire%2Cip%2Cipbits%2Citag%2Calgorithm%2Cburst%2Cfactor%2Coc%3AU0hPSFFQVF9FSkNOOV9JSlhJ&fexp=904410%2C907048%2C910100&algorithm=throttle-factor&itag=34&ipbits=0&burst=40&sver=3&signature=4093330AC1A5B0CAF8709A0416A4B593A75BB892.21F2F12C418003492D9877E1570DC7AEE6DBEEBA&expire=1303156800&key=yt1&ip=0.0.0.0&factor=1.25&id=58ab2368ea835e08
-    thumbnail: http://i4.ytimg.com/vi/WKsjaOqDXgg/default.jpg
+    url: http://r5---sn-p5qlsn7e.c.youtube.com/videoplayback?ms=au&ip=160.79.125.18&cp=U0hWTFVQVl9FTENONl9NSlpDOjgtU1VsODlkVmRH&id=58ab2368ea835e08&source=youtube&expire=1377558202&factor=1.25&key=yt1&ipbits=8&mt=1377534150&itag=34&sver=3&upn=-rGWz2vYpN4&fexp=912306%2C927900%2C919395%2C926518%2C936203%2C913819%2C929117%2C929121%2C929906%2C929907%2C929922%2C929127%2C929129%2C929131%2C929930%2C925726%2C925720%2C925722%2C925718%2C929917%2C906945%2C929919%2C929933%2C912521%2C932306%2C913428%2C904830%2C919373%2C930803%2C908536%2C904122%2C938701%2C936308%2C909549%2C900816%2C912711%2C904494%2C904497%2C900375%2C906001&sparams=algorithm%2Cburst%2Ccp%2Cfactor%2Cid%2Cip%2Cipbits%2Citag%2Csource%2Cupn%2Cexpire&mv=m&burst=40&algorithm=throttle-factor&signature=ABD3A847684AD9B39331E567568D3FA0DCFA4776.7895521E130A042FB3625A17242CE3C02A4460B7&ratebypass=yes
+    thumbnail: https://i1.ytimg.com/vi/WKsjaOqDXgg/hqdefault.jpg
     description: An old Red Dwarf eposide where Ace Rimmer saves the Princess Bonjella.
-    filename: WKsjaOqDXgg.webm
+    filename: Ace Rimmer to the Rescue-WKsjaOqDXgg.flv
+    itag: 34
+    resolution: 360x640
 
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].

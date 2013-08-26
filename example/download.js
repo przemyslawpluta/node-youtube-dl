@@ -28,10 +28,11 @@ dl.on('error', function(err) {
 // Called when youtube-dl finishes.
 dl.on('end', function(data) {
   console.log('\n\nDownload finished!');
-  console.log('Filename: ' + data.filename);
-  console.log('Size: ' + data.size);
-  console.log('Time Taken: ' + data.timeTaken);
-  console.log('Time Taken in ms: ' + data.timeTakenms);
-  console.log('Average Speed: ' + data.averageSpeed);
-  console.log('Average Speed in Bytes: ' + data.averageSpeedBytes);
+  console.log('ID:', data.id);
+  console.log('Filename:', data.filename);
+  console.log('Size:', data.size);
+  console.log('Time Taken:', data.timeTaken);
+  console.log('Time Taken in ms:', + data.timeTakenms);
+  console.log('Average Speed:', data.averageSpeed);
+  console.log('Average Speed in Bytes:', data.averageSpeedBytes);
 });
