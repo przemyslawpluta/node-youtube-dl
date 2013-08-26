@@ -5,6 +5,16 @@ var vows   = require('vows')
   ;
 
 
+var expected = {
+  title: 'lol',
+  id: '90AiXO1pAiA',
+  thumbnail: 'https://i1.ytimg.com/vi/90AiXO1pAiA/hqdefault.jpg',
+  description: 'Ridley High School\'s real American Bad ASS,A true Delco Savage. Filmed in 2003 before Youtube was invented. This is also the original I find it hilarious that there are copycat videos!',
+  filename: 'lol-90AiXO1pAiA.mp4',
+  itag: '18',
+  resolution: '360x640'
+};
+
 vows.describe('info').addBatch({
   'from a video': {
     'topic': function() {
@@ -14,14 +24,14 @@ vows.describe('info').addBatch({
     'info returned': function(err, info) {
       assert.isNull(err);
       assert.isObject(info);
-      assert.isString(info.id);
-      assert.isString(info.title);
+      assert.equal(info.id, expected.id);
+      assert.equal(info.title, expected.title);
       assert.isString(info.url);
       assert.isString(info.thumbnail);
-      assert.isString(info.description);
-      assert.isString(info.filename);
-      assert.isString(info.itag);
-      assert.isString(info.resolution);
+      assert.equal(info.description, expected.description);
+      assert.equal(info.filename, expected.filename);
+      assert.equal(info.itag, expected.itag);
+      assert.equal(info.resolution, expected.resolution);
     }
   }
 }).export(module);
