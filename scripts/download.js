@@ -1,26 +1,20 @@
-var fs         = require('fs')
-  , path       = require('path')
-  , existsSync = fs.existsSync || path.existsSync
-  , http      = require('http')
-  ;
+var fs   = require('fs');
+var path = require('path');
+var http = require('http');
 
-
-var dir = path.join(__dirname, '..', 'bin')
-  , filename = 'youtube-dl'
-  , filepath = path.join(dir, filename)
-  ;
+var dir = path.join(__dirname, '..', 'bin');
+var filename = 'youtube-dl';
+var filepath = path.join(dir, filename);
 
 
 // Make bin dir if it doesn't exists.
-if (!existsSync(dir)) {
+if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, 484);
 }
 
 // Download youtube-dl.
-http.get({
-    host: 'youtube-dl.org'
-  , path: '/downloads/2013.07.12/youtube-dl'
-}, function(res) {
+var url = 'http://youtube-dl.org/downloads/2013.07.12/youtube-dl';
+http.get(url, function(res) {
   if (res.statusCode !== 200) {
     throw Error('Response Error: ' + res.statusCode);
   }
