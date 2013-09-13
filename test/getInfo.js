@@ -1,8 +1,7 @@
-var vows   = require('vows')
-  , ytdl   = require('..')
-  , assert = require('assert')
-  , video  = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
-  ;
+var vows   = require('vows');
+var ytdl   = require('..');
+var assert = require('assert');
+var video  = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 
 
 var expected = {
@@ -15,22 +14,22 @@ var expected = {
   resolution: '360x640'
 };
 
-vows.describe('info').addBatch({
+vows.describe('getInfo').addBatch({
   'from a video': {
     'topic': function() {
-      ytdl.info(video, this.callback, ['-f', '18/22/37/38']);
+      ytdl.getInfo(video, ['-f', '18/22/37/38'], this.callback);
     },
 
     'info returned': function(err, info) {
       assert.isNull(err);
       assert.isObject(info);
       assert.equal(info.id, expected.id);
+      assert.equal(info.itag, expected.itag);
       assert.equal(info.title, expected.title);
       assert.isString(info.url);
       assert.isString(info.thumbnail);
       assert.equal(info.description, expected.description);
       assert.equal(info.filename, expected.filename);
-      assert.equal(info.itag, expected.itag);
       assert.equal(info.resolution, expected.resolution);
     }
   }

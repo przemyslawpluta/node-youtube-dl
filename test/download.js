@@ -1,11 +1,10 @@
-var vows       = require('vows')
-  , ytdl       = require('..')
-  , fs         = require('fs')
-  , path       = require('path')
-  , existsSync = fs.existsSync || path.existsSync
-  , assert     = require('assert')
-  , video      = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
-  ;
+var vows       = require('vows');
+var ytdl       = require('..');
+var fs         = require('fs');
+var path       = require('path');
+var existsSync = require('fs').existsSync;
+var assert     = require('assert');
+var video      = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 
 
 vows.describe('download').addBatch({

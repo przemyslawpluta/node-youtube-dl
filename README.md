@@ -67,24 +67,21 @@ This example can be found in the *example* folder, and will produce an output th
 
 ```javascript
 var youtubedl = require('youtube-dl');
-youtubedl.info('http://www.youtube.com/watch?v=WKsjaOqDXgg',
-  
-  // called when video page is downloaded and info extracted
-  function(err, info) {
-    if (err) throw err;
-    console.log('id:', info.id);
-    console.log('title:', info.title);
-    console.log('url:', info.url);
-    console.log('thumbnail:', info.thumbnail);
-    console.log('description:', info.description);
-    console.log('filename:', info.filename);
-    console.log('itag:', info.itag);
-    console.log('resolution:', info.resolution);
-  }
-  
-  // optional arguments passed to youtube-dl
-  // ['--username=user', '--password=hunter2']
-  );
+var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
+// optional arguments passed to youtube-dl
+var options = ['--username=user', '--password=hunter2'];
+youtubedl.getInfo(url, options, function(err, info) {
+  if (err) throw err;
+
+  console.log('id:', info.id);
+  console.log('title:', info.title);
+  console.log('url:', info.url);
+  console.log('thumbnail:', info.thumbnail);
+  console.log('description:', info.description);
+  console.log('filename:', info.filename);
+  console.log('itag:', info.itag);
+  console.log('resolution:', info.resolution);
+});
 ```
 
 Running that will produce something like
@@ -98,6 +95,27 @@ Running that will produce something like
     itag: 34
     resolution: 360x640
 
+## Getting available formats
+
+```js
+var youtubedl = require('youtube-dl');
+var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
+youtubedl.getFormats(url, function(err, formats) {
+  if (err) throw er;
+
+  formats.forEach(function(format) {
+    console.log(format);
+  });
+});
+```
+
+Will print something like
+
+    { itag: 34, filetype: 'flv', resolution: '360x640' }
+    { itag: 18, filetype: 'mp4', resolution: '360x640' }
+    { itag: 43, filetype: 'webm', resolution: '360x640' }
+    { itag: 5, filetype: 'flv', resolution: '240x400' }
+    { itag: 17, filetype: 'mp4', resolution: '144x176' }
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
