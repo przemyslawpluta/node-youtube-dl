@@ -2,7 +2,6 @@ var vows       = require('vows');
 var ytdl       = require('..');
 var fs         = require('fs');
 var path       = require('path');
-var existsSync = require('fs').existsSync;
 var assert     = require('assert');
 var video      = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 
@@ -35,7 +34,7 @@ vows.describe('download').addBatch({
 
       assert.isObject(data);
       assert.equal(data.id, '90AiXO1pAiA');
-      assert.equal(data.filename, 'lol-90AiXO1pAiA.flv');
+      assert.isTrue(/lol-90AiXO1pAiA/.test(data.filename));
       assert.equal(data.size, '1.26MiB');
       assert.isNumber(data.timeTakenms);
       assert.isString(data.timeTaken);
@@ -46,14 +45,15 @@ vows.describe('download').addBatch({
     'file was downloaded': function(err, progress, data) {
       if (err) throw err;
 
-      process.nextTick(function() {
-        // Delete file after each test.
-        fs.unlink(filepath);
-      });
-
       // Check existance.
       var filepath = path.join(__dirname, data.filename);
-      assert.isTrue(existsSync(filepath));
+      var exists = fs.existsSync(filepath);
+      if (exists) {
+        // Delete file after each test.
+        fs.unlinkSync(filepath);
+      } else {
+        assert.isTrue(exists);
+      }
     }
   }
 }).export(module);
