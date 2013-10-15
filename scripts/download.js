@@ -4,8 +4,8 @@ var http  = require('http');
 var https = require('https');
 
 var dir = path.join(__dirname, '..', 'bin');
-var filename = 'youtube-dl';
-var filepath = path.join(dir, filename);
+var filepath = path.join(dir, 'youtube-dl');
+var verpath  = path.join(dir, 'version');
 
 
 // Make bin dir if it doesn't exists.
@@ -13,8 +13,12 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, 484);
 }
 
+function onerr(err) {
+  throw err;
+}
+
 // First, look for the download link.
-var regexp = /https:\/\/yt-dl\.org\/downloads\/\d{4}\.\d\d\.\d\d\/youtube-dl/;
+var regexp = /https:\/\/yt-dl\.org\/downloads\/(\d{4}\.\d\d\.\d\d)\/youtube-dl/;
 function getDownloadLink() {
   var url = 'http://rg3.github.io/youtube-dl/download.html';
   http.get(url, function(res) {
@@ -28,18 +32,23 @@ function getDownloadLink() {
     res.on('end', function() {
       var m = regexp.exec(body);
       if (m) {
-        download(m[0]);
+        // Check if there is a new version available.
+        var newVersion = m[1];
+        var oldVersion = fs.existsSync(verpath)
+          && fs.readFileSync(verpath, 'utf8');
+        if (newVersion === oldVersion) {
+          console.log('Alrready up to date');
+        } else {
+          download(m[0]);
+          fs.writeFileSync(verpath, newVersion);
+        }
       } else {
         console.error('Could not find download link in ' + url);
       }
     });
 
-    res.on('error', function(err) {
-      throw err;
-    });
-  }).on('error', function(err) {
-    throw err;
-  });
+    res.on('error', onerr);
+  }).on('error', onerr);
 }
 
 // Download youtube-dl.
@@ -56,13 +65,8 @@ function download(link) {
       console.log('Finished!');
     });
 
-    res.on('error', function(err) {
-      throw err;
-    });
-
-  }).on('error', function(err) {
-    throw err;
-  });
+    res.on('error', onerr);
+  }).on('error', onerr);
 }
 
 console.log('Downloading latest youtube-dl');
