@@ -9,7 +9,8 @@ var expected = [
   { itag: 18, filetype: 'mp4', resolution: '360x640' },
   { itag: 43, filetype: 'webm', resolution: '360x640' },
   { itag: 5, filetype: 'flv', resolution: '240x400' },
-  { itag: 17, filetype: 'mp4', resolution: '144x176' }
+  { itag: 36, filetype: '3gp', resolution: '240x320' },
+  { itag: 17, filetype: '3gp', resolution: '144x176' }
 ];
 
 vows.describe('getFormats').addBatch({
@@ -21,7 +22,6 @@ vows.describe('getFormats').addBatch({
     'formats returned': function(err, formats) {
       assert.isNull(err);
       assert.isArray(formats);
-      assert.equal(formats.length, expected.length);
       assert.deepEqual(formats, expected);
     }
   }
