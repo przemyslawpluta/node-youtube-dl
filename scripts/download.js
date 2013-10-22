@@ -18,7 +18,7 @@ function onerr(err) {
 }
 
 // First, look for the download link.
-var regexp = /https:\/\/yt-dl\.org\/downloads\/(\d{4}\.\d\d\.\d\d)\/youtube-dl/;
+var regexp = /https:\/\/yt-dl\.org\/downloads\/(\d{4}\.\d\d\.\d\d(\.\d)?)\/youtube-dl/;
 function getDownloadLink() {
   var url = 'http://rg3.github.io/youtube-dl/download.html';
   http.get(url, function(res) {
