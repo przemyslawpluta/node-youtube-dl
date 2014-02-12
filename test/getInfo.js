@@ -11,7 +11,7 @@ var expected = {
   description: 'Ridley High School\'s real American Bad ASS,A true Delco Savage. Filmed in 2003 before Youtube was invented. This is also the original I find it hilarious that there are copycat videos!',
   filename: 'lol-90AiXO1pAiA.mp4',
   itag: '18',
-  resolution: '360x640'
+  resolution: '640x360'
 };
 
 vows.describe('getInfo').addBatch({

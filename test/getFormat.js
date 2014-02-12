@@ -1,16 +1,17 @@
 var vows   = require('vows');
 var ytdl   = require('..');
 var assert = require('assert');
-var video = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
+var video  = 'http://www.youtube.com/watch?v=0k2Zzkw_-0I';
 
 
 var expected = [
-  { itag: 34, filetype: 'flv', resolution: '360x640' },
-  { itag: 18, filetype: 'mp4', resolution: '360x640' },
-  { itag: 43, filetype: 'webm', resolution: '360x640' },
-  { itag: 5, filetype: 'flv', resolution: '240x400' },
-  { itag: 36, filetype: '3gp', resolution: '240x320' },
-  { itag: 17, filetype: '3gp', resolution: '144x176' }
+  { itag: 171, filetype: 'webm', resolution: 'audio only' },
+  { itag: 140, filetype: 'm4a', resolution: 'audio only' },
+  { itag: 17, filetype: '3gp', resolution: '176x144' },
+  { itag: 36, filetype: '3gp', resolution: '320x240' },
+  { itag: 5, filetype: 'flv', resolution: '400x240' },
+  { itag: 43, filetype: 'webm', resolution: '640x360' },
+  { itag: 18, filetype: 'mp4', resolution: '640x360' }
 ];
 
 vows.describe('getFormats').addBatch({

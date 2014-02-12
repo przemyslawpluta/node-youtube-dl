@@ -1,9 +1,9 @@
-var vows       = require('vows');
-var ytdl       = require('..');
-var fs         = require('fs');
-var path       = require('path');
-var assert     = require('assert');
-var video      = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
+var vows   = require('vows');
+var ytdl   = require('..');
+var fs     = require('fs');
+var path   = require('path');
+var assert = require('assert');
+var video  = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 
 
 vows.describe('download').addBatch({
@@ -35,7 +35,7 @@ vows.describe('download').addBatch({
       assert.isObject(data);
       assert.equal(data.id, '90AiXO1pAiA');
       assert.isTrue(/lol-90AiXO1pAiA/.test(data.filename));
-      assert.equal(data.size, '918.57KiB');
+      assert.equal(data.size, '738.28KiB');
       assert.isNumber(data.timeTakenms);
       assert.isString(data.timeTaken);
       assert.isNumber(data.averageSpeedBytes);
