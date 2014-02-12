@@ -34,10 +34,10 @@ function getDownloadLink() {
       if (m) {
         // Check if there is a new version available.
         var newVersion = m[1];
-        var oldVersion = fs.existsSync(verpath)
-          && fs.readFileSync(verpath, 'utf8');
+        var oldVersion = fs.existsSync(verpath) &&
+          fs.readFileSync(verpath, 'utf8');
         if (newVersion === oldVersion) {
-          console.log('Alrready up to date');
+          console.log('Already up to date');
         } else {
           download(m[0]);
           fs.writeFileSync(verpath, newVersion);
@@ -55,7 +55,7 @@ function getDownloadLink() {
 function download(link) {
   https.get(link, function(res) {
     if (res.statusCode !== 200) {
-      throw Error('Response Error: ' + res.statusCode);
+      throw new Error('Response Error: ' + res.statusCode);
     }
 
     res.pipe(fs.createWriteStream(filepath));
