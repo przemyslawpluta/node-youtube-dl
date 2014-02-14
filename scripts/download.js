@@ -37,10 +37,13 @@ function getDownloadLink() {
         var oldVersion = fs.existsSync(verpath) &&
           fs.readFileSync(verpath, 'utf8');
         if (newVersion === oldVersion) {
-          console.log('Already up to date');
+          console.log('Already up to date', newVersion);
         } else {
-          download(m[0]);
-          fs.writeFileSync(verpath, newVersion);
+          download(m[0], function(err) {
+            if (err) return onerror(err);
+            fs.writeFileSync(verpath, newVersion);
+            console.log('Downloaded youtube-dl', newVersion);
+          });
         }
       } else {
         console.error('Could not find download link in ' + url);
@@ -52,17 +55,17 @@ function getDownloadLink() {
 }
 
 // Download youtube-dl.
-function download(link) {
+function download(link, callback) {
   https.get(link, function(res) {
     if (res.statusCode !== 200) {
-      throw new Error('Response Error: ' + res.statusCode);
+      callback(new Error('Response Error: ' + res.statusCode));
     }
 
     res.pipe(fs.createWriteStream(filepath));
     res.on('end', function() {
       // Make file executable.
       fs.chmodSync(filepath, 457);
-      console.log('Finished!');
+      callback(null);
     });
 
     res.on('error', onerr);
