@@ -2,66 +2,37 @@
 
 Download videos from youtube in node.js using [youtube-dl](http://rg3.github.com/youtube-dl/).
 
-I also made a [pure Javascript youtube downloading module](https://github.com/fent/node-ytdl). The reason I'm maintaining this one is because it supports a lot more video sites besides youtube. But if you're only interested in downloading from youtube, you should consider using the better module. It's better in that it doesn't have to spawn a child process, so it uses less memory and it's faster. And you get direct access to the download stream, meaning you can pipe it or pause it or whatever with it.
+I also made a [pure Javascript youtube downloading module](https://github.com/fent/node-ytdl). The reason I'm maintaining this one is because it supports a lot more video sites besides youtube.
+
+If you're only interested in downloading only from youtube, you should consider using the other module.
 
 # Usage
 
 ## Downloading videos
 
 ```javascript
+var fs = require('fs');
 var youtubedl = require('youtube-dl');
-var dl = youtubedl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
-  './videos',
+var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
   // optional arguments passed to youtube-dl
   ['--max-quality=18']);
 
 // will be called when the download starts
-dl.on('download', function(data) {
+video.on('info', function(info) {
   console.log('Download started');
-  console.log('filename: ' + data.filename);
-  console.log('size: ' + data.size);
+  console.log('filename: ' + info.filename);
+  console.log('size: ' + info.size);
 });
 
-// will be called during download progress of a video
-dl.on('progress', function(data) {
-  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
-});
-
-// catches any errors
-dl.on('error', function(err) {
-  throw err;
-});
-
-// called when youtube-dl finishes
-dl.on('end', function(data) {
-  console.log('\nDownload finished!');
-  console.log('ID:', data.id);
-  console.log('Filename:', data.filename);
-  console.log('Size:', data.size);
-  console.log('Time Taken:', data.timeTaken);
-  console.log('Time Taken in ms:', + data.timeTakenms);
-  console.log('Average Speed:', data.averageSpeed);
-  console.log('Average Speed in Bytes:', data.averageSpeedBytes);
-});
+video.pipe(fs.createWriteStream('myvideo.mp4'));
 ```
 
 
-This example can be found in the *example* folder, and will produce an output that looks like the following when ran.
+A similar example can be found in the *example* folder, and will produce an output that looks like the following when ran.
 
-    Download started
-    filename: lol-90AiXO1pAiA.mp4
-    size: 918.57KiB
-
-    00:00 100.0% at 2.00MiB/s
-
-    Download finished!
-    ID: 90AiXO1pAiA
-    Filename: lol-90AiXO1pAiA.mp4
-    Size: 918.57KiB
-    Time Taken: 2 seconds, 178 ms
-    Time Taken in ms: 2178
-    Average Speed: 211.24B/s
-    Average Speed in Bytes: 211.24
+    Got video info
+    saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
+    100.00%
 
 ## Getting video information
 
@@ -134,11 +105,6 @@ Tests are written with [vows](http://vowsjs.org/)
 ```bash
 npm test
 ```
-
-
-# Issues and the Future
-
-I haven't tested this with playlists yet because I haven't needed to use them. But my guess is they probably work with the download function but not the info function.
 
 
 [youtube-dl]: http://rg3.github.com/youtube-dl/
