@@ -1,38 +1,32 @@
+var path = require('path');
+var fs   = require('fs');
 var ytdl = require('..');
 
 
-var dl = ytdl.download('http://www.youtube.com/watch?v=90AiXO1pAiA',
-  __dirname,
+var video = ytdl('http://www.youtube.com/watch?v=Seku9G1kT0c',
   // Optional arguments passed to youtube-dl.
-  ['--max-quality=18']);
+  ['--max-quality=22']);
 
 
-// Will be called when the download starts.
-dl.on('download', function(data) {
-  console.log('Download started');
-  console.log('filename: ' + data.filename);
-  console.log('size: ' + data.size);
+var size = 0;
+video.on('info', function(info) {
+  size = info.size;
+  console.log('Got video info');
+  console.log('saving to ' + info.filename);
+  var output = path.join(__dirname, info.filename);
+  video.pipe(fs.createWriteStream(output));
+});
+
+var pos = 0;
+video.on('data', function(data) {
+  pos += data.length;
+  // `size` should not be 0 here.
+  var percent = (pos / size * 100).toFixed(2);
+  process.stdout.cursorTo(0);
+  process.stdout.clearLine(1);
+  process.stdout.write(percent + '%');
+});
+
+video.on('end', function() {
   console.log();
-});
-
-// Will be called during download progress of a video.
-dl.on('progress', function(data) {
-  process.stdout.write(data.eta + ' ' + data.percent + '% at ' + data.speed + '\r');
-});
-
-// Catches any errors.
-dl.on('error', function(err) {
-  throw err;
-});
-
-// Called when youtube-dl finishes.
-dl.on('end', function(data) {
-  console.log('\n\nDownload finished!');
-  console.log('ID:', data.id);
-  console.log('Filename:', data.filename);
-  console.log('Size:', data.size);
-  console.log('Time Taken:', data.timeTaken);
-  console.log('Time Taken in ms:', + data.timeTakenms);
-  console.log('Average Speed:', data.averageSpeed);
-  console.log('Average Speed in Bytes:', data.averageSpeedBytes);
 });
