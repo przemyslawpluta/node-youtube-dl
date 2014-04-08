@@ -8,6 +8,9 @@
     "url": "git://github.com/fent/node-youtube-dl.git"
   },
   "author": "Roly Fentanes (https://github.com/fent)",
+  "contributors": [
+    "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)"
+  ],
   "main": "./lib/youtube-dl.js",
   "bin": "./bin/youtube-dl",
   "directories": {
