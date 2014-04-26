@@ -12,7 +12,6 @@
     "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)"
   ],
   "main": "./lib/youtube-dl.js",
-  "bin": "./bin/youtube-dl",
   "directories": {
     "lib": "./lib"
   },

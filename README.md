@@ -95,8 +95,6 @@ For more usage info on youtube-dl and the arguments you can pass to it, do `yout
 
     npm install youtube-dl
 
-Use the -g option if you want npm to add a symlink to [youtube-dl][] so it can be used in command line.
-
 
 # Tests
 
