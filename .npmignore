@@ -2,4 +2,4 @@
 *.webm
 node_modules
 test
-bin/version
+bin
