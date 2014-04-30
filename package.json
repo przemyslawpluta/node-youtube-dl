@@ -24,7 +24,7 @@
     "request": "~2.34.0"
   },
   "devDependencies": {
-    "vows": "0.5.x"
+    "vows": "~0.7.0"
   },
   "licenses": [ {
     "type": "MIT",
