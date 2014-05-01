@@ -12,11 +12,12 @@
     "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)"
   ],
   "main": "./lib/youtube-dl.js",
+  "bin" : "./bin/youtube-dl",
   "directories": {
     "lib": "./lib"
   },
   "scripts": {
-    "install": "node ./scripts/download.js",
+    "preinstall": "node ./scripts/download.js",
     "test": "vows ./test/*.js --spec"
   },
   "dependencies": {
