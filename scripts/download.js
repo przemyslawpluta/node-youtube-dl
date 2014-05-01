@@ -18,6 +18,7 @@ function onerr(err) {
 }
 
 // First, look for the download link.
+/*jshint maxlen:false */
 var regexp = /https:\/\/yt-dl\.org\/downloads\/(\d{4}\.\d\d\.\d\d(\.\d)?)\/youtube-dl/;
 function getDownloadLink() {
   var url = 'http://rg3.github.io/youtube-dl/download.html';
@@ -61,13 +62,9 @@ function download(link, callback) {
       callback(new Error('Response Error: ' + res.statusCode));
     }
 
-    res.pipe(fs.createWriteStream(filepath));
-    res.on('end', function() {
-      // Make file executable.
-      fs.chmodSync(filepath, 457);
-      callback(null);
-    });
-
+    fs.chmodSync(dir, 457);
+    res.pipe(fs.createWriteStream(filepath, { mode: 457 }));
+    res.on('end', callback);
     res.on('error', onerr);
   }).on('error', onerr);
 }
