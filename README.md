@@ -14,8 +14,10 @@ If you're only interested in downloading only from youtube, you should consider 
 var fs = require('fs');
 var youtubedl = require('youtube-dl');
 var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
-  // optional arguments passed to youtube-dl
-  ['--max-quality=18']);
+  // Optional arguments passed to youtube-dl.
+  ['--max-quality=18'],
+  // Additional options can be given for calling `child_process.execFile()`.
+  { cwd: __dirname });
 
 // will be called when the download starts
 video.on('info', function(info) {

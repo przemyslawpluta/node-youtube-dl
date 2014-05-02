@@ -1,4 +1,5 @@
 *.mp4
 *.webm
+*.srt
 node_modules
 bin
