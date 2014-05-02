@@ -19,7 +19,7 @@ var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
   // Additional options can be given for calling `child_process.execFile()`.
   { cwd: __dirname });
 
-// will be called when the download starts
+// Will be called when the download starts.
 video.on('info', function(info) {
   console.log('Download started');
   console.log('filename: ' + info.filename);
@@ -41,7 +41,7 @@ A similar example can be found in the *example* folder, and will produce an outp
 ```javascript
 var youtubedl = require('youtube-dl');
 var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
-// optional arguments passed to youtube-dl
+// Optional arguments passed to youtube-dl.
 var options = ['--username=user', '--password=hunter2'];
 youtubedl.getInfo(url, options, function(err, info) {
   if (err) throw err;
