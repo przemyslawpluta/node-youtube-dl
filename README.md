@@ -74,7 +74,7 @@ Running that will produce something like
 var youtubedl = require('youtube-dl');
 var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
 youtubedl.getFormats(url, function(err, formats) {
-  if (err) throw er;
+  if (err) throw err;
 
   formats.forEach(function(format) {
     console.log(format);
