@@ -41,7 +41,7 @@ function getDownloadLink() {
           console.log('Already up to date', newVersion);
         } else {
           download(m[0], function(err) {
-            if (err) return onerror(err);
+            if (err) return onerr(err);
             fs.writeFileSync(verpath, newVersion);
             console.log('Downloaded youtube-dl', newVersion);
           });
