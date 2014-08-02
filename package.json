@@ -1,8 +1,12 @@
 {
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
-  "keywords": ["youtube", "video", "download"],
-  "version": "1.5.8",
+  "keywords": [
+    "youtube",
+    "video",
+    "download"
+  ],
+  "version": "1.5.9",
   "repository": {
     "type": "git",
     "url": "git://github.com/fent/node-youtube-dl.git"
@@ -12,7 +16,7 @@
     "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)"
   ],
   "main": "./lib/youtube-dl.js",
-  "bin" : "./bin/youtube-dl",
+  "bin": "./bin/youtube-dl",
   "directories": {
     "lib": "./lib"
   },
@@ -27,8 +31,10 @@
   "devDependencies": {
     "vows": "~0.7.0"
   },
-  "licenses": [ {
-    "type": "MIT",
-    "url" : "http://github.com/fent/node-youtube-dl/raw/master/LICENSE"
-  }]
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/fent/node-youtube-dl/raw/master/LICENSE"
+    }
+  ]
 }
