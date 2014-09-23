@@ -13,7 +13,9 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, 484);
 }
 
+var success = false;
 function onerr(err) {
+  if (success) { return; }
   throw err;
 }
 
@@ -43,6 +45,7 @@ function getDownloadLink() {
           download(m[0], function(err) {
             if (err) return onerr(err);
             fs.writeFileSync(verpath, newVersion);
+            success = true;
             console.log('Downloaded youtube-dl', newVersion);
           });
         }
