@@ -5,6 +5,7 @@ var path   = require('path');
 var assert = require('assert');
 var video1  = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 var video2 = 'https://www.youtube.com/watch?v=179MiZSibco';
+var subtitleFile = '1 1 1-179MiZSibco.en.srt';
 
 
 vows.describe('download').addBatch({
@@ -59,18 +60,14 @@ vows.describe('download').addBatch({
   },
   'a video with subtitles': {
     topic: function() {
-      var args = ['--max-quality=22', '--write-srt', '--srt-lang=en'];
-      var dl = ytdl(video2, args, { cwd: __dirname });
-      var cb = this.callback;
-      dl.on('error', cb);
-      dl.on('end', cb);
-      dl.resume();
+      fs.unlinkSync(path.join(__dirname, subtitleFile));
+      ytdl.getSubs(video2, { lang: 'en', cwd: __dirname }, this.callback);
     },
 
-    'subtitles were downloaded': function(err) {
+    'subtitles were downloaded': function(err, files) {
       if (err) throw err;
-      var filepath = path.join(__dirname, '1 1 1-179MiZSibco.en.srt');
-      assert.isTrue(fs.existsSync(filepath));
+      assert.equal(files[0], subtitleFile);
+      assert.isTrue(fs.existsSync(path.join(__dirname, subtitleFile)));
     }
   }
 }).export(module);

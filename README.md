@@ -90,6 +90,30 @@ Will print something like
     { itag: 5, filetype: 'flv', resolution: '240x400' }
     { itag: 17, filetype: 'mp4', resolution: '144x176' }
 
+## Downloading subtitles
+
+```js
+var youtubedl = require('youtube-dl');
+var url = 'https://youtu.be/PizwcirYuGY';
+
+var options = {
+  // Write automatic subtitle file (youtube only)
+  auto: false,
+  // Downloads all the available subtitles.
+  all: false,
+  // Languages of subtitles to download, separated by commas.
+  lang: 'en',
+  // The directory to save the downloaded files in.
+  cwd: __dirname,
+};
+youtubedl.getSubs(url, options, function(err, files) {
+  if (err) throw err;
+
+  console.log('subtitle files downloaded:', files);
+});
+
+```
+
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
 
