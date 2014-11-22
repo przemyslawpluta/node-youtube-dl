@@ -27,6 +27,23 @@ vows.describe('getInfo').addBatch({
       assert.equal(info.resolution, '640x360');
     }
   },
+  'from a soundcloud track': {
+    'topic': function() {
+      var video = 'https://soundcloud.com/erasedtapes/kiasmos-bent';
+      ytdl.getInfo(video, this.callback);
+    },
+    'info returned': function(err, info) {
+      assert.isNull(err);
+      assert.isObject(info);
+      assert.equal(info.id, '147055755');
+      assert.equal(info.title, 'Kiasmos - Bent');
+      assert.isString(info.url);
+      assert.isString(info.thumbnail);
+      assert.isString(info.description);
+      assert.equal(info.filename, 'Kiasmos - Bent-147055755.mp3');
+      assert.equal(info.resolution, 'audio only');
+    }
+  },
   'from a vimeo video': {
     'topic': function() {
       var video = 'https://vimeo.com/6586873';
