@@ -21,10 +21,12 @@ var pos = 0;
 video.on('data', function(data) {
   pos += data.length;
   // `size` should not be 0 here.
-  var percent = (pos / size * 100).toFixed(2);
-  process.stdout.cursorTo(0);
-  process.stdout.clearLine(1);
-  process.stdout.write(percent + '%');
+  if (size) {
+    var percent = (pos / size * 100).toFixed(2);
+    process.stdout.cursorTo(0);
+    process.stdout.clearLine(1);
+    process.stdout.write(percent + '%');
+  }
 });
 
 video.on('end', function() {
