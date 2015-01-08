@@ -10,7 +10,7 @@ ytdl.getInfo(url, function(err, info) {
   console.log('thumbnail:', info.thumbnail);
   console.log('description:', info.description);
   console.log('filename:', info.filename);
+  console.log('duration:', info.duration);
   console.log('itag:', info.itag);
   console.log('resolution:', info.resolution);
-}
-);
+});

@@ -25,6 +25,7 @@ vows.describe('getInfo').addBatch({
         'are copycat videos!');
       assert.equal(info.filename, 'lol-90AiXO1pAiA.mp4');
       assert.equal(info.resolution, '640x360');
+      assert.equal(info.duration, '12');
     }
   },
   'from a soundcloud track': {
@@ -42,6 +43,7 @@ vows.describe('getInfo').addBatch({
       assert.isString(info.description);
       assert.equal(info.filename, 'Kiasmos - Bent-147055755.mp3');
       assert.equal(info.resolution, 'audio only');
+      assert.equal(info.duration, '5:45');
     }
   },
   'from a vimeo video': {
@@ -64,6 +66,7 @@ vows.describe('getInfo').addBatch({
       assert.equal(info.filename,
         'OWEN - good friends, bad habits-6586873.mp4');
       assert.equal(info.resolution, '480x272');
+      assert.equal(info.duration, '3:55');
     }
   }
 }).export(module);
