@@ -116,6 +116,25 @@ youtubedl.getSubs(url, options, function(err, files) {
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
+## Getting the list of extractors
+
+```js
+var youtubedl = require('youtube-dl');
+youtubedl.getExtractors(true, function(err, list) {
+  console.log('Found ' + list.length + ' extractors');
+  for (var i = 0; i < list.length; i++) {
+    console.log(list[i]);
+  }
+});
+```
+
+Will print something like
+
+    Found 521 extractors
+    1up.com
+    220.ro
+    24video
+    3sat
 
 # Install
 
