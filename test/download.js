@@ -60,7 +60,9 @@ vows.describe('download').addBatch({
   },
   'a video with subtitles': {
     topic: function() {
-      fs.unlinkSync(path.join(__dirname, subtitleFile));
+      try {
+        fs.unlinkSync(path.join(__dirname, subtitleFile));
+      } catch (err) {}
       ytdl.getSubs(video2, { lang: 'en', cwd: __dirname }, this.callback);
     },
 
@@ -68,6 +70,7 @@ vows.describe('download').addBatch({
       if (err) throw err;
       assert.equal(files[0], subtitleFile);
       assert.isTrue(fs.existsSync(path.join(__dirname, subtitleFile)));
+      fs.unlinkSync(path.join(__dirname, subtitleFile));
     }
   }
 }).export(module);
