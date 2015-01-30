@@ -84,11 +84,11 @@ youtubedl.getFormats(url, function(err, formats) {
 
 Will print something like
 
-    { itag: 34, filetype: 'flv', resolution: '360x640' }
-    { itag: 18, filetype: 'mp4', resolution: '360x640' }
-    { itag: 43, filetype: 'webm', resolution: '360x640' }
-    { itag: 5, filetype: 'flv', resolution: '240x400' }
-    { itag: 17, filetype: 'mp4', resolution: '144x176' }
+    { itag: 34, code: '34', filetype: 'flv', resolution: '360x640' }
+    { itag: 18, code: '18', filetype: 'mp4', resolution: '360x640', bitrate: '1127k', mediaformat: 'DASH video', fps: 30, filesize: '189.26MiB'}
+    { itag: 43, code: '43', filetype: 'webm', resolution: '360x640' }
+    { itag: 5, code: '5', filetype: 'flv', resolution: '240x400' }
+    { itag: 17, code: '17', filetype: 'mp4', resolution: '144x176', bitrate: '113k', mediaformat: 'DASH video', fps: 30, filesize: '19.62MiB' }
 
 ## Downloading subtitles
 
