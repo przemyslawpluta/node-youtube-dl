@@ -140,6 +140,8 @@ Will print something like
 
     npm install youtube-dl
 
+Since the youtube-dl binary is updated regularly, you can run `npm update` to check for and download any updates for it.
+
 
 # Tests
 
