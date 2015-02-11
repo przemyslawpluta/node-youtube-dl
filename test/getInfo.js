@@ -26,6 +26,9 @@ vows.describe('getInfo').addBatch({
       assert.equal(info.filename, 'lol-90AiXO1pAiA.mp4');
       assert.equal(info.resolution, '640x360');
       assert.equal(info.duration, '12');
+      assert.equal(info.width, 640);
+      assert.equal(info.height, 360);
+      assert.isArray(info.formats);
     }
   },
   'from a soundcloud track': {
