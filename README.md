@@ -51,9 +51,8 @@ youtubedl.getInfo(url, options, function(err, info) {
   console.log('url:', info.url);
   console.log('thumbnail:', info.thumbnail);
   console.log('description:', info.description);
-  console.log('filename:', info.filename);
-  console.log('itag:', info.itag);
-  console.log('resolution:', info.resolution);
+  console.log('filename:', info._filename);
+  console.log('format id:', info.format_id);
 });
 ```
 
@@ -65,30 +64,7 @@ Running that will produce something like
     thumbnail: https://i1.ytimg.com/vi/WKsjaOqDXgg/hqdefault.jpg
     description: An old Red Dwarf eposide where Ace Rimmer saves the Princess Bonjella.
     filename: Ace Rimmer to the Rescue-WKsjaOqDXgg.flv
-    itag: 34
-    resolution: 360x640
-
-## Getting available formats
-
-```js
-var youtubedl = require('youtube-dl');
-var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
-youtubedl.getFormats(url, function(err, formats) {
-  if (err) throw err;
-
-  formats.forEach(function(format) {
-    console.log(format);
-  });
-});
-```
-
-Will print something like
-
-    { itag: 34, filetype: 'flv', resolution: '360x640' }
-    { itag: 18, filetype: 'mp4', resolution: '360x640' }
-    { itag: 43, filetype: 'webm', resolution: '360x640' }
-    { itag: 5, filetype: 'flv', resolution: '240x400' }
-    { itag: 17, filetype: 'mp4', resolution: '144x176' }
+    format id: 34
 
 ## Downloading subtitles
 

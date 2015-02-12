@@ -12,8 +12,8 @@ var size = 0;
 video.on('info', function(info) {
   size = info.size;
   console.log('Got video info');
-  console.log('saving to ' + info.filename);
-  var output = path.join(__dirname, info.filename);
+  console.log('saving to ' + info._filename);
+  var output = path.join(__dirname, info._filename);
   video.pipe(fs.createWriteStream(output));
 });
 

@@ -9,8 +9,7 @@ ytdl.getInfo(url, function(err, info) {
   console.log('url:', info.url);
   console.log('thumbnail:', info.thumbnail);
   console.log('description:', info.description);
-  console.log('filename:', info.filename);
+  console.log('filename:', info._filename);
   console.log('duration:', info.duration);
-  console.log('itag:', info.itag);
-  console.log('resolution:', info.resolution);
+  console.log('format_id:', info.format_id);
 });

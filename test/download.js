@@ -29,7 +29,7 @@ vows.describe('download').addBatch({
           cb(null, progress, info);
         });
 
-        var filepath = path.join(__dirname, info.filename);
+        var filepath = path.join(__dirname, info._filename);
         dl.pipe(fs.createWriteStream(filepath));
       });
     },
@@ -40,7 +40,7 @@ vows.describe('download').addBatch({
       assert.equal(progress, 1);
       assert.isObject(data);
       assert.equal(data.id, '90AiXO1pAiA');
-      assert.isTrue(/lol-90AiXO1pAiA/.test(data.filename));
+      assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename));
       assert.equal(data.size, 756000);
     },
 
@@ -48,7 +48,7 @@ vows.describe('download').addBatch({
       if (err) throw err;
 
       // Check existance.
-      var filepath = path.join(__dirname, data.filename);
+      var filepath = path.join(__dirname, data._filename);
       var exists = fs.existsSync(filepath);
       if (exists) {
         // Delete file after each test.
