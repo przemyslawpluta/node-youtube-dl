@@ -23,12 +23,27 @@ vows.describe('getInfo').addBatch({
         'Filmed in 2003 before Youtube was invented. ' +
         'This is also the original I find it hilarious that there ' +
         'are copycat videos!');
-      assert.equal(info.filename, 'lol-90AiXO1pAiA.mp4');
+      assert.equal(info._filename, 'lol-90AiXO1pAiA.mp4');
       assert.equal(info.format, '18 - 640x360');
       assert.equal(info.duration, '12');
       assert.equal(info.width, 640);
       assert.equal(info.height, 360);
       assert.isArray(info.formats);
+    }
+  },
+  'from a youtube playlist': {
+    'topic': function() {
+      var pl = 'https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807';
+      ytdl.getInfo(pl, this.callback);
+    },
+
+    'info returned': function(err, info) {
+      assert.isNull(err);
+      assert.isArray(info);
+      assert.ok(info.length);
+      info.forEach(function(videoInfo) {
+        assert.isString(videoInfo.url);
+      });
     }
   },
   'from a soundcloud track': {
@@ -44,7 +59,7 @@ vows.describe('getInfo').addBatch({
       assert.isString(info.url);
       assert.isString(info.thumbnail);
       assert.isString(info.description);
-      assert.equal(info.filename, 'Kiasmos - Bent-147055755.mp3');
+      assert.equal(info._filename, 'Kiasmos - Bent-147055755.mp3');
       assert.equal(info.format, 'http_mp3_128_url - audio only');
       assert.equal(info.duration, '5:45');
     }
@@ -66,7 +81,7 @@ vows.describe('getInfo').addBatch({
         'Video for the song "Good Friends, Bad Habits" from the album ' +
         'New Leaves. Directed by Joe Wigdahl. Purchase the album here: ' +
         'hobbledehoyrecords.com/store');
-      assert.equal(info.filename,
+      assert.equal(info._filename,
         'OWEN - good friends, bad habits-6586873.mp4');
       assert.equal(info.format, 'h264-sd - 480x272');
       assert.equal(info.duration, '3:55');
