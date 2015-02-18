@@ -66,9 +66,22 @@ Running that will produce something like
     filename: Ace Rimmer to the Rescue-WKsjaOqDXgg.flv
     format id: 34
 
+You can use an array of urls to produce an array of response objects with matching array index (e.g. the 1st response object will match the first url etc...)
+```javascript
+var youtubedl = require('youtube-dl');
+var url1 = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
+var url2 = 'https://vimeo.com/6586873';
+youtubedl.getInfo([url1, url2], function(err, info) {
+  if (err) throw err;
+
+  console.log('title for the url1:', info[0].title);
+  console.log('title for the url2:', info[1].title);
+});
+```
+
 ## Downloading subtitles
 
-```js
+```javascript
 var youtubedl = require('youtube-dl');
 var url = 'https://youtu.be/PizwcirYuGY';
 
@@ -94,7 +107,7 @@ For more usage info on youtube-dl and the arguments you can pass to it, do `yout
 
 ## Getting the list of extractors
 
-```js
+```javascript
 var youtubedl = require('youtube-dl');
 youtubedl.getExtractors(true, function(err, list) {
   console.log('Found ' + list.length + ' extractors');

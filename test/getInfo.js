@@ -86,5 +86,48 @@ vows.describe('getInfo').addBatch({
       assert.equal(info.format, 'h264-sd - 480x272');
       assert.equal(info.duration, '3:55');
     }
+  },
+
+  'from multiple videos': {
+    'topic': function() {
+      var vimeo = 'https://vimeo.com/6586873';
+      var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
+      ytdl.getInfo([vimeo, youtube], this.callback);
+    },
+
+    'info returned': function(err, info) {
+      assert.isNull(err);
+      assert.isArray(info);
+      assert.equal(info.length, 2);
+      assert.equal(info[0].id, '6586873');
+      assert.equal(info[0].title, 'OWEN - good friends, bad habits');
+      assert.isString(info[0].url);
+      assert.isString(info[0].thumbnail);
+      assert.equal(info[0].description,
+        'Video for the song "Good Friends, Bad Habits" from the album ' +
+        'New Leaves. Directed by Joe Wigdahl. Purchase the album here: ' +
+        'hobbledehoyrecords.com/store');
+      assert.equal(info[0]._filename,
+        'OWEN - good friends, bad habits-6586873.mp4');
+      assert.equal(info[0].format, 'h264-sd - 480x272');
+      assert.equal(info[0].duration, '3:55');
+
+       assert.equal(info[1].id, '90AiXO1pAiA');
+      assert.equal(info[1].format_id, '18');
+      assert.equal(info[1].title, 'lol');
+      assert.isString(info[1].url);
+      assert.isString(info[1].thumbnail);
+      assert.equal(info[1].description,
+        'Ridley High School\'s real American Bad ASS,A true Delco Savage. ' +
+        'Filmed in 2003 before Youtube was invented. ' +
+        'This is also the original I find it hilarious that there ' +
+        'are copycat videos!');
+      assert.equal(info[1]._filename, 'lol-90AiXO1pAiA.mp4');
+      assert.equal(info[1].format, '18 - 640x360');
+      assert.equal(info[1].duration, '12');
+      assert.equal(info[1].width, 640);
+      assert.equal(info[1].height, 360);
+      assert.isArray(info[1].formats);
+    }
   }
 }).export(module);
