@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - 0.8
-  - 0.10
+  - "0.8"
+  - "0.10"
+  - "0.12"
+  - iojs
 notifications:
   email:
     on_success: change
     on_failure: change
+sudo: false # use container based environment
