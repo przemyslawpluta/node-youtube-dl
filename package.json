@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "streamify": "~0.2.3",
-    "request": "~2.37.0"
+    "request": "^2.37.0"
   },
   "devDependencies": {
-    "vows": "~0.7.0"
+    "vows": "*"
   },
   "licenses": [
     {
