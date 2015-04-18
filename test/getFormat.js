@@ -5,7 +5,7 @@ var assert = require('assert');
 var youtubevideo = 'http://www.youtube.com/watch?v=0k2Zzkw_-0I';
 var mixcloudvideo =
   'http://www.mixcloud.com/' +
-  'TheBloodyBeetroots/sbcr-dj-mix-october-2014/';
+  'ItchFM/mr-dex-the-dex-files-ep-84/';
 
 vows.describe('getFormats').addBatch({
   'from a video': {
