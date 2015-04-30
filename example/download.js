@@ -5,7 +5,7 @@ var ytdl = require('..');
 
 var video = ytdl('http://www.youtube.com/watch?v=Seku9G1kT0c',
   // Optional arguments passed to youtube-dl.
-  ['--max-quality=22']);
+  ['-f', '22']);
 
 
 var size = 0;
