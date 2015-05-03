@@ -9,9 +9,58 @@ var subtitleFile = '1 1 1-179MiZSibco.en.srt';
 
 
 vows.describe('download').addBatch({
-  'a video': {
+  'a video with format specified': {
     'topic': function() {
       var dl = ytdl(video1, ['-f', '18']);
+      var cb = this.callback;
+
+      dl.on('error', cb);
+
+      dl.on('info', function(info) {
+        var pos = 0;
+        var progress;
+
+        dl.on('data', function(data) {
+          pos += data.length;
+          progress = pos / info.size;
+        });
+
+        dl.on('end', function() {
+          cb(null, progress, info);
+        });
+
+        var filepath = path.join(__dirname, info._filename);
+        dl.pipe(fs.createWriteStream(filepath));
+      });
+    },
+
+    'data returned': function(err, progress, data) {
+      if (err) throw err;
+
+      assert.equal(progress, 1);
+      assert.isObject(data);
+      assert.equal(data.id, '90AiXO1pAiA');
+      assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename));
+      assert.equal(data.size, 756000);
+    },
+
+    'file was downloaded': function(err, progress, data) {
+      if (err) throw err;
+
+      // Check existance.
+      var filepath = path.join(__dirname, data._filename);
+      var exists = fs.existsSync(filepath);
+      if (exists) {
+        // Delete file after each test.
+        fs.unlinkSync(filepath);
+      } else {
+        assert.isTrue(exists);
+      }
+    }
+  },
+  'a video with no format specified': {
+    'topic': function() {
+      var dl = ytdl(video1);
       var cb = this.callback;
 
       dl.on('error', cb);
