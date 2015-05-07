@@ -3,8 +3,9 @@ var ytdl   = require('..');
 var fs     = require('fs');
 var path   = require('path');
 var assert = require('assert');
-var video1  = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
+var video1 = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 var video2 = 'https://www.youtube.com/watch?v=179MiZSibco';
+var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg';
 var subtitleFile = '1 1 1-179MiZSibco.en.srt';
 
 
@@ -60,7 +61,7 @@ vows.describe('download').addBatch({
   },
   'a video with no format specified': {
     'topic': function() {
-      var dl = ytdl(video1);
+      var dl = ytdl(video3);
       var cb = this.callback;
 
       dl.on('error', cb);
@@ -88,9 +89,8 @@ vows.describe('download').addBatch({
 
       assert.equal(progress, 1);
       assert.isObject(data);
-      assert.equal(data.id, '90AiXO1pAiA');
-      assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename));
-      assert.equal(data.size, 756000);
+      assert.equal(data.id, 'AW8OOp2undg');
+      assert.equal(data.size, 34340);
     },
 
     'file was downloaded': function(err, progress, data) {
