@@ -125,6 +125,19 @@ Will print something like
     24video
     3sat
 
+## Call the `youtube-dl` binary directly
+
+This module doesn't have `youtube-dl` download the video. Instead, it uses the `url` key from the `--dump-json` CLI option to create a node stream. That way, it can be used like any other node stream.
+
+If that, or none of the above support your use case, you can use `ytdl.exec()` to call `youtube-dl` however you like.
+
+```javascript
+ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
+  if (err) throw err;
+  console.log(output.join('\n'));
+});
+```
+
 # Install
 
     npm install youtube-dl
