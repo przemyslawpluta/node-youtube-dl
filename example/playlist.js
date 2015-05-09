@@ -2,7 +2,6 @@ var path = require('path');
 var fs   = require('fs');
 var ytdl = require('..');
 
-/* jshint maxlen:false */
 var video = ytdl('https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807');
 
 video.on('error', function(err) {
@@ -12,7 +11,7 @@ video.on('error', function(err) {
 var size = 0;
 video.on('info', function(info) {
   size = info.size;
-  var output = path.join(__dirname + '/mp4s', size + '.mp4');
+  var output = path.join(__dirname + '/videos', size + '.mp4');
   video.pipe(fs.createWriteStream(output));
 });
 
