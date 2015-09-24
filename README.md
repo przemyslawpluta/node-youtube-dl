@@ -5,6 +5,10 @@ I also made a [pure Javascript youtube downloading module](https://github.com/fe
 
 If you're only interested in downloading only from youtube, you should consider using the other module.
 
+NO LONGER ACTIVELY SUPPORTED BY ME.
+
+I don't want to support this anymore, as I have to keep track with the latest youtube-dl, its changes, its workings with other extractors. It's hard to debug, I'd rather not do it. If you like this project and would like to maintain it, feel free to open an issue asking.
+
 # Usage
 ## Downloading videos
 
