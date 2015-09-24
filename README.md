@@ -1,5 +1,4 @@
 # youtube-dl [![Build Status](https://secure.travis-ci.org/fent/node-youtube-dl.png)](http://travis-ci.org/fent/node-youtube-dl)
-
 Download videos from youtube in node.js using [youtube-dl](http://rg3.github.com/youtube-dl/).
 
 I also made a [pure Javascript youtube downloading module](https://github.com/fent/node-ytdl). The reason I'm maintaining this one is because it supports a lot more video sites besides youtube.
@@ -7,7 +6,6 @@ I also made a [pure Javascript youtube downloading module](https://github.com/fe
 If you're only interested in downloading only from youtube, you should consider using the other module.
 
 # Usage
-
 ## Downloading videos
 
 ```javascript
@@ -29,12 +27,81 @@ video.on('info', function(info) {
 video.pipe(fs.createWriteStream('myvideo.mp4'));
 ```
 
+A similar example can be found in the _example_ folder, and will produce an output that looks like the following when ran.
 
-A similar example can be found in the *example* folder, and will produce an output that looks like the following when ran.
+```
+Got video info
+saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
+100.00%
+```
 
-    Got video info
-    saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
-    100.00%
+## Resuming partially downloaded videos
+
+```javascript
+var youtubedl = require('./');
+var fs = require('fs');
+var output = 'myvideo.mp4';
+
+var downloaded = 0;
+if (fs.existsSync(output)) {
+  downloaded = fs.statSync(output).size;
+}
+
+var video = youtubedl('https://www.youtube.com/watch?v=179MiZSibco',
+
+  // Optional arguments passed to youtube-dl.
+  ['--format=18'],
+
+  // start will be sent as a range header
+  { start: downloaded, cwd: __dirname });
+
+// Will be called when the download starts.
+video.on('info', function(info) {
+  console.log('Download started');
+  console.log('filename: ' + info._filename);
+
+  // info.size will be the amount to download, add
+  var total = info.size + downloaded;
+  console.log('size: ' + total);
+
+  if (downloaded > 0) {
+    // size will be the amount already downloaded
+    console.log('resuming from: ' + downloaded);
+
+    // display the remaining bytes to download
+    console.log('remaining bytes: ' + info.size);
+  }
+});
+
+video.pipe(fs.createWriteStream('myvideo.mp4', { flags: 'a' }));
+
+video.on('end', function() {
+  console.log('finished downloading!');
+});
+```
+
+The example can be found in the _example_ folder (`resume.js`), and will produce an output that looks like the following when ran.
+
+**Output:**
+
+```sh
+[jay@macpro ~/nodejs/node-youtube-dl/example]$ node resume.js
+Download started
+filename: 1 1 1-179MiZSibco.mp4
+size: 5109213
+^C
+```
+
+```
+[jay@macpro ~/nodejs/node-youtube-dl/example]$ node resume.js  
+Download started
+filename: 1 1 1-179MiZSibco.mp4
+size: 5109213
+resuming from: 917504
+remaining bytes: 4191709
+finished downloading!
+[jay@macpro ~/nodejs/node-youtube-dl/example]$
+```
 
 ## Getting video information
 
@@ -58,15 +125,18 @@ youtubedl.getInfo(url, options, function(err, info) {
 
 Running that will produce something like
 
-    id: WKsjaOqDXgg
-    title: Ace Rimmer to the Rescue
-    url: http://r5---sn-p5qlsn7e.c.youtube.com/videoplayback?ms=au&ip=160.79.125.18&cp=U0hWTFVQVl9FTENONl9NSlpDOjgtU1VsODlkVmRH&id=58ab2368ea835e08&source=youtube&expire=1377558202&factor=1.25&key=yt1&ipbits=8&mt=1377534150&itag=34&sver=3&upn=-rGWz2vYpN4&fexp=912306%2C927900%2C919395%2C926518%2C936203%2C913819%2C929117%2C929121%2C929906%2C929907%2C929922%2C929127%2C929129%2C929131%2C929930%2C925726%2C925720%2C925722%2C925718%2C929917%2C906945%2C929919%2C929933%2C912521%2C932306%2C913428%2C904830%2C919373%2C930803%2C908536%2C904122%2C938701%2C936308%2C909549%2C900816%2C912711%2C904494%2C904497%2C900375%2C906001&sparams=algorithm%2Cburst%2Ccp%2Cfactor%2Cid%2Cip%2Cipbits%2Citag%2Csource%2Cupn%2Cexpire&mv=m&burst=40&algorithm=throttle-factor&signature=ABD3A847684AD9B39331E567568D3FA0DCFA4776.7895521E130A042FB3625A17242CE3C02A4460B7&ratebypass=yes
-    thumbnail: https://i1.ytimg.com/vi/WKsjaOqDXgg/hqdefault.jpg
-    description: An old Red Dwarf eposide where Ace Rimmer saves the Princess Bonjella.
-    filename: Ace Rimmer to the Rescue-WKsjaOqDXgg.flv
-    format id: 34
+```
+id: WKsjaOqDXgg
+title: Ace Rimmer to the Rescue
+url: http://r5---sn-p5qlsn7e.c.youtube.com/videoplayback?ms=au&ip=160.79.125.18&cp=U0hWTFVQVl9FTENONl9NSlpDOjgtU1VsODlkVmRH&id=58ab2368ea835e08&source=youtube&expire=1377558202&factor=1.25&key=yt1&ipbits=8&mt=1377534150&itag=34&sver=3&upn=-rGWz2vYpN4&fexp=912306%2C927900%2C919395%2C926518%2C936203%2C913819%2C929117%2C929121%2C929906%2C929907%2C929922%2C929127%2C929129%2C929131%2C929930%2C925726%2C925720%2C925722%2C925718%2C929917%2C906945%2C929919%2C929933%2C912521%2C932306%2C913428%2C904830%2C919373%2C930803%2C908536%2C904122%2C938701%2C936308%2C909549%2C900816%2C912711%2C904494%2C904497%2C900375%2C906001&sparams=algorithm%2Cburst%2Ccp%2Cfactor%2Cid%2Cip%2Cipbits%2Citag%2Csource%2Cupn%2Cexpire&mv=m&burst=40&algorithm=throttle-factor&signature=ABD3A847684AD9B39331E567568D3FA0DCFA4776.7895521E130A042FB3625A17242CE3C02A4460B7&ratebypass=yes
+thumbnail: https://i1.ytimg.com/vi/WKsjaOqDXgg/hqdefault.jpg
+description: An old Red Dwarf eposide where Ace Rimmer saves the Princess Bonjella.
+filename: Ace Rimmer to the Rescue-WKsjaOqDXgg.flv
+format id: 34
+```
 
 You can use an array of urls to produce an array of response objects with matching array index (e.g. the 1st response object will match the first url etc...)
+
 ```javascript
 var youtubedl = require('youtube-dl');
 var url1 = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
@@ -100,7 +170,6 @@ youtubedl.getSubs(url, options, function(err, files) {
 
   console.log('subtitle files downloaded:', files);
 });
-
 ```
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
@@ -119,14 +188,15 @@ youtubedl.getExtractors(true, function(err, list) {
 
 Will print something like
 
-    Found 521 extractors
-    1up.com
-    220.ro
-    24video
-    3sat
+```
+Found 521 extractors
+1up.com
+220.ro
+24video
+3sat
+```
 
 ## Call the `youtube-dl` binary directly
-
 This module doesn't have `youtube-dl` download the video. Instead, it uses the `url` key from the `--dump-json` CLI option to create a node stream. That way, it can be used like any other node stream.
 
 If that, or none of the above support your use case, you can use `ytdl.exec()` to call `youtube-dl` however you like.
@@ -140,24 +210,21 @@ ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
 
 # Install
 
-    npm install youtube-dl
+```
+npm install youtube-dl
+```
 
 Since the youtube-dl binary is updated regularly, you can run `npm update` to check for and download any updates for it.
 
-
 # Tests
-
 Tests are written with [vows](http://vowsjs.org/)
 
 ```bash
 npm test
 ```
 
+# License
+MIT
 
 [youtube-dl]: http://rg3.github.com/youtube-dl/
 [youtube-dl documentation]: http://rg3.github.com/youtube-dl/documentation.html
-
-
-# License
-
-MIT
