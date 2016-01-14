@@ -10,10 +10,12 @@ var mixcloudvideo =
 vows.describe('getFormats').addBatch({
   'from a video': {
     'topic': function() {
+      'use strict';
       ytdl.getFormats(youtubevideo, this.callback);
     },
 
     'formats returned': function(err, formats) {
+      'use strict';
       assert.isNull(err);
       assert.isArray(formats);
     }
@@ -21,10 +23,12 @@ vows.describe('getFormats').addBatch({
 
   'from a mixcloud mix': {
     'topic': function() {
+      'use strict';
       ytdl.getFormats(mixcloudvideo, this.callback);
     },
 
     'formats returned': function(err, formats) {
+      'use strict';
       assert.isNull(err);
       assert.isArray(formats);
     }

@@ -8,10 +8,10 @@ var video2 = 'https://www.youtube.com/watch?v=179MiZSibco';
 var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg';
 var subtitleFile = '1 1 1-179MiZSibco.en.srt';
 
-
 vows.describe('download').addBatch({
   'a video with format specified': {
     'topic': function() {
+      'use strict';
       var dl = ytdl(video1, ['-f', '18']);
       var cb = this.callback;
 
@@ -36,7 +36,8 @@ vows.describe('download').addBatch({
     },
 
     'data returned': function(err, progress, data) {
-      if (err) throw err;
+      'use strict';
+      if (err) { throw err; }
 
       assert.equal(progress, 1);
       assert.isObject(data);
@@ -46,7 +47,8 @@ vows.describe('download').addBatch({
     },
 
     'file was downloaded': function(err, progress, data) {
-      if (err) throw err;
+      'use strict';
+      if (err) { throw err; }
 
       // Check existance.
       var filepath = path.join(__dirname, data._filename);
@@ -61,6 +63,7 @@ vows.describe('download').addBatch({
   },
   'a video with no format specified': {
     'topic': function() {
+      'use strict';
       var dl = ytdl(video3);
       var cb = this.callback;
 
@@ -85,7 +88,8 @@ vows.describe('download').addBatch({
     },
 
     'data returned': function(err, progress, data) {
-      if (err) throw err;
+      'use strict';
+      if (err) { throw err; }
 
       assert.equal(progress, 1);
       assert.isObject(data);
@@ -94,7 +98,8 @@ vows.describe('download').addBatch({
     },
 
     'file was downloaded': function(err, progress, data) {
-      if (err) throw err;
+      'use strict';
+      if (err) { throw err; }
 
       // Check existance.
       var filepath = path.join(__dirname, data._filename);
@@ -109,6 +114,7 @@ vows.describe('download').addBatch({
   },
   'a video with subtitles': {
     topic: function() {
+      'use strict';
       try {
         fs.unlinkSync(path.join(__dirname, subtitleFile));
       } catch (err) {}
@@ -116,7 +122,8 @@ vows.describe('download').addBatch({
     },
 
     'subtitles were downloaded': function(err, files) {
-      if (err) throw err;
+      'use strict';
+      if (err) { throw err; }
       assert.equal(files[0], subtitleFile);
       assert.isTrue(fs.existsSync(path.join(__dirname, subtitleFile)));
       fs.unlinkSync(path.join(__dirname, subtitleFile));
