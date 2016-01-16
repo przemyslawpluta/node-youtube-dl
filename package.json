@@ -32,10 +32,5 @@
   "devDependencies": {
     "vows": "*"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/fent/node-youtube-dl/raw/master/LICENSE"
-    }
-  ]
+  "license": "MIT"
 }
