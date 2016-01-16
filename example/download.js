@@ -2,24 +2,26 @@ var path = require('path');
 var fs   = require('fs');
 var ytdl = require('..');
 
-
-var video = ytdl('http://www.youtube.com/watch?v=Seku9G1kT0c',
+var video = ytdl('https://www.youtube.com/watch?v=AW8OOp2undg',
   // Optional arguments passed to youtube-dl.
-  ['-f', '22']);
-
+  ['-f', '18']);
 
 var size = 0;
 video.on('info', function(info) {
+  'use strict';
   size = info.size;
+
   console.log('Got video info');
-  console.log('saving to ' + info._filename);
-  var output = path.join(__dirname, 'videos', info._filename);
-  video.pipe(fs.createWriteStream(output));
+  var file = path.join(__dirname, info._filename);
+  video.pipe(fs.createWriteStream(file));
+
 });
 
 var pos = 0;
-video.on('data', function(data) {
-  pos += data.length;
+video.on('data', function data(chunk) {
+  'use strict';
+  pos += chunk.length;
+
   // `size` should not be 0 here.
   if (size) {
     var percent = (pos / size * 100).toFixed(2);
@@ -29,6 +31,7 @@ video.on('data', function(data) {
   }
 });
 
-video.on('end', function() {
-  console.log();
+video.on('end', function end() {
+  'use strict';
+  console.log('\nDone');
 });

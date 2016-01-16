@@ -2,7 +2,9 @@ var ytdl = require('..');
 var url = 'http://www.youtube.com/watch?v=0RUvealeXZ0';
 
 ytdl.getInfo(url, function(err, info) {
-  if (err) throw err;
+
+  'use strict';
+  if (err) { throw err; }
 
   console.log('id:', info.id);
   console.log('title:', info.title);

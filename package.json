@@ -6,7 +6,7 @@
     "video",
     "download"
   ],
-  "version": "1.10.6",
+  "version": "1.11.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/fent/node-youtube-dl.git"
@@ -26,8 +26,8 @@
     "test": "vows ./test/*.js --spec"
   },
   "dependencies": {
-    "streamify": "~0.2.3",
-    "request": "^2.37.0"
+    "request": "^2.37.0",
+    "streamify": "~0.2.3"
   },
   "devDependencies": {
     "vows": "*"
