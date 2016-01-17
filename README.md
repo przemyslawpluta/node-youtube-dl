@@ -5,10 +5,6 @@ I also made a [pure Javascript youtube downloading module](https://github.com/fe
 
 If you're only interested in downloading only from youtube, you should consider using the other module.
 
-NO LONGER ACTIVELY SUPPORTED BY ME.
-
-I don't want to support this anymore, as I have to keep track with the latest youtube-dl, its changes, its workings with other extractors. It's hard to debug, I'd rather not do it. If you like this project and would like to maintain it, feel free to open an issue asking.
-
 # Usage
 ## Downloading videos
 
@@ -79,6 +75,12 @@ video.on('info', function(info) {
 
 video.pipe(fs.createWriteStream('myvideo.mp4', { flags: 'a' }));
 
+// Will be called if download was already completed and there is nothing more to download.
+video.on('complete', function complete(info) {
+  'use strict';
+  console.log('filename: ' + info._filename + ' already downloaded.');
+});
+
 video.on('end', function() {
   console.log('finished downloading!');
 });
@@ -97,7 +99,7 @@ size: 5109213
 ```
 
 ```
-[jay@macpro ~/nodejs/node-youtube-dl/example]$ node resume.js  
+[jay@macpro ~/nodejs/node-youtube-dl/example]$ node resume.js
 Download started
 filename: 1 1 1-179MiZSibco.mp4
 size: 5109213

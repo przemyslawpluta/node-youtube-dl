@@ -1,7 +1,7 @@
 var ytdl = require('..');
 
 ytdl.getExtractors(true, function getExtractors(err, list) {
-	'use strict';
+  'use strict';
   console.log('Found ' + list.length + ' extractors');
 
   var show = 4;
