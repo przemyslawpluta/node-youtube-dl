@@ -43,7 +43,7 @@ vows.describe('download').addBatch({
       assert.isObject(data);
       assert.equal(data.id, '90AiXO1pAiA');
       assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename));
-      assert.equal(data.size, 756000);
+      assert.equal(data.size, 755360);
     },
 
     'file was downloaded': function(err, progress, data) {
@@ -94,7 +94,7 @@ vows.describe('download').addBatch({
       assert.equal(progress, 1);
       assert.isObject(data);
       assert.equal(data.id, 'AW8OOp2undg');
-      assert.equal(data.size, 34340);
+      assert.equal(data.size, 33700);
     },
 
     'file was downloaded': function(err, progress, data) {
