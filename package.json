@@ -25,6 +25,7 @@
     "test": "vows ./test/*.js --spec"
   },
   "dependencies": {
+    "mkdirp": "^0.5.1",
     "request": "^2.37.0",
     "sort-object": "^3.0.1",
     "streamify": "~0.2.3"
