@@ -16,7 +16,6 @@
     "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)"
   ],
   "main": "./lib/youtube-dl.js",
-  "bin": "./bin/youtube-dl",
   "directories": {
     "lib": "./lib"
   },
@@ -27,6 +26,7 @@
   },
   "dependencies": {
     "request": "^2.37.0",
+    "sort-object": "^3.0.1",
     "streamify": "~0.2.3"
   },
   "devDependencies": {
