@@ -21,7 +21,7 @@
   },
   "scripts": {
     "postinstall": "node ./scripts/download.js",
-    "preupdate": "node ./scripts/download.js",
+    "update": "node ./scripts/download.js",
     "test": "vows ./test/*.js --spec"
   },
   "dependencies": {

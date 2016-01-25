@@ -8,7 +8,7 @@ If you're only interested in downloading only from youtube, you should consider 
 # Usage
 ## Downloading videos
 
-```javascript
+``` js
 var fs = require('fs');
 var youtubedl = require('youtube-dl');
 var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
@@ -29,7 +29,7 @@ video.pipe(fs.createWriteStream('myvideo.mp4'));
 
 A similar example can be found in the _example_ folder, and will produce an output that looks like the following when ran.
 
-```
+```bash
 Got video info
 saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 100.00%
@@ -37,7 +37,7 @@ saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 
 ## Resuming partially downloaded videos
 
-```javascript
+``` js
 var youtubedl = require('./');
 var fs = require('fs');
 var output = 'myvideo.mp4';
@@ -111,7 +111,7 @@ finished downloading!
 
 ## Getting video information
 
-```javascript
+``` js
 var youtubedl = require('youtube-dl');
 var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
 // Optional arguments passed to youtube-dl.
@@ -143,7 +143,7 @@ format id: 34
 
 You can use an array of urls to produce an array of response objects with matching array index (e.g. the 1st response object will match the first url etc...)
 
-```javascript
+``` js
 var youtubedl = require('youtube-dl');
 var url1 = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
 var url2 = 'https://vimeo.com/6586873';
@@ -157,7 +157,7 @@ youtubedl.getInfo([url1, url2], function(err, info) {
 
 ## Downloading subtitles
 
-```javascript
+``` js
 var youtubedl = require('youtube-dl');
 var url = 'https://youtu.be/PizwcirYuGY';
 
@@ -182,7 +182,7 @@ For more usage info on youtube-dl and the arguments you can pass to it, do `yout
 
 ## Getting the list of extractors
 
-```javascript
+``` js
 var youtubedl = require('youtube-dl');
 youtubedl.getExtractors(true, function(err, list) {
   console.log('Found ' + list.length + ' extractors');
@@ -207,10 +207,23 @@ This module doesn't have `youtube-dl` download the video. Instead, it uses the `
 
 If that, or none of the above support your use case, you can use `ytdl.exec()` to call `youtube-dl` however you like.
 
-```javascript
+``` js
 ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
   if (err) throw err;
   console.log(output.join('\n'));
+});
+```
+
+## Update
+Since the youtube-dl binary is updated regularly, you can run `npm run update` to check for and download any updates for it. You can also require `../lib/downloader` in your app if you'd like to place `youtube-dl` binary in a specific directory and control when it gets updates.
+
+``` js
+var downloader = require('../lib/downloader');
+
+downloader('path/to-binary', function error(err, done) {
+  'use strict';
+  if (err) { return console.log(err.stack); }
+  console.log(done);
 });
 ```
 
@@ -219,8 +232,6 @@ ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
 ```
 npm install youtube-dl
 ```
-
-Since the youtube-dl binary is updated regularly, you can run `npm update` to check for and download any updates for it.
 
 # Tests
 Tests are written with [vows](http://vowsjs.org/)
