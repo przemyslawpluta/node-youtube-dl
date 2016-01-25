@@ -5,8 +5,16 @@ I also made a [pure Javascript youtube downloading module](https://github.com/fe
 
 If you're only interested in downloading only from youtube, you should consider using the other module.
 
-# Usage
-## Downloading videos
+## Installation
+
+With [npm](https://www.npmjs.com/) do:
+
+```
+npm install youtube-dl
+```
+
+## Usage
+### Downloading videos
 
 ``` js
 var fs = require('fs');
@@ -35,7 +43,7 @@ saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 100.00%
 ```
 
-## Resuming partially downloaded videos
+### Resuming partially downloaded videos
 
 ``` js
 var youtubedl = require('./');
@@ -109,7 +117,7 @@ finished downloading!
 [jay@macpro ~/nodejs/node-youtube-dl/example]$
 ```
 
-## Getting video information
+### Getting video information
 
 ``` js
 var youtubedl = require('youtube-dl');
@@ -155,7 +163,7 @@ youtubedl.getInfo([url1, url2], function(err, info) {
 });
 ```
 
-## Downloading subtitles
+### Downloading subtitles
 
 ``` js
 var youtubedl = require('youtube-dl');
@@ -180,7 +188,7 @@ youtubedl.getSubs(url, options, function(err, files) {
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
-## Getting the list of extractors
+### Getting the list of extractors
 
 ``` js
 var youtubedl = require('youtube-dl');
@@ -202,7 +210,7 @@ Found 521 extractors
 3sat
 ```
 
-## Call the `youtube-dl` binary directly
+### Call the `youtube-dl` binary directly
 This module doesn't have `youtube-dl` download the video. Instead, it uses the `url` key from the `--dump-json` CLI option to create a node stream. That way, it can be used like any other node stream.
 
 If that, or none of the above support your use case, you can use `ytdl.exec()` to call `youtube-dl` however you like.
@@ -214,7 +222,7 @@ ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
 });
 ```
 
-## Update
+### Update
 Since the youtube-dl binary is updated regularly, you can run `npm run update` to check for and download any updates for it. You can also require `../lib/downloader` in your app if you'd like to place `youtube-dl` binary in a specific directory and control when it gets updates.
 
 ``` js
@@ -227,13 +235,7 @@ downloader('path/to-binary', function error(err, done) {
 });
 ```
 
-# Install
-
-```
-npm install youtube-dl
-```
-
-# Tests
+### Tests
 Tests are written with [vows](http://vowsjs.org/)
 
 ```bash
