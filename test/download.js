@@ -6,7 +6,7 @@ var assert = require('assert');
 var video1 = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
 var video2 = 'https://www.youtube.com/watch?v=179MiZSibco';
 var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg';
-var subtitleFile = '1 1 1-179MiZSibco.en.srt';
+var subtitleFile = '1 1 1-179MiZSibco.en.vtt';
 
 vows.describe('download').addBatch({
   'a video with format specified': {
@@ -124,6 +124,7 @@ vows.describe('download').addBatch({
     'subtitles were downloaded': function(err, files) {
       'use strict';
       if (err) { throw err; }
+      console.dir(files);
       assert.equal(files[0], subtitleFile);
       assert.isTrue(fs.existsSync(path.join(__dirname, subtitleFile)));
       fs.unlinkSync(path.join(__dirname, subtitleFile));
