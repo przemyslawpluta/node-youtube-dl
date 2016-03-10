@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "mkdirp": "^0.5.1",
-    "path-extra": "^3.0.0",
     "request": "^2.69.0",
     "streamify": "~0.2.3"
   },
