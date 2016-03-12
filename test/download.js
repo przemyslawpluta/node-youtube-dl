@@ -124,7 +124,7 @@ vows.describe('download').addBatch({
     'subtitles were downloaded': function(err, files) {
       'use strict';
       if (err) { throw err; }
-      console.dir(files);
+
       assert.equal(files[0], subtitleFile);
       assert.isTrue(fs.existsSync(path.join(__dirname, subtitleFile)));
       fs.unlinkSync(path.join(__dirname, subtitleFile));
