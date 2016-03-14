@@ -4,7 +4,6 @@
 *.mp3
 *.m4a
 .DS_Store
-cleanup
 node_modules
 test
 bin
