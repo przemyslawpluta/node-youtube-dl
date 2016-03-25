@@ -8,7 +8,7 @@ function playlist(url) {
   var video = ytdl(url);
 
   video.on('error', function error(err) {
-    console.log('error 2:', err);
+    console.log(err.stack);
   });
 
   var size = 0;
