@@ -5,5 +5,4 @@
 *.m4a
 .DS_Store
 node_modules
-test
 bin

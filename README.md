@@ -38,7 +38,7 @@ video.on('info', function(info) {
 video.pipe(fs.createWriteStream('myvideo.mp4'));
 ```
 
-A similar example can be found in the _example_ folder, and will produce an output that looks like the following when ran.
+It will produce an output that looks like the following when ran.
 
 ```bash
 Got video info
@@ -97,7 +97,7 @@ video.on('end', function() {
 });
 ```
 
-The example can be found in the _example_ folder (`resume.js`), and will produce an output that looks like the following when ran.
+It will produce an output that looks like the following when ran.
 
 **Output:**
 
@@ -190,6 +190,50 @@ youtubedl.getSubs(url, options, function(err, files) {
 ```
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
+
+### Downloading playlists
+
+``` js
+
+var path = require('path');
+var fs   = require('fs');
+var ytdl = require('youtube-dl');
+
+function playlist(url) {
+
+  'use strict';
+  var video = ytdl(url);
+
+  video.on('error', function error(err) {
+    console.log('error 2:', err);
+  });
+
+  var size = 0;
+  video.on('info', function(info) {
+    size = info.size;
+    var output = path.join(__dirname + '/', size + '.mp4');
+    video.pipe(fs.createWriteStream(output));
+  });
+
+  var pos = 0;
+  video.on('data', function data(chunk) {
+    pos += chunk.length;
+    // `size` should not be 0 here.
+    if (size) {
+      var percent = (pos / size * 100).toFixed(2);
+      process.stdout.cursorTo(0);
+      process.stdout.clearLine(1);
+      process.stdout.write(percent + '%');
+    }
+  });
+
+  video.on('next', playlist);
+
+}
+
+playlist('https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807');
+
+```
 
 ### Getting the list of extractors
 

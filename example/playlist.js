@@ -30,9 +30,7 @@ function playlist(url) {
     }
   });
 
-  video.on('next', function next(data) {
-    playlist(data);
-  });
+  video.on('next', playlist);
 
 }
 

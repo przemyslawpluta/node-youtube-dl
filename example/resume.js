@@ -1,11 +1,11 @@
-var youtubedl = require('..');
+var ytdl = require('..');
 var fs = require('fs');
 var output = 'myvideo.mp4';
 
 var downloaded = 0;
 if (fs.existsSync(output)) { downloaded = fs.statSync(output).size; }
 
-var video = youtubedl('https://www.youtube.com/watch?v=179MiZSibco',
+var video = ytdl('https://www.youtube.com/watch?v=179MiZSibco',
 
   // Optional arguments passed to youtube-dl.
   ['--format=18'],
