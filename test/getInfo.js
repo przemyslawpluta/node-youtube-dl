@@ -23,8 +23,7 @@ vows.describe('getInfo').addBatch({
       assert.equal(info.description,
         'Ridley High School\'s real American Bad ASS,A true Delco Savage. ' +
         'Filmed in 2003 before Youtube was invented. ' +
-        'This is also the original I find it hilarious that there ' +
-        'are copycat videos!');
+        'This is also the original I find it hilarious tha...');
       assert.equal(info._filename, 'lol-90AiXO1pAiA.mp4');
       assert.equal(info.format, '18 - 480x360 (medium)');
       assert.equal(info.duration, '11');
@@ -129,8 +128,7 @@ vows.describe('getInfo').addBatch({
       assert.equal(info[1].description,
         'Ridley High School\'s real American Bad ASS,A true Delco Savage. ' +
         'Filmed in 2003 before Youtube was invented. ' +
-        'This is also the original I find it hilarious that there ' +
-        'are copycat videos!');
+        'This is also the original I find it hilarious tha...');
       assert.equal(info[1]._filename, 'lol-90AiXO1pAiA.webm');
       assert.equal(info[1].format, '43 - 640x360 (medium)');
       assert.equal(info[1].duration, '11');
