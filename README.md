@@ -36,6 +36,10 @@ video.on('info', function(info) {
 });
 
 video.pipe(fs.createWriteStream('myvideo.mp4'));
+
+video.on('close', function(){
+  console.log("Download complete")
+})
 ```
 
 It will produce an output that looks like the following when ran.
