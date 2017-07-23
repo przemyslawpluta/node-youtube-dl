@@ -49,7 +49,7 @@ saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 ### Resuming partially downloaded videos
 
 ``` js
-var youtubedl = require('./');
+var youtubedl = require('youtube-dl');
 var fs = require('fs');
 var output = 'myvideo.mp4';
 
