@@ -27,8 +27,8 @@
     },
     "dependencies": {
         "mkdirp": "^0.5.1",
-        "request": "^2.72.0",
-        "streamify": "~0.2.5"
+        "request": "^2.82.0",
+        "streamify": "^0.2.9"
     },
     "devDependencies": {
         "vows": "*"
