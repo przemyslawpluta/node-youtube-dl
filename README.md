@@ -31,11 +31,11 @@ var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
 // Will be called when the download starts.
 video.on('info', function(info) {
   console.log('Download started');
-  console.log('filename: ' + info._filename);
+  console.log('filename: ' + info.filename);
   console.log('size: ' + info.size);
 });
 
-video.pipe(fs.createWriteStream('info._filename'));
+video.pipe(fs.createWriteStream('myvideo.mp4'));
 ```
 
 It will produce an output that looks like the following when ran.
@@ -49,7 +49,7 @@ saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 ### Resuming partially downloaded videos
 
 ``` js
-var youtubedl = require('youtube-dl');
+var youtubedl = require('./');
 var fs = require('fs');
 var output = 'myvideo.mp4';
 
@@ -281,19 +281,6 @@ downloader('path/to-binary', function error(err, done) {
   console.log(done);
 });
 ```
-
-### Increase buffer size
-As explained [in this issue](https://github.com/przemyslawpluta/node-youtube-dl/issues/128) if you get `Error: stdout maxBuffer exceeded` you can add `maxBuffer: Infinity` to the options like in the example below 
-
-```
-var video = youtubedl('http://www.youtube.com/watch?v=0h-qh9flX2A', 
-  ['-f=best'],
-  {
-    cwd: __dirname,
-    maxBuffer: Infinity
-  })
-```
-
 
 ### Tests
 Tests are written with [vows](http://vowsjs.org/)
