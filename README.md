@@ -282,6 +282,19 @@ downloader('path/to-binary', function error(err, done) {
 });
 ```
 
+### Increase buffer size
+As explained [in this issue](https://github.com/przemyslawpluta/node-youtube-dl/issues/128) if you get `Error: stdout maxBuffer exceeded` you can add `maxBuffer: Infinity` to the options like in the example below 
+
+```
+var video = youtubedl('http://www.youtube.com/watch?v=0h-qh9flX2A', 
+  ['-f=best'],
+  {
+    cwd: __dirname,
+    maxBuffer: Infinity
+  })
+```
+
+
 ### Tests
 Tests are written with [vows](http://vowsjs.org/)
 
