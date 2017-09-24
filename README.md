@@ -1,6 +1,6 @@
 # youtube-dl
 
-[![Build Status](https://secure.travis-ci.org/fent/node-youtube-dl.png)](http://travis-ci.org/fent/node-youtube-dl) [![npm version](https://badge.fury.io/js/youtube-dl.svg)](https://badge.fury.io/js/youtube-dl) [![Dependency Status](https://gemnasium.com/fent/node-youtube-dl.png)](https://gemnasium.com/fent/node-youtube-dl)
+[![Build Status](https://secure.travis-ci.org/fent/node-youtube-dl.png)](https://travis-ci.org/przemyslawpluta/node-youtube-dl) [![npm version](https://badge.fury.io/js/youtube-dl.svg)](https://badge.fury.io/js/youtube-dl) [![Dependency Status](https://gemnasium.com/fent/node-youtube-dl.png)](https://gemnasium.com/fent/node-youtube-dl)
 
 Download videos from youtube in node.js using [youtube-dl](http://rg3.github.com/youtube-dl/).
 
