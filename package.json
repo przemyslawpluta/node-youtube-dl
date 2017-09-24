@@ -1,5 +1,5 @@
 {
-    "name": "@stem/youtube-dl",
+    "name": "youtube-dl",
     "description": "youtube-dl driver for node",
     "keywords": [
         "youtube",
