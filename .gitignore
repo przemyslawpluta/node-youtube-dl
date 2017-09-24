@@ -3,6 +3,7 @@
 *.srt
 *.mp3
 *.m4a
+*.swp
 .DS_Store
 node_modules
 bin
