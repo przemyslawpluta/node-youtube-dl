@@ -49,6 +49,26 @@ vows.describe('getInfo').addBatch({
             });
         }
     },
+    'from a youtube array of videos with one missing': {
+        'topic': function() {
+            'use strict';
+            var pl = [
+                'http://www.youtube.com/watch?v=SvPZo52X5vo',
+                'http://www.youtube.com/watch?v=2xJWQPdG7jE'
+            ];
+            ytdl.getInfo(pl, this.callback);
+        },
+
+        'info returned': function(err, info) {
+            'use strict';
+            assert.isNull(err);
+            assert.isArray(info.formats);
+            assert.ok(info.formats.length);
+            info.formats.forEach(function(videoInfo) {
+                assert.isString(videoInfo.url);
+            });
+        }
+    },
     'from a soundcloud track': {
         'topic': function() {
             'use strict';
