@@ -93,7 +93,7 @@ vows.describe('getInfo').addBatch({
         'topic': function() {
             'use strict';
             var video = 'https://vimeo.com/6586873';
-            ytdl.getInfo(video, this.callback);
+            ytdl.getInfo(video, ['--no-warnings'], this.callback);
         },
 
         'info returned': function(err, info) {
@@ -120,7 +120,7 @@ vows.describe('getInfo').addBatch({
             'use strict';
             var vimeo = 'https://vimeo.com/6586873';
             var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
-            ytdl.getInfo([vimeo, youtube], this.callback);
+            ytdl.getInfo([vimeo, youtube], ['--no-warnings'], this.callback);
         },
 
         'info returned': function(err, info) {
