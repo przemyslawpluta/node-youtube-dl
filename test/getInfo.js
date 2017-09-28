@@ -69,26 +69,26 @@ vows.describe('getInfo').addBatch({
             });
         }
     },
-    'from a soundcloud track': {
-        'topic': function() {
-            'use strict';
-            var video = 'https://soundcloud.com/erasedtapes/kiasmos-bent';
-            ytdl.getInfo(video, this.callback);
-        },
-        'info returned': function(err, info) {
-            'use strict';
-            assert.isNull(err);
-            assert.isObject(info);
-            assert.equal(info.id, '147055755');
-            assert.equal(info.title, 'Kiasmos - Bent');
-            assert.isString(info.url);
-            assert.isString(info.thumbnail);
-            assert.isString(info.description);
-            assert.equal(info._filename, 'Kiasmos - Bent-147055755.mp3');
-            assert.equal(info.format, 'http_mp3_128_url - audio only');
-            assert.equal(info.duration, '5:45');
-        }
-    },
+    // 'from a soundcloud track': {
+    //     'topic': function() {
+    //         'use strict';
+    //         var video = 'https://soundcloud.com/erasedtapes/kiasmos-bent';
+    //         ytdl.getInfo(video, this.callback);
+    //     },
+    //     'info returned': function(err, info) {
+    //         'use strict';
+    //         assert.isNull(err);
+    //         assert.isObject(info);
+    //         assert.equal(info.id, '147055755');
+    //         assert.equal(info.title, 'Kiasmos - Bent');
+    //         assert.isString(info.url);
+    //         assert.isString(info.thumbnail);
+    //         assert.isString(info.description);
+    //         assert.equal(info._filename, 'Kiasmos - Bent-147055755.mp3');
+    //         assert.equal(info.format, 'http_mp3_128_url - audio only');
+    //         assert.equal(info.duration, '5:45');
+    //     }
+    // },
     'from a vimeo video': {
         'topic': function() {
             'use strict';
