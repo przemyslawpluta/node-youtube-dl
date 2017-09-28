@@ -1,8 +1,5 @@
+dist: trusty
 language: node_js
-addons:
-  apt:
-    packages:
-      - libssl1.0.0
 node_js:
   - "4"
   - "5"
