@@ -26,6 +26,7 @@
         "test": "vows ./test/*.js --spec"
     },
     "dependencies": {
+        "hh-mm-ss": "^1.2.0",
         "mkdirp": "^0.5.1",
         "request": "^2.83.0",
         "streamify": "^0.2.9"
