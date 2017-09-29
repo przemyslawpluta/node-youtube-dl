@@ -26,7 +26,8 @@ vows.describe('getInfo').addBatch({
                 'This is also the original I find it hilarious that there are copycat videos!');
             assert.equal(info._filename, 'lol-90AiXO1pAiA.mp4');
             assert.equal(info.format, '18 - 480x360 (medium)');
-            assert.equal(info.duration_hms, '00:00:11');
+            assert.equal(info._duration_raw, 11);
+            assert.equal(info._duration_hms, '00:00:11');
             assert.equal(info.duration, '11');
             assert.equal(info.width, 480);
             assert.equal(info.height, 360);
@@ -112,7 +113,8 @@ vows.describe('getInfo').addBatch({
             assert.equal(info._filename,
                 'OWEN - good friends, bad habits-6586873.mp4');
             assert.equal(info.format, 'http-360p - 480x272');
-            assert.equal(info.duration_hms, '00:03:55');
+            assert.equal(info._duration_raw, 235);
+            assert.equal(info._duration_hms, '00:03:55');
             assert.equal(info.duration, '3:55');
         }
     },
@@ -142,7 +144,8 @@ vows.describe('getInfo').addBatch({
             assert.equal(info[0]._filename,
                 'OWEN - good friends, bad habits-6586873.mp4');
             assert.equal(info[0].format, 'http-360p - 480x272');
-            assert.equal(info[0].duration_hms, '00:03:55');
+            assert.equal(info[0]._duration_raw, 235);
+            assert.equal(info[0]._duration_hms, '00:03:55');
             assert.equal(info[0].duration, '3:55');
             assert.equal(info[1].id, '90AiXO1pAiA');
             assert.equal(info[1].format_id, '43');
@@ -155,7 +158,8 @@ vows.describe('getInfo').addBatch({
                 'This is also the original I find it hilarious that there are copycat videos!');
             assert.equal(info[1]._filename, 'lol-90AiXO1pAiA.webm');
             assert.equal(info[1].format, '43 - 640x360 (medium)');
-            assert.equal(info[1].duration_hms, '00:00:11');
+            assert.equal(info[1]._duration_raw, 11);
+            assert.equal(info[1]._duration_hms, '00:00:11');
             assert.equal(info[1].duration, '11');
             assert.equal(info[1].width, 640);
             assert.equal(info[1].height, 360);
@@ -169,7 +173,8 @@ vows.describe('getInfo').addBatch({
             assert.equal(info[2]._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-RelentlessOptimisticPterodactylRitzMitz.mp4');
             assert.equal(info[2].format, '1080 - 1080p');
             assert.equal(info[2].height, 1080);
-            assert.equal(info[2].duration_hms, undefined);
+            assert.equal(info[2]._duration_raw, undefined);
+            assert.equal(info[2]._duration_hms, undefined);
             assert.equal(info[2].duration, undefined);
             assert.isArray(info[2].formats);
         }

@@ -13,6 +13,7 @@ ytdl.getInfo(url, function(err, info) {
     console.log('description:', info.description);
     console.log('filename:', info._filename);
     console.log('duration:', info.duration);
-    console.log('duration_hms:', info.duration_hms);
+    console.log('raw duration:', info._duration_raw);
+    console.log('duration hms:', info._duration_hms);
     console.log('format_id:', info.format_id);
 });
