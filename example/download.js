@@ -12,7 +12,8 @@ video.on('info', function(info) {
     size = info.size;
 
     console.log('Got video info');
-    var file = path.join(__dirname, info._filename);
+    var formats = info.formats;
+    var file = path.join(__dirname, info.title + "." + formats[formats.length - 1].ext );
     video.pipe(fs.createWriteStream(file));
 
 });
