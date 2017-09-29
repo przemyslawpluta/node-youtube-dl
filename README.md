@@ -187,6 +187,24 @@ youtubedl.getSubs(url, options, function(err, files) {
 });
 ```
 
+### Downloading thumbnails
+
+``` js
+var youtubedl = require('youtube-dl');
+var url = 'https://youtu.be/PizwcirYuGY';
+
+var options = {
+  // Downloads available thumbnail.
+  all: false,
+  // The directory to save the downloaded files in.
+  cwd: __dirname,
+};
+youtubedl.getThumbs(url, options, function(err, files) {
+  if (err) throw err;
+  console.log('thumbnail file downloaded:', files);
+});
+```
+
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
 
 ### Downloading playlists
