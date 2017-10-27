@@ -166,11 +166,11 @@ vows.describe('getInfo').addBatch({
             assert.isArray(info[1].formats);
             assert.equal(info[2].id, 'RelentlessOptimisticPterodactylRitzMitz');
             assert.equal(info[2].format_id, '1080');
-            assert.equal(info[2].title, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
+            assert.equal(info[2].title, 'Riot Games Playing League of Legends - Twitch Clips');
             assert.isString(info[2].url);
             assert.isString(info[2].thumbnail);
-            assert.equal(info[2].fulltitle, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
-            assert.equal(info[2]._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-RelentlessOptimisticPterodactylRitzMitz.mp4');
+            assert.equal(info[2].fulltitle, 'Riot Games Playing League of Legends - Twitch Clips');
+            assert.equal(info[2]._filename, 'Riot Games Playing League of Legends - Twitch Clips-RelentlessOptimisticPterodactylRitzMitz.mp4');
             assert.equal(info[2].format, '1080 - 1080p');
             assert.equal(info[2].height, 1080);
             assert.equal(info[2]._duration_raw, undefined);
