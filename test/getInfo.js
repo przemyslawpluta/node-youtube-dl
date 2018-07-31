@@ -132,16 +132,16 @@ vows.describe('getInfo').addBatch({
             assert.isObject(info);
             assert.equal(info.id, '131170216');
             assert.equal(info.format_id, '1080');
-            assert.equal(info.title, 'Riot Games Playing League of Legends - Twitch Clips');
+            assert.equal(info.title, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
             assert.isString(info.url);
             assert.isString(info.thumbnail);
-            assert.equal(info.fulltitle, 'Riot Games Playing League of Legends - Twitch Clips');
-            assert.equal(info._filename, 'Riot Games Playing League of Legends - Twitch Clips-RelentlessOptimisticPterodactylRitzMitz.mp4');
+            assert.equal(info.fulltitle, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
+            assert.equal(info._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-131170216.mp4');
             assert.equal(info.format, '1080 - 1080p');
             assert.equal(info.height, 1080);
-            assert.equal(info._duration_raw, undefined);
-            assert.equal(info._duration_hms, undefined);
-            assert.equal(info.duration, undefined);
+            assert.equal(info._duration_raw, 29.75);
+            assert.equal(info._duration_hms, '00:00:29.750');
+            assert.equal(info.duration, '29.75');
             assert.isArray(info.formats);
         }
     },
@@ -193,16 +193,16 @@ vows.describe('getInfo').addBatch({
             assert.isArray(info[1].formats);
             assert.equal(info[2].id, '131170216');
             assert.equal(info[2].format_id, '1080');
-            assert.equal(info[2].title, 'Riot Games Playing League of Legends - Twitch Clips');
+            assert.equal(info[2].title, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
             assert.isString(info[2].url);
             assert.isString(info[2].thumbnail);
-            assert.equal(info[2].fulltitle, 'Riot Games Playing League of Legends - Twitch Clips');
-            assert.equal(info[2]._filename, 'Riot Games Playing League of Legends - Twitch Clips-RelentlessOptimisticPterodactylRitzMitz.mp4');
+            assert.equal(info[2].fulltitle, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
+            assert.equal(info[2]._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-131170216.mp4');
             assert.equal(info[2].format, '1080 - 1080p');
             assert.equal(info[2].height, 1080);
-            assert.equal(info[2]._duration_raw, undefined);
-            assert.equal(info[2]._duration_hms, undefined);
-            assert.equal(info[2].duration, undefined);
+            assert.equal(info[2]._duration_raw, 29.75);
+            assert.equal(info[2]._duration_hms, '00:00:29.750');
+            assert.equal(info[2].duration, '29.75');
             assert.isArray(info[2].formats);
         }
     }
