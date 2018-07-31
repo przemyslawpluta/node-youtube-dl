@@ -51,7 +51,7 @@ vows.describe('getInfo').addBatch({
             });
         }
     },
-    'from a youtube array of videos with one missing': {
+    /*'from a youtube array of videos with one missing': {
         'topic': function() {
             'use strict';
             var pl = [
@@ -70,7 +70,7 @@ vows.describe('getInfo').addBatch({
                 assert.isString(videoInfo.url);
             });
         }
-    },
+    },*/
     // 'from a soundcloud track': {
     //     'topic': function() {
     //         'use strict';
