@@ -119,6 +119,33 @@ vows.describe('getInfo').addBatch({
         }
     },
 
+    'from a twitch video': {
+        'topic': function() {
+            'use strict';
+            var video = 'https://clips.twitch.tv/RelentlessOptimisticPterodactylRitzMitz';
+            ytdl.getInfo(video, ['--no-warnings'], this.callback);
+        },
+
+        'info returned': function(err, info) {
+            'use strict';
+            assert.isNull(err);
+            assert.isObject(info);
+            assert.equal(info.id, '131170216');
+            assert.equal(info.format_id, '1080');
+            assert.equal(info.title, 'Riot Games Playing League of Legends - Twitch Clips');
+            assert.isString(info.url);
+            assert.isString(info.thumbnail);
+            assert.equal(info.fulltitle, 'Riot Games Playing League of Legends - Twitch Clips');
+            assert.equal(info._filename, 'Riot Games Playing League of Legends - Twitch Clips-RelentlessOptimisticPterodactylRitzMitz.mp4');
+            assert.equal(info.format, '1080 - 1080p');
+            assert.equal(info.height, 1080);
+            assert.equal(info._duration_raw, undefined);
+            assert.equal(info._duration_hms, undefined);
+            assert.equal(info.duration, undefined);
+            assert.isArray(info.formats);
+        }
+    },
+
     'from multiple videos': {
         'topic': function() {
             'use strict';
@@ -164,7 +191,7 @@ vows.describe('getInfo').addBatch({
             assert.equal(info[1].width, 640);
             assert.equal(info[1].height, 360);
             assert.isArray(info[1].formats);
-            assert.equal(info[2].id, 'RelentlessOptimisticPterodactylRitzMitz');
+            assert.equal(info[2].id, '131170216');
             assert.equal(info[2].format_id, '1080');
             assert.equal(info[2].title, 'Riot Games Playing League of Legends - Twitch Clips');
             assert.isString(info[2].url);
