@@ -58,7 +58,7 @@ vows.describe('download playlist').addBatch({
             assert.equal(data[0].progress, 1);
             assert.equal(data[0].data._filename, 'Amy Castle - The Original Cuppycake Video-12Z6pWhM6TA.webm');
             assert.equal(data[1].progress, 1);
-            assert.equal(data[1].data._filename, 'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.mp4');
+            assert.equal(data[1].data._filename, 'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.webm');
 
             function fileExists(data) {
                 var filepath = path.join(__dirname, data._filename);
