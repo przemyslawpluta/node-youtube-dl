@@ -96,7 +96,7 @@ vows.describe('download').addBatch({
             assert.equal(progress, 1);
             assert.isObject(data);
             assert.equal(data.id, 'AW8OOp2undg');
-            assert.equal(data.size, 34289);
+            // assert.equal(data.size, 49550); // No relevant, can be change through time
         },
 
         'file was downloaded': function(err, progress, data) {
