@@ -28,11 +28,11 @@
     "dependencies": {
         "hh-mm-ss": "^1.2.0",
         "mkdirp": "^0.5.1",
-        "request": "^2.83.0",
+        "request": "^2.88.0",
         "streamify": "^0.2.9"
     },
     "devDependencies": {
-        "vows": "*"
+        "vows": "^0.8.2"
     },
     "license": "MIT"
 }
