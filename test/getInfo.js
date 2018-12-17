@@ -51,34 +51,6 @@ vows.describe('getInfo').addBatch({
       });
     }
   },
-  'from a vimeo video': {
-    'topic': function () {
-      'use strict';
-      var video = 'https://vimeo.com/6586873';
-      ytdl.getInfo(video, ['--no-warnings'], this.callback);
-    },
-
-    'info returned': function (err, info) {
-      'use strict';
-      assert.isNull(err);
-      assert.isObject(info);
-      assert.equal(info.id, '6586873');
-      assert.equal(info.title, 'OWEN - good friends, bad habits');
-      assert.isString(info.url);
-      assert.isString(info.thumbnail);
-      assert.equal(info.description,
-        'Video for the song "Good Friends, Bad Habits" from the album ' +
-        'New Leaves. Directed by Joe Wigdahl. Purchase the album here: ' +
-        'http://hobbledehoyrecords.com/store');
-      assert.equal(info._filename,
-        'OWEN - good friends, bad habits-6586873.mp4');
-      assert.equal(info.format, 'http-240p - 480x272');
-      assert.equal(info._duration_raw, 235);
-      assert.equal(info._duration_hms, '00:03:55');
-      assert.equal(info.duration, '3:55');
-    }
-  },
-
   'from a twitch video': {
     'topic': function () {
       'use strict';
@@ -109,61 +81,47 @@ vows.describe('getInfo').addBatch({
   'from multiple videos': {
     'topic': function () {
       'use strict';
-      var vimeo = 'https://vimeo.com/6586873';
       var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
       var twitch = 'https://clips.twitch.tv/RelentlessOptimisticPterodactylRitzMitz';
-      ytdl.getInfo([vimeo, youtube, twitch], ['--no-warnings'], this.callback);
+      ytdl.getInfo([youtube, twitch], ['--no-warnings'], this.callback);
     },
 
     'info returned': function (err, info) {
       'use strict';
       assert.isNull(err);
       assert.isArray(info);
-      assert.equal(info.length, 3);
-      assert.equal(info[0].id, '6586873');
-      assert.equal(info[0].title, 'OWEN - good friends, bad habits');
+      assert.equal(info.length, 2);
+
+      assert.equal(info[0].id, '90AiXO1pAiA');
+      assert.equal(info[0].format_id, '43');
+      assert.equal(info[0].title, 'lol');
       assert.isString(info[0].url);
       assert.isString(info[0].thumbnail);
       assert.equal(info[0].description,
-        'Video for the song "Good Friends, Bad Habits" from the album ' +
-        'New Leaves. Directed by Joe Wigdahl. Purchase the album here: ' +
-        'http://hobbledehoyrecords.com/store');
-      assert.equal(info[0]._filename,
-        'OWEN - good friends, bad habits-6586873.mp4');
-      assert.equal(info[0].format, 'http-240p - 480x272');
-      assert.equal(info[0]._duration_raw, 235);
-      assert.equal(info[0]._duration_hms, '00:03:55');
-      assert.equal(info[0].duration, '3:55');
-      assert.equal(info[1].id, '90AiXO1pAiA');
-      assert.equal(info[1].format_id, '43');
-      assert.equal(info[1].title, 'lol');
-      assert.isString(info[1].url);
-      assert.isString(info[1].thumbnail);
-      assert.equal(info[1].description,
         'Ridley High School\'s real American Bad ASS,A true Delco Savage. ' +
         'Filmed in 2003 before Youtube was invented. ' +
         'This is also the original I find it hilarious that there are copycat videos!');
-      assert.equal(info[1]._filename, 'lol-90AiXO1pAiA.webm');
-      assert.equal(info[1].format, '43 - 640x360 (medium)');
-      assert.equal(info[1]._duration_raw, 11);
-      assert.equal(info[1]._duration_hms, '00:00:11');
-      assert.equal(info[1].duration, '11');
-      assert.equal(info[1].width, 640);
-      assert.equal(info[1].height, 360);
+      assert.equal(info[0]._filename, 'lol-90AiXO1pAiA.webm');
+      assert.equal(info[0].format, '43 - 640x360 (medium)');
+      assert.equal(info[0]._duration_raw, 11);
+      assert.equal(info[0]._duration_hms, '00:00:11');
+      assert.equal(info[0].duration, '11');
+      assert.equal(info[0].width, 640);
+      assert.equal(info[0].height, 360);
+      assert.isArray(info[0].formats);
+      assert.equal(info[1].id, '131170216');
+      assert.equal(info[1].format_id, '1080');
+      assert.equal(info[1].title, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
+      assert.isString(info[1].url);
+      assert.isString(info[1].thumbnail);
+      assert.equal(info[1].fulltitle, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
+      assert.equal(info[1]._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-131170216.mp4');
+      assert.equal(info[1].format, '1080 - 1080p');
+      assert.equal(info[1].height, 1080);
+      assert.equal(info[1]._duration_raw, 29.75);
+      assert.equal(info[1]._duration_hms, '00:00:29.750');
+      assert.equal(info[1].duration, '29.75');
       assert.isArray(info[1].formats);
-      assert.equal(info[2].id, '131170216');
-      assert.equal(info[2].format_id, '1080');
-      assert.equal(info[2].title, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
-      assert.isString(info[2].url);
-      assert.isString(info[2].thumbnail);
-      assert.equal(info[2].fulltitle, 'Worlds 2017 Play-In: Rampage vs. 1907 Fenerbahçe Espor');
-      assert.equal(info[2]._filename, 'Worlds 2017 Play-In - Rampage vs. 1907 Fenerbahçe Espor-131170216.mp4');
-      assert.equal(info[2].format, '1080 - 1080p');
-      assert.equal(info[2].height, 1080);
-      assert.equal(info[2]._duration_raw, 29.75);
-      assert.equal(info[2]._duration_hms, '00:00:29.750');
-      assert.equal(info[2].duration, '29.75');
-      assert.isArray(info[2].formats);
     }
   }
 }).export(module);
