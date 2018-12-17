@@ -1,38 +1,73 @@
 {
-    "name": "youtube-dl",
-    "description": "youtube-dl driver for node",
-    "keywords": [
-        "youtube",
-        "video",
-        "download"
-    ],
-    "version": "1.12.2",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/przemyslawpluta/node-youtube-dl.git"
-    },
-    "author": "Roly Fentanes (https://github.com/fent)",
-    "contributors": [
-        "Przemyslaw Pluta <przemyslawplutadev@gmail.com> (http://przemyslawpluta.com)",
-        "Andrew Carlson <andrew@stem.is>"
-    ],
-    "main": "./lib/youtube-dl.js",
-    "directories": {
-        "lib": "./lib"
-    },
-    "scripts": {
-        "postinstall": "node ./scripts/download.js",
-        "update": "node ./scripts/download.js",
-        "test": "vows ./test/*.js --spec"
-    },
-    "dependencies": {
-        "hh-mm-ss": "^1.2.0",
-        "mkdirp": "^0.5.1",
-        "request": "^2.83.0",
-        "streamify": "^0.2.9"
-    },
-    "devDependencies": {
-        "vows": "*"
-    },
-    "license": "MIT"
+  "name": "youtube-dl",
+  "description": "youtube-dl driver for node",
+  "keywords": [
+    "youtube",
+    "video",
+    "download"
+  ],
+  "version": "1.12.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/przemyslawpluta/node-youtube-dl.git"
+  },
+  "files": [
+    "lib",
+    "scripts"
+  ],
+  "author": {
+    "name": "Roly Fentanes",
+    "url": "https://github.com/fent"
+  },
+  "contributors": [
+    "Roly Fentanes <roly426@gmail.com>",
+    "przemyslawpluta <przemekpluta@hotmail.com>",
+    "Jay Salvat <jay@jaysalvat.com>",
+    "Kiko Beats <josefrancisco.verdu@gmail.com>",
+    "Jaime Marquínez Ferrándiz <jaime.marquinez.ferrandiz@gmail.com>",
+    "Jay Baker <logikal@gmail.com>",
+    "Jack Li <jack.lee2980@gmail.com>",
+    "Sergey M․ <dstftw@gmail.com>",
+    "optikfluffel <optik@fluffel.io>",
+    "EragonJ <eragonj@eragonj.me>",
+    "t3rr0r <mail@t3rr0r.com>",
+    "tifroz <hhardel@gmail.com>",
+    "Jeremy Louie <jeremy@jeremylouie.com>",
+    "Calvin <calvin@sealtelecom.com.br>",
+    "walheresq <walheresq@hotmail.com>",
+    "▟ ▖▟ ▖ <dodo.the.last@gmail.com>",
+    "Davide Pastore <pasdavide@gmail.com>",
+    "Farrin Reid <blakmatrix@gmail.com>",
+    "Jason Penny <jason@jooraccess.com>",
+    "Juan C. Olivares <cristobal@cxsoftware.com>",
+    "Lopez Hugo <hugo.lpz@gmail.com>",
+    "Meral <meral.harbes@gmail.com>",
+    "Michael Nguyen <tehtotalpwnage@gmail.com>",
+    "Nicolas Gotchac <ngotchac@gmail.com>",
+    "Parikshit Hooda <phooda804@live.com>",
+    "Pietro <pietro.passarelli@gmail.com>",
+    "Sagi Nadir <saginadir@gmail.com>",
+    "btmdave <dave@bluetopmedia.com>",
+    "coderaiser <mnemonic.enemy@gmail.com>"
+  ],
+  "main": "./lib/youtube-dl.js",
+  "scripts": {
+    "postinstall": "node ./scripts/download.js",
+    "update": "node ./scripts/download.js",
+    "test": "vows ./test/*.js --spec"
+  },
+  "dependencies": {
+    "hh-mm-ss": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "request": "^2.83.0",
+    "streamify": "^0.2.9"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/przemyslawpluta/node-youtube-dl/issues"
+  },
+  "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme"
 }
