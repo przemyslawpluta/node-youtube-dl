@@ -4,13 +4,13 @@ var assert = require('assert');
 
 vows.describe('getInfo').addBatch({
     'from a youtube video': {
-        'topic': function() {
+        'topic': function () {
             'use strict';
             var video = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
             ytdl.getInfo(video, ['-f', '18/43/36'], this.callback);
         },
 
-        'info returned': function(err, info) {
+        'info returned': function (err, info) {
             'use strict';
 
             assert.isNull(err);
@@ -35,70 +35,30 @@ vows.describe('getInfo').addBatch({
         }
     },
     'from a youtube playlist': {
-        'topic': function() {
+        'topic': function () {
             'use strict';
             var pl = 'https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807';
             ytdl.getInfo(pl, this.callback);
         },
 
-        'info returned': function(err, info) {
+        'info returned': function (err, info) {
             'use strict';
             assert.isNull(err);
             assert.isArray(info);
             assert.ok(info.length);
-            info.forEach(function(videoInfo) {
+            info.forEach(function (videoInfo) {
                 assert.isString(videoInfo.url);
             });
         }
     },
-    /*'from a youtube array of videos with one missing': {
-        'topic': function() {
-            'use strict';
-            var pl = [
-                'http://www.youtube.com/watch?v=SvPZo52X5vo',
-                'http://www.youtube.com/watch?v=2xJWQPdG7jE'
-            ];
-            ytdl.getInfo(pl, this.callback);
-        },
-
-        'info returned': function(err, info) {
-            'use strict';
-            assert.isNull(err);
-            assert.isArray(info.formats);
-            assert.ok(info.formats.length);
-            info.formats.forEach(function(videoInfo) {
-                assert.isString(videoInfo.url);
-            });
-        }
-    },*/
-    // 'from a soundcloud track': {
-    //     'topic': function() {
-    //         'use strict';
-    //         var video = 'https://soundcloud.com/erasedtapes/kiasmos-bent';
-    //         ytdl.getInfo(video, this.callback);
-    //     },
-    //     'info returned': function(err, info) {
-    //         'use strict';
-    //         assert.isNull(err);
-    //         assert.isObject(info);
-    //         assert.equal(info.id, '147055755');
-    //         assert.equal(info.title, 'Kiasmos - Bent');
-    //         assert.isString(info.url);
-    //         assert.isString(info.thumbnail);
-    //         assert.isString(info.description);
-    //         assert.equal(info._filename, 'Kiasmos - Bent-147055755.mp3');
-    //         assert.equal(info.format, 'http_mp3_128_url - audio only');
-    //         assert.equal(info.duration, '5:45');
-    //     }
-    // },
     'from a vimeo video': {
-        'topic': function() {
+        'topic': function () {
             'use strict';
             var video = 'https://vimeo.com/6586873';
             ytdl.getInfo(video, ['--no-warnings'], this.callback);
         },
 
-        'info returned': function(err, info) {
+        'info returned': function (err, info) {
             'use strict';
             assert.isNull(err);
             assert.isObject(info);
@@ -120,13 +80,13 @@ vows.describe('getInfo').addBatch({
     },
 
     'from a twitch video': {
-        'topic': function() {
+        'topic': function () {
             'use strict';
             var video = 'https://clips.twitch.tv/RelentlessOptimisticPterodactylRitzMitz';
             ytdl.getInfo(video, ['--no-warnings'], this.callback);
         },
 
-        'info returned': function(err, info) {
+        'info returned': function (err, info) {
             'use strict';
             assert.isNull(err);
             assert.isObject(info);
@@ -147,7 +107,7 @@ vows.describe('getInfo').addBatch({
     },
 
     'from multiple videos': {
-        'topic': function() {
+        'topic': function () {
             'use strict';
             var vimeo = 'https://vimeo.com/6586873';
             var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA';
@@ -155,7 +115,7 @@ vows.describe('getInfo').addBatch({
             ytdl.getInfo([vimeo, youtube, twitch], ['--no-warnings'], this.callback);
         },
 
-        'info returned': function(err, info) {
+        'info returned': function (err, info) {
             'use strict';
             assert.isNull(err);
             assert.isArray(info);
