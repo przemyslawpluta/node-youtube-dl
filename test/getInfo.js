@@ -72,7 +72,7 @@ vows.describe('getInfo').addBatch({
         'http://hobbledehoyrecords.com/store');
       assert.equal(info._filename,
         'OWEN - good friends, bad habits-6586873.mp4');
-      assert.equal(info.format, 'http-360p - 480x272');
+      assert.equal(info.format, 'http-240p - 480x272');
       assert.equal(info._duration_raw, 235);
       assert.equal(info._duration_hms, '00:03:55');
       assert.equal(info.duration, '3:55');
@@ -130,7 +130,7 @@ vows.describe('getInfo').addBatch({
         'http://hobbledehoyrecords.com/store');
       assert.equal(info[0]._filename,
         'OWEN - good friends, bad habits-6586873.mp4');
-      assert.equal(info[0].format, 'http-360p - 480x272');
+      assert.equal(info[0].format, 'http-240p - 480x272');
       assert.equal(info[0]._duration_raw, 235);
       assert.equal(info[0]._duration_hms, '00:03:55');
       assert.equal(info[0].duration, '3:55');
