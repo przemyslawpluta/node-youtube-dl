@@ -1,5 +1,5 @@
 {
-  "name": "youtube-dl",
+  "name": "@microlink/youtube-dl",
   "description": "youtube-dl driver for node",
   "keywords": [
     "youtube",

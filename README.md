@@ -11,7 +11,7 @@ If you're only interested in downloading only from youtube, you should consider 
 With [npm](https://www.npmjs.com/) do:
 
 ``` sh
-npm install youtube-dl
+npm install @microlink/youtube-dl
 ```
 
 ## Usage
