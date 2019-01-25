@@ -1,61 +1,143 @@
 {
   "name": "@microlink/youtube-dl",
   "description": "youtube-dl driver for node",
-  "keywords": [
-    "youtube",
-    "video",
-    "download"
-  ],
-  "version": "1.12.2",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/przemyslawpluta/node-youtube-dl.git"
-  },
-  "files": [
-    "lib",
-    "scripts"
-  ],
+  "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
+  "version": "1.13.0",
+  "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
     "url": "https://github.com/fent"
   },
   "contributors": [
-    "Roly Fentanes <roly426@gmail.com>",
-    "przemyslawpluta <przemekpluta@hotmail.com>",
-    "Jay Salvat <jay@jaysalvat.com>",
-    "Kiko Beats <josefrancisco.verdu@gmail.com>",
-    "Jaime Marquínez Ferrándiz <jaime.marquinez.ferrandiz@gmail.com>",
-    "Jay Baker <logikal@gmail.com>",
-    "Jack Li <jack.lee2980@gmail.com>",
-    "Sergey M․ <dstftw@gmail.com>",
-    "optikfluffel <optik@fluffel.io>",
-    "EragonJ <eragonj@eragonj.me>",
-    "t3rr0r <mail@t3rr0r.com>",
-    "tifroz <hhardel@gmail.com>",
-    "Jeremy Louie <jeremy@jeremylouie.com>",
-    "Calvin <calvin@sealtelecom.com.br>",
-    "walheresq <walheresq@hotmail.com>",
-    "▟ ▖▟ ▖ <dodo.the.last@gmail.com>",
-    "Davide Pastore <pasdavide@gmail.com>",
-    "Farrin Reid <blakmatrix@gmail.com>",
-    "Jason Penny <jason@jooraccess.com>",
-    "Juan C. Olivares <cristobal@cxsoftware.com>",
-    "Lopez Hugo <hugo.lpz@gmail.com>",
-    "Meral <meral.harbes@gmail.com>",
-    "Michael Nguyen <tehtotalpwnage@gmail.com>",
-    "Nicolas Gotchac <ngotchac@gmail.com>",
-    "Parikshit Hooda <phooda804@live.com>",
-    "Pietro <pietro.passarelli@gmail.com>",
-    "Sagi Nadir <saginadir@gmail.com>",
-    "btmdave <dave@bluetopmedia.com>",
-    "coderaiser <mnemonic.enemy@gmail.com>"
+    {
+      "name": "Roly Fentanes",
+      "email": "roly426@gmail.com"
+    },
+    {
+      "name": "przemyslawpluta",
+      "email": "przemekpluta@hotmail.com"
+    },
+    {
+      "name": "Jay Salvat",
+      "email": "jay@jaysalvat.com"
+    },
+    {
+      "name": "Kiko Beats",
+      "email": "josefrancisco.verdu@gmail.com"
+    },
+    {
+      "name": "Jaime Marquínez Ferrándiz",
+      "email": "jaime.marquinez.ferrandiz@gmail.com"
+    },
+    {
+      "name": "Jay Baker",
+      "email": "logikal@gmail.com"
+    },
+    {
+      "name": "Jack Li",
+      "email": "jack.lee2980@gmail.com"
+    },
+    {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
+    },
+    {
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
+    },
+    {
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "t3rr0r",
+      "email": "mail@t3rr0r.com"
+    },
+    {
+      "name": "tifroz",
+      "email": "hhardel@gmail.com"
+    },
+    {
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
+    },
+    {
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
+    },
+    {
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
+    },
+    {
+      "name": "▟ ▖▟ ▖",
+      "email": "dodo.the.last@gmail.com"
+    },
+    {
+      "name": "Davide Pastore",
+      "email": "pasdavide@gmail.com"
+    },
+    {
+      "name": "Farrin Reid",
+      "email": "blakmatrix@gmail.com"
+    },
+    {
+      "name": "Jason Penny",
+      "email": "jason@jooraccess.com"
+    },
+    {
+      "name": "Juan C. Olivares",
+      "email": "cristobal@cxsoftware.com"
+    },
+    {
+      "name": "Lopez Hugo",
+      "email": "hugo.lpz@gmail.com"
+    },
+    {
+      "name": "Meral",
+      "email": "meral.harbes@gmail.com"
+    },
+    {
+      "name": "Michael Nguyen",
+      "email": "tehtotalpwnage@gmail.com"
+    },
+    {
+      "name": "Nicolas Gotchac",
+      "email": "ngotchac@gmail.com"
+    },
+    {
+      "name": "Parikshit Hooda",
+      "email": "phooda804@live.com"
+    },
+    {
+      "name": "Pietro",
+      "email": "pietro.passarelli@gmail.com"
+    },
+    {
+      "name": "Sagi Nadir",
+      "email": "saginadir@gmail.com"
+    },
+    {
+      "name": "btmdave",
+      "email": "dave@bluetopmedia.com"
+    },
+    {
+      "name": "coderaiser",
+      "email": "mnemonic.enemy@gmail.com"
+    }
   ],
-  "main": "./lib/youtube-dl.js",
-  "scripts": {
-    "postinstall": "node ./scripts/download.js",
-    "update": "node ./scripts/download.js",
-    "test": "vows ./test/*.js --spec"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/przemyslawpluta/node-youtube-dl.git"
   },
+  "bugs": {
+    "url": "https://github.com/przemyslawpluta/node-youtube-dl/issues"
+  },
+  "keywords": [
+    "download",
+    "video",
+    "youtube"
+  ],
   "dependencies": {
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~0.5.1",
@@ -65,9 +147,14 @@
   "devDependencies": {
     "vows": "latest"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/przemyslawpluta/node-youtube-dl/issues"
+  "files": [
+    "lib",
+    "scripts"
+  ],
+  "scripts": {
+    "postinstall": "node ./scripts/download.js",
+    "test": "vows ./test/*.js --spec",
+    "update": "node ./scripts/download.js"
   },
-  "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme"
+  "license": "MIT"
 }
