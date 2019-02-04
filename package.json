@@ -2,7 +2,7 @@
   "name": "@microlink/youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",

@@ -1,3 +1,10 @@
+<a name="1.13.1"></a>
+## 1.13.1 (2019-02-04)
+
+* Fixed typo & removed redundant line ([156bbd5](https://github.com/przemyslawpluta/node-youtube-dl/commit/156bbd5))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-01-25)
 
