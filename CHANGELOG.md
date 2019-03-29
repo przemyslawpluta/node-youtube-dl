@@ -1,3 +1,10 @@
+<a name="1.13.2"></a>
+## 1.13.2 (2019-03-29)
+
+* Send header because gets 403 if cookie is needed ([91f3f69](https://github.com/przemyslawpluta/node-youtube-dl/commit/91f3f69))
+
+
+
 <a name="1.13.1"></a>
 ## 1.13.1 (2019-02-04)
 
