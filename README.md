@@ -175,6 +175,9 @@ var options = {
   auto: false,
   // Downloads all the available subtitles.
   all: false,
+  // Subtitle format. YouTube generated subtitles
+  // are available ttml or vtt.
+  format: 'ttml',
   // Languages of subtitles to download, separated by commas.
   lang: 'en',
   // The directory to save the downloaded files in.
