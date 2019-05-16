@@ -2,7 +2,7 @@
   "name": "@microlink/youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -10,12 +10,12 @@
   },
   "contributors": [
     {
-      "name": "walheresq",
-      "email": "walheresq@hotmail.com"
+      "name": "przemyslawpluta",
+      "email": "przemekpluta@hotmail.com"
     },
     {
-      "name": "Roly Fentanes",
-      "email": "roly426@gmail.com"
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
     },
     {
       "name": "Jay Salvat",
@@ -66,8 +66,8 @@
       "email": "calvin@sealtelecom.com.br"
     },
     {
-      "name": "przemyslawpluta",
-      "email": "przemekpluta@hotmail.com"
+      "name": "Roly Fentanes",
+      "email": "roly426@gmail.com"
     },
     {
       "name": "▟ ▖▟ ▖",

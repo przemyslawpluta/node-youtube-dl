@@ -1,3 +1,12 @@
+<a name="1.13.3"></a>
+## 1.13.3 (2019-05-16)
+
+* test: update ([fd31af8](https://github.com/przemyslawpluta/node-youtube-dl/commit/fd31af8))
+* fix: fix a regression caused by previous refactorings ([dfed31a](https://github.com/przemyslawpluta/node-youtube-dl/commit/dfed31a)), closes [#230](https://github.com/przemyslawpluta/node-youtube-dl/issues/230)
+* Enable option to select subtitle formats ([4bc1caa](https://github.com/przemyslawpluta/node-youtube-dl/commit/4bc1caa))
+
+
+
 <a name="1.13.2"></a>
 ## 1.13.2 (2019-03-29)
 
