@@ -108,7 +108,7 @@ vows
         assert.equal(info.length, 2)
 
         assert.equal(info[0].id, '90AiXO1pAiA')
-        assert.equal(info[0].format_id, '18')
+        assert.equal(info[0].format_id, '43')
         assert.equal(info[0].title, 'lol')
         assert.isString(info[0].url)
         assert.isString(info[0].thumbnail)
@@ -118,10 +118,10 @@ vows
             'Filmed in 2003 before Youtube was invented. ' +
             'This is also the original I find it hilarious that there are copycat videos!'
         )
-        assert.equal(info[0]._filename, 'lol-90AiXO1pAiA.mp4')
-        assert.equal(info[0].width, 480)
+        assert.equal(info[0]._filename, 'lol-90AiXO1pAiA.webm')
+        assert.equal(info[0].width, 640)
         assert.equal(info[0].height, 360)
-        assert.equal(info[0].format, '18 - 480x360 (medium)')
+        assert.equal(info[0].format, '43 - 640x360 (medium)')
         assert.equal(info[0]._duration_raw, 11)
         assert.equal(info[0]._duration_hms, '00:00:11')
         assert.equal(info[0].duration, '11')
