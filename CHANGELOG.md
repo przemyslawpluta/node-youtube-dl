@@ -1,3 +1,11 @@
+<a name="1.13.4"></a>
+## 1.13.4 (2019-05-18)
+
+* ci: update builds ([3977c65](https://github.com/przemyslawpluta/node-youtube-dl/commit/3977c65))
+* Update youtube-dl.js ([bfc0a1d](https://github.com/przemyslawpluta/node-youtube-dl/commit/bfc0a1d))
+
+
+
 <a name="1.13.3"></a>
 ## 1.13.3 (2019-05-16)
 
