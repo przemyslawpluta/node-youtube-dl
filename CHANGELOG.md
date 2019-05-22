@@ -1,3 +1,15 @@
+<a name="1.13.5"></a>
+## 1.13.5 (2019-05-22)
+
+* Fix non-json outputs ([cfff104](https://github.com/przemyslawpluta/node-youtube-dl/commit/cfff104))
+* Fix typo in comments ([e968072](https://github.com/przemyslawpluta/node-youtube-dl/commit/e968072))
+* New has() method that replaces arr.indexOf where applicable ([5ec1f87](https://github.com/przemyslawpluta/node-youtube-dl/commit/5ec1f87))
+* Removed package-lock.json ([56cbc63](https://github.com/przemyslawpluta/node-youtube-dl/commit/56cbc63))
+* Replace typeof === "string" with util.isString globally ([e3f4a9d](https://github.com/przemyslawpluta/node-youtube-dl/commit/e3f4a9d))
+* Fix: Checking if we have args before testing them ([113ed2a](https://github.com/przemyslawpluta/node-youtube-dl/commit/113ed2a))
+
+
+
 <a name="1.13.4"></a>
 ## 1.13.4 (2019-05-18)
 
