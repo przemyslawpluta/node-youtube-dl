@@ -10,20 +10,28 @@
   },
   "contributors": [
     {
+      "name": "Roly Fentanes",
+      "email": "roly426@gmail.com"
+    },
+    {
       "name": "przemyslawpluta",
       "email": "przemekpluta@hotmail.com"
     },
     {
-      "name": "walheresq",
-      "email": "walheresq@hotmail.com"
+      "name": "Kiko Beats",
+      "email": "josefrancisco.verdu@gmail.com"
     },
     {
       "name": "Jay Salvat",
       "email": "jay@jaysalvat.com"
     },
     {
-      "name": "Kiko Beats",
-      "email": "josefrancisco.verdu@gmail.com"
+      "name": "Benjamin C",
+      "email": "benjamin@coriou.net"
+    },
+    {
+      "name": "Gregoire Guémas",
+      "email": "gregoire.guemas@navispeed.eu"
     },
     {
       "name": "Jaime Marquínez Ferrándiz",
@@ -38,36 +46,40 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
-    },
-    {
       "name": "optikfluffel",
       "email": "optik@fluffel.io"
-    },
-    {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
-    },
-    {
-      "name": "t3rr0r",
-      "email": "mail@t3rr0r.com"
-    },
-    {
-      "name": "tifroz",
-      "email": "hhardel@gmail.com"
-    },
-    {
-      "name": "Jeremy Louie",
-      "email": "jeremy@jeremylouie.com"
     },
     {
       "name": "Calvin",
       "email": "calvin@sealtelecom.com.br"
     },
     {
-      "name": "Roly Fentanes",
-      "email": "roly426@gmail.com"
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
+    },
+    {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
+    },
+    {
+      "name": "t3rr0r",
+      "email": "mail@t3rr0r.com"
+    },
+    {
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "tifroz",
+      "email": "hhardel@gmail.com"
+    },
+    {
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
+    },
+    {
+      "name": "Alireza Mirian",
+      "email": "alireza.mirian@gmail.com"
     },
     {
       "name": "▟ ▖▟ ▖",
@@ -118,6 +130,10 @@
       "email": "saginadir@gmail.com"
     },
     {
+      "name": "bartronicus",
+      "email": "matthewdavidbarton@gmail.com"
+    },
+    {
       "name": "btmdave",
       "email": "dave@bluetopmedia.com"
     },
@@ -145,6 +161,16 @@
     "streamify": "~0.2.9"
   },
   "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "finepack": "latest",
+    "git-authors-cli": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "prettier-standard": "latest",
+    "standard": "latest",
+    "standard-markdown": "latest",
+    "standard-version": "latest",
     "vows": "latest"
   },
   "files": [
@@ -153,8 +179,36 @@
   ],
   "scripts": {
     "postinstall": "node ./scripts/download.js",
+    "release": "bumped release",
     "test": "vows ./test/*.js --spec",
     "update": "node ./scripts/download.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "package.json": [
+        "finepack",
+        "git add"
+      ],
+      "*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "*.md": [
+        "standard-markdown",
+        "git add"
+      ]
+    }
+  }
 }
