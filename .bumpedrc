@@ -9,7 +9,7 @@ plugins:
       plugin: bumped-changelog
     Committing new version:
       plugin: bumped-terminal
-      command: 'git add CHANGELOG.md package.json && git commit -m "Release $newVersion"'
+      command: 'npx git-authors-cli && npx finepack && git add CHANGELOG.md package.json && git commit -m "Release $newVersion"'
     Detecting problems before publish:
       plugin: bumped-terminal
       command: 'git-dirty'

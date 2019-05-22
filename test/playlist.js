@@ -52,7 +52,7 @@ vows
         if (err) {
           throw err
         }
-        assert.equal(data.length, 2)
+        assert.strictEqual(data.length, 2)
         assert.isArray(data)
         assert.isObject(data[0])
         assert.isObject(data[1])
@@ -62,13 +62,13 @@ vows
         if (err) {
           throw err
         }
-        assert.equal(data[0].progress, 1)
-        assert.equal(
+        assert.strictEqual(data[0].progress, 1)
+        assert.strictEqual(
           data[0].data._filename,
           'Amy Castle - The Original Cuppycake Video-12Z6pWhM6TA.webm'
         )
-        assert.equal(data[1].progress, 1)
-        assert.equal(
+        assert.strictEqual(data[1].progress, 1)
+        assert.strictEqual(
           data[1].data._filename,
           'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.webm'
         )
@@ -101,11 +101,14 @@ vows
           throw err
         }
 
-        assert.equal(
+        assert.strictEqual(
           files[0],
           'Amy Castle - The Original Cuppycake Video-12Z6pWhM6TA.jpg'
         )
-        assert.equal(files[1], 'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.jpg')
+        assert.strictEqual(
+          files[1],
+          'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.jpg'
+        )
       },
 
       'thumbnails were downloaded': function (err, files) {
