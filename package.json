@@ -178,6 +178,7 @@
     "scripts"
   ],
   "scripts": {
+    "lint": "standard-markdown README.md && standard",
     "postinstall": "node ./scripts/download.js",
     "release": "bumped release",
     "test": "vows ./test/*.js --spec",
