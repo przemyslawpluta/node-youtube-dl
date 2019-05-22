@@ -149,6 +149,40 @@ vows
         assert.equal(info[1].duration, '29.75')
         assert.isArray(info[1].formats)
       }
+    },
+
+    'with get url only flag': {
+      topic: function () {
+        'use strict'
+        var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
+        ytdl.getInfo(youtube, ["-g"], this.callback)
+      },
+
+      'info returned': function (err, info) {
+        'use strict'
+        
+       assert.isNull(err)
+        assert.isObject(info)
+        assert.equal(info.id, '90AiXO1pAiA')
+        assert.equal(info.format_id, '43')
+        assert.equal(info.title, 'lol')
+        assert.isString(info.url)
+        assert.isString(info.thumbnail)
+        assert.equal(
+          info.description,
+          "Ridley High School's real American Bad ASS,A true Delco Savage. " +
+            'Filmed in 2003 before Youtube was invented. ' +
+            'This is also the original I find it hilarious that there are copycat videos!'
+        )
+        assert.equal(info._filename, 'lol-90AiXO1pAiA.webm')
+        assert.equal(info.format, '43 - 640x360 (medium)')
+        assert.equal(info._duration_raw, 11)
+        assert.equal(info._duration_hms, '00:00:11')
+        assert.equal(info.duration, '11')
+        assert.equal(info.width, 640)
+        assert.equal(info.height, 360)
+        assert.isArray(info.formats)
+      }
     }
   })
   .export(module)
