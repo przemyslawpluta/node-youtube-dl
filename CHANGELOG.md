@@ -1,3 +1,16 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2019-05-22)
+
+* build: be possible setup downloader for windows ([8111957](https://github.com/przemyslawpluta/node-youtube-dl/commit/8111957))
+* build: improve workflow ([5ce37dd](https://github.com/przemyslawpluta/node-youtube-dl/commit/5ce37dd))
+* build: improve workflow ([9ff909e](https://github.com/przemyslawpluta/node-youtube-dl/commit/9ff909e))
+* build: setup node version ([41f0a80](https://github.com/przemyslawpluta/node-youtube-dl/commit/41f0a80))
+* build: setup properly release message ([8f7a11b](https://github.com/przemyslawpluta/node-youtube-dl/commit/8f7a11b))
+* build: take end on consideration ([66e1324](https://github.com/przemyslawpluta/node-youtube-dl/commit/66e1324))
+* refactor: remove dead code ([1a74f06](https://github.com/przemyslawpluta/node-youtube-dl/commit/1a74f06))
+
+
+
 <a name="1.13.5"></a>
 ## 1.13.5 (2019-05-22)
 
