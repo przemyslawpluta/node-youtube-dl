@@ -173,6 +173,9 @@
     "standard-version": "latest",
     "vows": "latest"
   },
+  "engines": {
+    "node": ">= 8"
+  },
   "files": [
     "lib",
     "scripts"
