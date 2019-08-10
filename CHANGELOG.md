@@ -1,3 +1,14 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2019-08-10)
+
+* build: migrate lint-staged ([eb0531a](https://github.com/przemyslawpluta/node-youtube-dl/commit/eb0531a))
+* build: use youtube-dl ([aded2ce](https://github.com/przemyslawpluta/node-youtube-dl/commit/aded2ce))
+* refactor: tweaks ([5e2cc08](https://github.com/przemyslawpluta/node-youtube-dl/commit/5e2cc08))
+* fix: extract into a module ([1125b0e](https://github.com/przemyslawpluta/node-youtube-dl/commit/1125b0e))
+* test: ensure format is mp4 ([9e44925](https://github.com/przemyslawpluta/node-youtube-dl/commit/9e44925))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2019-05-22)
 
