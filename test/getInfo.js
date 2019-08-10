@@ -9,7 +9,7 @@ vows
       topic: function () {
         'use strict'
         var video = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
-        ytdl.getInfo(video, ['-f', '18/43/36'], this.callback)
+        ytdl.getInfo(video, ['--format=mp4'], this.callback)
       },
 
       'info returned': function (err, info) {
@@ -98,7 +98,11 @@ vows
         var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
         var twitch =
           'https://clips.twitch.tv/RelentlessOptimisticPterodactylRitzMitz'
-        ytdl.getInfo([youtube, twitch], ['--no-warnings'], this.callback)
+        ytdl.getInfo(
+          [youtube, twitch],
+          ['--no-warnings', '--format=mp4'],
+          this.callback
+        )
       },
 
       'info returned': function (err, info) {
@@ -108,7 +112,7 @@ vows
         assert.strictEqual(info.length, 2)
 
         assert.strictEqual(info[0].id, '90AiXO1pAiA')
-        assert.strictEqual(info[0].format_id, '43')
+        assert.strictEqual(info[0].format_id, '18')
         assert.strictEqual(info[0].title, 'lol')
         assert.isString(info[0].url)
         assert.isString(info[0].thumbnail)
@@ -118,10 +122,10 @@ vows
             'Filmed in 2003 before Youtube was invented. ' +
             'This is also the original I find it hilarious that there are copycat videos!'
         )
-        assert.strictEqual(info[0]._filename, 'lol-90AiXO1pAiA.webm')
-        assert.strictEqual(info[0].width, 640)
+        assert.strictEqual(info[0]._filename, 'lol-90AiXO1pAiA.mp4')
+        assert.strictEqual(info[0].width, 480)
         assert.strictEqual(info[0].height, 360)
-        assert.strictEqual(info[0].format, '43 - 640x360 (medium)')
+        assert.strictEqual(info[0].format, '18 - 480x360 (medium)')
         assert.strictEqual(info[0]._duration_raw, 11)
         assert.strictEqual(info[0]._duration_hms, '00:00:11')
         assert.strictEqual(info[0].duration, '11')
@@ -155,7 +159,7 @@ vows
       topic: function () {
         'use strict'
         var youtube = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
-        ytdl.getInfo(youtube, ['-g'], this.callback)
+        ytdl.getInfo(youtube, ['-g', '--format=mp4'], this.callback)
       },
 
       'info returned': function (err, info) {
@@ -164,7 +168,7 @@ vows
         assert.isNull(err)
         assert.isObject(info)
         assert.strictEqual(info.id, '90AiXO1pAiA')
-        assert.strictEqual(info.format_id, '43')
+        assert.strictEqual(info.format_id, '18')
         assert.strictEqual(info.title, 'lol')
         assert.isString(info.url)
         assert.isString(info.thumbnail)
@@ -174,12 +178,12 @@ vows
             'Filmed in 2003 before Youtube was invented. ' +
             'This is also the original I find it hilarious that there are copycat videos!'
         )
-        assert.strictEqual(info._filename, 'lol-90AiXO1pAiA.webm')
-        assert.strictEqual(info.format, '43 - 640x360 (medium)')
+        assert.strictEqual(info._filename, 'lol-90AiXO1pAiA.mp4')
+        assert.strictEqual(info.format, '18 - 480x360 (medium)')
         assert.strictEqual(info._duration_raw, 11)
         assert.strictEqual(info._duration_hms, '00:00:11')
         assert.strictEqual(info.duration, '11')
-        assert.strictEqual(info.width, 640)
+        assert.strictEqual(info.width, 480)
         assert.strictEqual(info.height, 360)
         assert.isArray(info.formats)
       }

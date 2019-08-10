@@ -1,5 +1,5 @@
 {
-  "name": "@microlink/youtube-dl",
+  "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
   "version": "2.0.0",
