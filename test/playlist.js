@@ -70,7 +70,7 @@ vows
         assert.strictEqual(data[1].progress, 1)
         assert.strictEqual(
           data[1].data._filename,
-          'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.webm'
+          'LA REGAÑADA DEL MILENIO.wmv-SITuxqDUjPI.mp4'
         )
 
         function fileExists (data) {
