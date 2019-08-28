@@ -276,6 +276,25 @@ Found 521 extractors
 3sat
 ```
 
+### Getting the binary path
+
+``` js
+var youtubedl = require('youtube-dl');
+
+console.log(youtubedl.getYtdlBinary());
+```
+
+### Changing the binary path
+
+```js
+var path = require('path');
+var ytdl = require('youtube-dl');
+
+var customBinaryPath = path.resolve('custom/path/to-binary');
+
+ytdl.setYtdlBinary(customBinaryPath);
+```
+
 ### Call the `youtube-dl` binary directly
 
 This module doesn't have `youtube-dl` download the video. Instead, it uses the `url` key from the `--dump-json` CLI option to create a node stream. That way, it can be used like any other node stream.
