@@ -19,22 +19,23 @@ npm install youtube-dl
 ### Downloading videos
 
 ``` js
-var fs = require('fs');
-var youtubedl = require('youtube-dl');
-var video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
+const fs = require('fs')
+const youtubedl = require('youtube-dl')
+
+const video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
   // Optional arguments passed to youtube-dl.
   ['--format=18'],
   // Additional options can be given for calling `child_process.execFile()`.
-  { cwd: __dirname });
+  { cwd: __dirname })
 
 // Will be called when the download starts.
 video.on('info', function(info) {
-  console.log('Download started');
-  console.log('filename: ' + info._filename);
-  console.log('size: ' + info.size);
-});
+  console.log('Download started')
+  console.log('filename: ' + info._filename)
+  console.log('size: ' + info.size)
+})
 
-video.pipe(fs.createWriteStream('myvideo.mp4'));
+video.pipe(fs.createWriteStream('myvideo.mp4'))
 ```
 
 It will produce an output that looks like the following when ran.
@@ -48,52 +49,53 @@ saving to T-ara - Number Nine - MV - 티아라-Seku9G1kT0c.mp4
 ### Resuming partially downloaded videos
 
 ``` js
-var youtubedl = require('./');
-var fs = require('fs');
-var output = 'myvideo.mp4';
+const youtubedl = require('youtube-dl')
+const fs = require('fs')
+const output = 'myvideo.mp4'
 
-var downloaded = 0;
+let downloaded = 0
+
 if (fs.existsSync(output)) {
-  downloaded = fs.statSync(output).size;
+  downloaded = fs.statSync(output).size
 }
 
-var video = youtubedl('https://www.youtube.com/watch?v=179MiZSibco',
+const video = youtubedl('https://www.youtube.com/watch?v=179MiZSibco',
 
   // Optional arguments passed to youtube-dl.
   ['--format=18'],
 
   // start will be sent as a range header
-  { start: downloaded, cwd: __dirname });
+  { start: downloaded, cwd: __dirname })
 
 // Will be called when the download starts.
 video.on('info', function(info) {
-  console.log('Download started');
-  console.log('filename: ' + info._filename);
+  console.log('Download started')
+  console.log('filename: ' + info._filename)
 
   // info.size will be the amount to download, add
-  var total = info.size + downloaded;
-  console.log('size: ' + total);
+  let total = info.size + downloaded
+  console.log('size: ' + total)
 
   if (downloaded > 0) {
     // size will be the amount already downloaded
-    console.log('resuming from: ' + downloaded);
+    console.log('resuming from: ' + downloaded)
 
     // display the remaining bytes to download
-    console.log('remaining bytes: ' + info.size);
+    console.log('remaining bytes: ' + info.size)
   }
-});
+})
 
-video.pipe(fs.createWriteStream('myvideo.mp4', { flags: 'a' }));
+video.pipe(fs.createWriteStream(output, { flags: 'a' }))
 
 // Will be called if download was already completed and there is nothing more to download.
 video.on('complete', function complete(info) {
-  'use strict';
-  console.log('filename: ' + info._filename + ' already downloaded.');
-});
+  'use strict'
+  console.log('filename: ' + info._filename + ' already downloaded.')
+})
 
 video.on('end', function() {
-  console.log('finished downloading!');
-});
+  console.log('finished downloading!')
+})
 ```
 
 It will produce an output that looks like the following when ran.
@@ -121,21 +123,23 @@ finished downloading
 ### Getting video information
 
 ``` js
-var youtubedl = require('youtube-dl');
-var url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
-// Optional arguments passed to youtube-dl.
-var options = ['--username=user', '--password=hunter2'];
-youtubedl.getInfo(url, options, function(err, info) {
-  if (err) throw err;
+const youtubedl = require('youtube-dl')
 
-  console.log('id:', info.id);
-  console.log('title:', info.title);
-  console.log('url:', info.url);
-  console.log('thumbnail:', info.thumbnail);
-  console.log('description:', info.description);
-  console.log('filename:', info._filename);
-  console.log('format id:', info.format_id);
-});
+const url = 'http://www.youtube.com/watch?v=WKsjaOqDXgg'
+// Optional arguments passed to youtube-dl.
+const options = ['--username=user', '--password=hunter2']
+
+youtubedl.getInfo(url, options, function(err, info) {
+  if (err) throw err
+
+  console.log('id:', info.id)
+  console.log('title:', info.title)
+  console.log('url:', info.url)
+  console.log('thumbnail:', info.thumbnail)
+  console.log('description:', info.description)
+  console.log('filename:', info._filename)
+  console.log('format id:', info.format_id)
+})
 ```
 
 Running that will produce something like
@@ -153,24 +157,26 @@ format id: 34
 You can use an array of urls to produce an array of response objects with matching array index (e.g. the 1st response object will match the first url etc...)
 
 ``` js
-var youtubedl = require('youtube-dl');
-var url1 = 'http://www.youtube.com/watch?v=WKsjaOqDXgg';
-var url2 = 'https://vimeo.com/6586873';
-youtubedl.getInfo([url1, url2], function(err, info) {
-  if (err) throw err;
+const youtubedl = require('youtube-dl')
 
-  console.log('title for the url1:', info[0].title);
-  console.log('title for the url2:', info[1].title);
-});
+const url1 = 'http://www.youtube.com/watch?v=WKsjaOqDXgg'
+const url2 = 'https://vimeo.com/6586873'
+
+youtubedl.getInfo([url1, url2], function(err, info) {
+  if (err) throw err
+
+  console.log('title for the url1:', info[0].title)
+  console.log('title for the url2:', info[1].title)
+})
 ```
 
 ### Downloading subtitles
 
 ``` js
-var youtubedl = require('youtube-dl');
-var url = 'https://youtu.be/PizwcirYuGY';
+const youtubedl = require('youtube-dl')
+const url = 'https://youtu.be/PizwcirYuGY'
 
-var options = {
+const options = {
   // Write automatic subtitle file (youtube only)
   auto: false,
   // Downloads all the available subtitles.
@@ -182,30 +188,33 @@ var options = {
   lang: 'en',
   // The directory to save the downloaded files in.
   cwd: __dirname,
-};
-youtubedl.getSubs(url, options, function(err, files) {
-  if (err) throw err;
+}
 
-  console.log('subtitle files downloaded:', files);
-});
+youtubedl.getSubs(url, options, function(err, files) {
+  if (err) throw err
+
+  console.log('subtitle files downloaded:', files)
+})
 ```
 
 ### Downloading thumbnails
 
 ``` js
-var youtubedl = require('youtube-dl');
-var url = 'https://youtu.be/PizwcirYuGY';
+const youtubedl = require('youtube-dl')
+const url = 'https://youtu.be/PizwcirYuGY'
 
-var options = {
+const options = {
   // Downloads available thumbnail.
   all: false,
   // The directory to save the downloaded files in.
   cwd: __dirname,
-};
+}
+
 youtubedl.getThumbs(url, options, function(err, files) {
-  if (err) throw err;
-  console.log('thumbnail file downloaded:', files);
-});
+  if (err) throw err
+
+  console.log('thumbnail file downloaded:', files)
+})
 ```
 
 For more usage info on youtube-dl and the arguments you can pass to it, do `youtube-dl -h` or go to the [youtube-dl documentation][].
@@ -214,56 +223,57 @@ For more usage info on youtube-dl and the arguments you can pass to it, do `yout
 
 ``` js
 
-var path = require('path');
-var fs   = require('fs');
-var ytdl = require('youtube-dl');
+const path = require('path')
+const fs   = require('fs')
+const youtubedl = require('youtube-dl')
 
 function playlist(url) {
 
-  'use strict';
-  var video = ytdl(url);
+  'use strict'
+  const video = youtubedl(url)
 
   video.on('error', function error(err) {
-    console.log('error 2:', err);
-  });
+    console.log('error 2:', err)
+  })
 
-  var size = 0;
+  let size = 0
   video.on('info', function(info) {
-    size = info.size;
-    var output = path.join(__dirname + '/', size + '.mp4');
-    video.pipe(fs.createWriteStream(output));
-  });
+    size = info.size
+    let output = path.join(__dirname + '/', size + '.mp4')
+    video.pipe(fs.createWriteStream(output))
+  })
 
-  var pos = 0;
+  let pos = 0
   video.on('data', function data(chunk) {
-    pos += chunk.length;
+    pos += chunk.length
     // `size` should not be 0 here.
     if (size) {
-      var percent = (pos / size * 100).toFixed(2);
-      process.stdout.cursorTo(0);
-      process.stdout.clearLine(1);
-      process.stdout.write(percent + '%');
+      let percent = (pos / size * 100).toFixed(2)
+      process.stdout.cursorTo(0)
+      process.stdout.clearLine(1)
+      process.stdout.write(percent + '%')
     }
-  });
+  })
 
-  video.on('next', playlist);
-
+  video.on('next', playlist)
 }
 
-playlist('https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807');
+playlist('https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807')
 
 ```
 
 ### Getting the list of extractors
 
 ``` js
-var youtubedl = require('youtube-dl');
+const youtubedl = require('youtube-dl')
+
 youtubedl.getExtractors(true, function(err, list) {
-  console.log('Found ' + list.length + ' extractors');
-  for (var i = 0; i < list.length; i++) {
-    console.log(list[i]);
+  console.log('Found ' + list.length + ' extractors')
+
+  for (let i = 0 i < list.length i++) {
+    console.log(list[i])
   }
-});
+})
 ```
 
 Will print something like
@@ -276,31 +286,54 @@ Found 521 extractors
 3sat
 ```
 
+### Getting the binary path
+
+``` js
+const youtubedl = require('youtube-dl')
+
+console.log(youtubedl.getYtdlBinary())
+```
+
+### Changing the binary path
+
+```js
+const path = require('path')
+const youtubedl = require('youtube-dl')
+
+const customBinaryPath = path.resolve('custom/path/to-binary')
+
+youtubedl.setYtdlBinary(customBinaryPath)
+```
+
 ### Call the `youtube-dl` binary directly
 
 This module doesn't have `youtube-dl` download the video. Instead, it uses the `url` key from the `--dump-json` CLI option to create a node stream. That way, it can be used like any other node stream.
 
-If that, or none of the above support your use case, you can use `ytdl.exec()` to call `youtube-dl` however you like.
+If that, or none of the above support your use case, you can use `youtubedl.exec()` to call `youtube-dl` however you like.
 
 ``` js
-ytdl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
-  if (err) throw err;
-  console.log(output.join('\n'));
-});
+const youtubedl = require('youtube-dl')
+
+youtubedl.exec(url, ['-x', '--audio-format', 'mp3'], {}, function(err, output) {
+  if (err) throw err
+
+  console.log(output.join('\n'))
+})
 ```
 
 ### Update
 
-Since the youtube-dl binary is updated regularly, you can run `npm run update` to check for and download any updates for it. You can also require `../lib/downloader` in your app if you'd like to place `youtube-dl` binary in a specific directory and control when it gets updates.
+Since the youtube-dl binary is updated regularly, you can run `npm run update` to check for and download any updates for it. You can also require `youtube-dl/lib/downloader` in your app if you'd like to place `youtube-dl` binary in a specific directory and control when it gets updates.
 
 ``` js
-var downloader = require('../lib/downloader');
+const downloader = require('youtube-dl/lib/downloader')
 
 downloader('path/to-binary', function error(err, done) {
-  'use strict';
-  if (err) { return console.log(err.stack); }
-  console.log(done);
-});
+  'use strict'
+  if (err) throw err
+
+  console.log(done)
+})
 ```
 
 ### Tests
