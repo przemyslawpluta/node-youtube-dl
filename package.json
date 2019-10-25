@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -10,12 +10,12 @@
   },
   "contributors": [
     {
-      "name": "Roly Fentanes",
-      "email": "roly426@gmail.com"
-    },
-    {
       "name": "przemyslawpluta",
       "email": "przemekpluta@hotmail.com"
+    },
+    {
+      "name": "Alireza Mirian",
+      "email": "alireza.mirian@gmail.com"
     },
     {
       "name": "Kiko Beats",
@@ -30,12 +30,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Gregoire Guémas",
-      "email": "gregoire.guemas@navispeed.eu"
-    },
-    {
       "name": "Jaime Marquínez Ferrándiz",
       "email": "jaime.marquinez.ferrandiz@gmail.com"
+    },
+    {
+      "name": "Gregoire Guémas",
+      "email": "gregoire.guemas@navispeed.eu"
     },
     {
       "name": "Jay Baker",
@@ -46,12 +46,12 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "optikfluffel",
-      "email": "optik@fluffel.io"
+      "name": "t3rr0r",
+      "email": "mail@t3rr0r.com"
     },
     {
-      "name": "Calvin",
-      "email": "calvin@sealtelecom.com.br"
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
     },
     {
       "name": "Jeremy Louie",
@@ -62,28 +62,32 @@
       "email": "dstftw@gmail.com"
     },
     {
-      "name": "t3rr0r",
-      "email": "mail@t3rr0r.com"
-    },
-    {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
     },
     {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
     },
     {
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
+    },
+    {
       "name": "walheresq",
       "email": "walheresq@hotmail.com"
     },
     {
-      "name": "Alireza Mirian",
-      "email": "alireza.mirian@gmail.com"
+      "name": "Roly Fentanes",
+      "email": "roly426@gmail.com"
     },
     {
       "name": "▟ ▖▟ ▖",
       "email": "dodo.the.last@gmail.com"
+    },
+    {
+      "name": "AndriiHryhorovskyi",
+      "email": "private_ukr_pochta@ukr.net"
     },
     {
       "name": "Davide Pastore",

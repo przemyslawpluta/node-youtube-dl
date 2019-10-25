@@ -1,3 +1,12 @@
+<a name="2.0.2"></a>
+## 2.0.2 (2019-10-25)
+
+* fix: add access to ChildProcess from outside ([0c10ce5](https://github.com/przemyslawpluta/node-youtube-dl/commit/0c10ce5))
+* docs: Add undocumented getYtdlBinary & setYtdlBinary functions ([3e91ebf](https://github.com/przemyslawpluta/node-youtube-dl/commit/3e91ebf))
+* docs: normalize youtubedl require statements and remove semicolons ([28373a0](https://github.com/przemyslawpluta/node-youtube-dl/commit/28373a0))
+
+
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2019-08-10)
 
