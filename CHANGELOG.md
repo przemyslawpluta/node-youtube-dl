@@ -1,3 +1,14 @@
+<a name="2.1.0"></a>
+# 2.1.0 (2019-10-29)
+
+* build: add execa dependency ([ffddb6f](https://github.com/przemyslawpluta/node-youtube-dl/commit/ffddb6f))
+* build: update contributors ([00dcf5e](https://github.com/przemyslawpluta/node-youtube-dl/commit/00dcf5e))
+* fix: avoid destructure under error ([8fb0e20](https://github.com/przemyslawpluta/node-youtube-dl/commit/8fb0e20))
+* Add a timeout to close connection if its idle. ([51963bd](https://github.com/przemyslawpluta/node-youtube-dl/commit/51963bd))
+* Update youtube-dl.js ([9195b44](https://github.com/przemyslawpluta/node-youtube-dl/commit/9195b44))
+
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2019-10-25)
 
