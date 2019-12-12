@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -14,8 +14,8 @@
       "email": "przemekpluta@hotmail.com"
     },
     {
-      "name": "Alireza Mirian",
-      "email": "alireza.mirian@gmail.com"
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
     },
     {
       "name": "Kiko Beats",
@@ -30,12 +30,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Jaime Marquínez Ferrándiz",
-      "email": "jaime.marquinez.ferrandiz@gmail.com"
-    },
-    {
       "name": "Gregoire Guémas",
       "email": "gregoire.guemas@navispeed.eu"
+    },
+    {
+      "name": "Jaime Marquínez Ferrándiz",
+      "email": "jaime.marquinez.ferrandiz@gmail.com"
     },
     {
       "name": "Jay Baker",
@@ -46,40 +46,44 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "t3rr0r",
-      "email": "mail@t3rr0r.com"
-    },
-    {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
-    },
-    {
       "name": "Jeremy Louie",
       "email": "jeremy@jeremylouie.com"
-    },
-    {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
-    },
-    {
-      "name": "optikfluffel",
-      "email": "optik@fluffel.io"
     },
     {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
     },
     {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
+    },
+    {
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
+    },
+    {
+      "name": "t3rr0r",
+      "email": "mail@t3rr0r.com"
+    },
+    {
       "name": "Calvin",
       "email": "calvin@sealtelecom.com.br"
     },
     {
-      "name": "walheresq",
-      "email": "walheresq@hotmail.com"
+      "name": "coderaiser",
+      "email": "mnemonic.enemy@gmail.com"
     },
     {
       "name": "Roly Fentanes",
       "email": "roly426@gmail.com"
+    },
+    {
+      "name": "Alireza Mirian",
+      "email": "alireza.mirian@gmail.com"
     },
     {
       "name": "▟ ▖▟ ▖",
@@ -122,6 +126,10 @@
       "email": "ngotchac@gmail.com"
     },
     {
+      "name": "Panayiotis",
+      "email": "panayiotis.eracleous@gmail.com"
+    },
+    {
       "name": "Parikshit Hooda",
       "email": "phooda804@live.com"
     },
@@ -140,10 +148,6 @@
     {
       "name": "btmdave",
       "email": "dave@bluetopmedia.com"
-    },
-    {
-      "name": "coderaiser",
-      "email": "mnemonic.enemy@gmail.com"
     }
   ],
   "repository": {
