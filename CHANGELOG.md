@@ -1,3 +1,11 @@
+## 2.2.0 (2019-12-12)
+
+* Update downloader.js ([952826a](https://github.com/przemyslawpluta/node-youtube-dl/commit/952826a))
+* Update README.md ([341882f](https://github.com/przemyslawpluta/node-youtube-dl/commit/341882f))
+* fix: access to download binary from mirror sites ([7751e65](https://github.com/przemyslawpluta/node-youtube-dl/commit/7751e65))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-10-29)
 
