@@ -1,3 +1,12 @@
+## 2.3.0 (2019-12-15)
+
+* Update get-binary.js ([b98425a](https://github.com/przemyslawpluta/node-youtube-dl/commit/b98425a))
+* refactor: log warning instead of an error if the binary is not found ([1ecca38](https://github.com/przemyslawpluta/node-youtube-dl/commit/1ecca38))
+* refactor: only log missing binary error if debug is enabled ([3535e36](https://github.com/przemyslawpluta/node-youtube-dl/commit/3535e36))
+* fix: log error if the youtube-dl binary does not exist ([1898e8c](https://github.com/przemyslawpluta/node-youtube-dl/commit/1898e8c))
+
+
+
 ## 2.2.0 (2019-12-12)
 
 * Update downloader.js ([952826a](https://github.com/przemyslawpluta/node-youtube-dl/commit/952826a))

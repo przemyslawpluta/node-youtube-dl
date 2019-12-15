@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -30,12 +30,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Gregoire Guémas",
-      "email": "gregoire.guemas@navispeed.eu"
-    },
-    {
       "name": "Jaime Marquínez Ferrándiz",
       "email": "jaime.marquinez.ferrandiz@gmail.com"
+    },
+    {
+      "name": "Gregoire Guémas",
+      "email": "gregoire.guemas@navispeed.eu"
     },
     {
       "name": "Jay Baker",
@@ -44,10 +44,6 @@
     {
       "name": "Jack Li",
       "email": "jack.lee2980@gmail.com"
-    },
-    {
-      "name": "tifroz",
-      "email": "hhardel@gmail.com"
     },
     {
       "name": "Calvin",
@@ -72,6 +68,14 @@
     {
       "name": "t3rr0r",
       "email": "mail@t3rr0r.com"
+    },
+    {
+      "name": "tifroz",
+      "email": "hhardel@gmail.com"
+    },
+    {
+      "name": "btmdave",
+      "email": "dave@bluetopmedia.com"
     },
     {
       "name": "coderaiser",
@@ -148,10 +152,6 @@
     {
       "name": "bartronicus",
       "email": "matthewdavidbarton@gmail.com"
-    },
-    {
-      "name": "btmdave",
-      "email": "dave@bluetopmedia.com"
     }
   ],
   "repository": {
