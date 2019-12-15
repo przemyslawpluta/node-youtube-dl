@@ -167,6 +167,7 @@
     "youtube"
   ],
   "dependencies": {
+    "debug": "~4.1.1",
     "execa": "~3.2.0",
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~0.5.1",
