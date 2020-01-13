@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -30,12 +30,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Jaime Marquínez Ferrándiz",
-      "email": "jaime.marquinez.ferrandiz@gmail.com"
-    },
-    {
       "name": "Gregoire Guémas",
       "email": "gregoire.guemas@navispeed.eu"
+    },
+    {
+      "name": "Jaime Marquínez Ferrándiz",
+      "email": "jaime.marquinez.ferrandiz@gmail.com"
     },
     {
       "name": "Jay Baker",
@@ -46,12 +46,16 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
+      "name": "Frederic Germain",
+      "email": "frederic.germain@gmail.com"
+    },
+    {
       "name": "Calvin",
       "email": "calvin@sealtelecom.com.br"
     },
     {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
     },
     {
       "name": "Jeremy Louie",
@@ -62,8 +66,8 @@
       "email": "dstftw@gmail.com"
     },
     {
-      "name": "optikfluffel",
-      "email": "optik@fluffel.io"
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
     },
     {
       "name": "t3rr0r",
@@ -72,10 +76,6 @@
     {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
-    },
-    {
-      "name": "btmdave",
-      "email": "dave@bluetopmedia.com"
     },
     {
       "name": "coderaiser",
@@ -152,6 +152,10 @@
     {
       "name": "bartronicus",
       "email": "matthewdavidbarton@gmail.com"
+    },
+    {
+      "name": "btmdave",
+      "email": "dave@bluetopmedia.com"
     }
   ],
   "repository": {

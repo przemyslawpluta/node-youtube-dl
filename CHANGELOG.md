@@ -1,3 +1,12 @@
+## 3.0.0 (2020-01-13)
+
+* ci: drop node8 support ([333fb7a](https://github.com/przemyslawpluta/node-youtube-dl/commit/333fb7a))
+* always add range header on data request ([4bd8904](https://github.com/przemyslawpluta/node-youtube-dl/commit/4bd8904))
+* test: adding download large audio ([871382f](https://github.com/przemyslawpluta/node-youtube-dl/commit/871382f))
+* test: fix failure due to latest server data ([4f5e44b](https://github.com/przemyslawpluta/node-youtube-dl/commit/4f5e44b))
+
+
+
 ## 2.3.0 (2019-12-15)
 
 * Update get-binary.js ([b98425a](https://github.com/przemyslawpluta/node-youtube-dl/commit/b98425a))
