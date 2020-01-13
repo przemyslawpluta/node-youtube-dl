@@ -65,7 +65,7 @@ vows
         assert.strictEqual(data[0].progress, 1)
         assert.strictEqual(
           data[0].data._filename,
-          'Amy Castle - The Original Cuppycake Video-12Z6pWhM6TA.webm'
+          'Amy Castle - The Original Cuppycake Video-12Z6pWhM6TA.mp4'
         )
         assert.strictEqual(data[1].progress, 1)
         assert.strictEqual(

@@ -7,13 +7,14 @@ var video1 = 'http://www.youtube.com/watch?v=90AiXO1pAiA'
 var video2 = 'https://www.youtube.com/watch?v=179MiZSibco'
 var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg'
 var video4 = 'https://www.youtube.com/watch?v=yy7EUIR0fic'
+var video5 = 'https://www.youtube.com/watch?v=LDDy4m_TiVk'
 var subtitleFile = '1 1 1-179MiZSibco.en.vtt'
 var thumbnailFile = 'Too Many Twists (Heist Night 5_5)-yy7EUIR0fic.jpg'
 
 vows
   .describe('download')
   .addBatch({
-    'a video with format specified': {
+    'a video with video format specified': {
       topic: function () {
         'use strict'
         var dl = ytdl(video1, ['-f', '18'])
@@ -49,7 +50,65 @@ vows
         assert.isObject(data)
         assert.strictEqual(data.id, '90AiXO1pAiA')
         assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename))
-        assert.strictEqual(data.size, 755906)
+      },
+
+      'file was downloaded': function (err, progress, data) {
+        'use strict'
+        if (err) {
+          throw err
+        }
+
+        // Check existance.
+        var filepath = path.join(__dirname, data._filename)
+        var exists = fs.existsSync(filepath)
+        if (exists) {
+          // Delete file after each test.
+          fs.unlinkSync(filepath)
+        } else {
+          assert.isTrue(exists)
+        }
+      }
+    },
+    'a video with audio format specified': {
+      topic: function () {
+        'use strict'
+        var dl = ytdl(video5, ['-f', '251'])
+        var cb = this.callback
+
+        dl.on('error', cb)
+
+        dl.on('info', function (info) {
+          var pos = 0
+          var progress
+
+          dl.on('data', function (data) {
+            pos += data.length
+            progress = pos / info.size
+          })
+
+          dl.on('end', function () {
+            cb(null, progress, info)
+          })
+
+          var filepath = path.join(__dirname, info._filename)
+          dl.pipe(fs.createWriteStream(filepath))
+        })
+      },
+
+      'data returned': function (err, progress, data) {
+        'use strict'
+        if (err) {
+          throw err
+        }
+
+        assert.strictEqual(progress, 1)
+        assert.isObject(data)
+        assert.strictEqual(data.id, 'LDDy4m_TiVk')
+        assert.isTrue(
+          /Snelle - Smoorverliefd \(prod\. Donda Nisha\)-LDDy4m_TiVk/.test(
+            data._filename
+          )
+        )
       },
 
       'file was downloaded': function (err, progress, data) {
