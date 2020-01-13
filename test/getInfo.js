@@ -29,7 +29,7 @@ vows
             'This is also the original I find it hilarious that there are copycat videos!'
         )
         assert.strictEqual(info._filename, 'lol-90AiXO1pAiA.mp4')
-        assert.strictEqual(info.format, '18 - 480x360 (medium)')
+        assert.strictEqual(info.format, '18 - 480x360 (360p)')
         assert.strictEqual(info._duration_raw, 11)
         assert.strictEqual(info._duration_hms, '00:00:11')
         assert.strictEqual(info.duration, '11')
@@ -85,9 +85,9 @@ vows
         )
         assert.strictEqual(info.format, '1080 - 1080p')
         assert.strictEqual(info.height, 1080)
-        assert.strictEqual(info._duration_raw, 29.75)
-        assert.strictEqual(info._duration_hms, '00:00:29.750')
-        assert.strictEqual(info.duration, '29.75')
+        assert.strictEqual(info._duration_raw, 29)
+        assert.strictEqual(info._duration_hms, '00:00:29')
+        assert.strictEqual(info.duration, '29')
         assert.isArray(info.formats)
       }
     },
@@ -125,7 +125,7 @@ vows
         assert.strictEqual(info[0]._filename, 'lol-90AiXO1pAiA.mp4')
         assert.strictEqual(info[0].width, 480)
         assert.strictEqual(info[0].height, 360)
-        assert.strictEqual(info[0].format, '18 - 480x360 (medium)')
+        assert.strictEqual(info[0].format, '18 - 480x360 (360p)')
         assert.strictEqual(info[0]._duration_raw, 11)
         assert.strictEqual(info[0]._duration_hms, '00:00:11')
         assert.strictEqual(info[0].duration, '11')
@@ -148,9 +148,9 @@ vows
         )
         assert.strictEqual(info[1].format, '1080 - 1080p')
         assert.strictEqual(info[1].height, 1080)
-        assert.strictEqual(info[1]._duration_raw, 29.75)
-        assert.strictEqual(info[1]._duration_hms, '00:00:29.750')
-        assert.strictEqual(info[1].duration, '29.75')
+        assert.strictEqual(info[1]._duration_raw, 29)
+        assert.strictEqual(info[1]._duration_hms, '00:00:29')
+        assert.strictEqual(info[1].duration, '29')
         assert.isArray(info[1].formats)
       }
     },
@@ -179,7 +179,7 @@ vows
             'This is also the original I find it hilarious that there are copycat videos!'
         )
         assert.strictEqual(info._filename, 'lol-90AiXO1pAiA.mp4')
-        assert.strictEqual(info.format, '18 - 480x360 (medium)')
+        assert.strictEqual(info.format, '18 - 480x360 (360p)')
         assert.strictEqual(info._duration_raw, 11)
         assert.strictEqual(info._duration_hms, '00:00:11')
         assert.strictEqual(info.duration, '11')

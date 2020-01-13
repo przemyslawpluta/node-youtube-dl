@@ -49,7 +49,6 @@ vows
         assert.isObject(data)
         assert.strictEqual(data.id, '90AiXO1pAiA')
         assert.isTrue(/lol-90AiXO1pAiA/.test(data._filename))
-        assert.strictEqual(data.size, 755906)
       },
 
       'file was downloaded': function (err, progress, data) {
