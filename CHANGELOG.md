@@ -1,3 +1,11 @@
+## <small>3.0.1 (2020-01-16)</small>
+
+* fix: args check ([504419b](https://github.com/przemyslawpluta/node-youtube-dl/commit/504419b))
+* Add proxy support ([32b358b](https://github.com/przemyslawpluta/node-youtube-dl/commit/32b358b))
+* Drop node8 support ([dd3d7ee](https://github.com/przemyslawpluta/node-youtube-dl/commit/dd3d7ee))
+
+
+
 ## 3.0.0 (2020-01-13)
 
 * ci: drop node8 support ([333fb7a](https://github.com/przemyslawpluta/node-youtube-dl/commit/333fb7a))
