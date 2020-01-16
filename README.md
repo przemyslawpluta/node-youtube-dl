@@ -170,6 +170,16 @@ youtubedl.getInfo([url1, url2], function(err, info) {
 })
 ```
 
+### Using a proxy
+
+``` js
+const youtubedl = require('youtube-dl')
+
+const video = youtubedl('http://www.youtube.com/watch?v=90AiXO1pAiA',
+  // Optional arguments passed to youtube-dl.
+  ['--proxy', 'http://ip:port'],
+```
+
 ### Downloading subtitles
 
 ``` js
