@@ -8,6 +8,7 @@ var video2 = 'https://www.youtube.com/watch?v=179MiZSibco'
 var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg'
 var video4 = 'https://www.youtube.com/watch?v=yy7EUIR0fic'
 var video5 = 'https://www.youtube.com/watch?v=LDDy4m_TiVk'
+var video6 = 'http://www.youtube.com/watch?v=NOaxV9N108g'
 var subtitleFile = '1 1 1-179MiZSibco.en.vtt'
 var thumbnailFile = 'Too Many Twists (Heist Night 5_5)-yy7EUIR0fic.jpg'
 
@@ -163,6 +164,60 @@ vows
         assert.strictEqual(progress, 1)
         assert.isObject(data)
         assert.strictEqual(data.id, 'AW8OOp2undg')
+      },
+
+      'file was downloaded': function (err, progress, data) {
+        'use strict'
+        if (err) {
+          throw err
+        }
+
+        // Check existance.
+        var filepath = path.join(__dirname, data._filename)
+        var exists = fs.existsSync(filepath)
+        if (exists) {
+          // Delete file after each test.
+          fs.unlinkSync(filepath)
+        } else {
+          assert.isTrue(exists)
+        }
+      }
+    },
+    'a video with `filesize: null`': {
+      topic: function () {
+        'use strict'
+        var dl = ytdl(video6)
+        var cb = this.callback
+
+        dl.on('error', cb)
+
+        dl.on('info', function (info) {
+          var pos = 0
+          var progress
+
+          dl.on('data', function (data) {
+            pos += data.length
+            progress = pos / info.size
+          })
+
+          dl.on('end', function () {
+            cb(null, progress, info)
+          })
+
+          var filepath = path.join(__dirname, info._filename)
+          dl.pipe(fs.createWriteStream(filepath))
+        })
+      },
+
+      'data returned': function (err, progress, data) {
+        'use strict'
+        if (err) {
+          throw err
+        }
+
+        assert.strictEqual(progress, 1)
+        assert.isObject(data)
+        assert.strictEqual(data.id, 'NOaxV9N108g')
       },
 
       'file was downloaded': function (err, progress, data) {
