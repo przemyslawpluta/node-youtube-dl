@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -30,12 +30,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Jaime Marquínez Ferrándiz",
-      "email": "jaime.marquinez.ferrandiz@gmail.com"
-    },
-    {
       "name": "Gregoire Guémas",
       "email": "gregoire.guemas@navispeed.eu"
+    },
+    {
+      "name": "Jaime Marquínez Ferrándiz",
+      "email": "jaime.marquinez.ferrandiz@gmail.com"
     },
     {
       "name": "Jay Baker",
@@ -46,40 +46,44 @@
       "email": "dsmoosh@Davids-MacBook-Pro.local"
     },
     {
-      "name": "Frederic Germain",
-      "email": "frederic.germain@gmail.com"
-    },
-    {
       "name": "Jack Li",
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "optikfluffel",
-      "email": "optik@fluffel.io"
-    },
-    {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
-    },
-    {
-      "name": "t3rr0r",
-      "email": "mail@t3rr0r.com"
+      "name": "Frederic Germain",
+      "email": "frederic.germain@gmail.com"
     },
     {
       "name": "Calvin",
       "email": "calvin@sealtelecom.com.br"
     },
     {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
+    },
+    {
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
+    },
+    {
       "name": "EragonJ",
       "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
+    },
+    {
+      "name": "t3rr0r",
+      "email": "mail@t3rr0r.com"
     },
     {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
     },
     {
-      "name": "Jeremy Louie",
-      "email": "jeremy@jeremylouie.com"
+      "name": "coderaiser",
+      "email": "mnemonic.enemy@gmail.com"
     },
     {
       "name": "liuye.adam",
@@ -146,6 +150,10 @@
       "email": "pietro.passarelli@gmail.com"
     },
     {
+      "name": "Rafael Kraut",
+      "email": "rk@vi-arise.com"
+    },
+    {
       "name": "Sagi Nadir",
       "email": "saginadir@gmail.com"
     },
@@ -156,14 +164,6 @@
     {
       "name": "btmdave",
       "email": "dave@bluetopmedia.com"
-    },
-    {
-      "name": "coderaiser",
-      "email": "mnemonic.enemy@gmail.com"
-    },
-    {
-      "name": "RafaelKr",
-      "email": "coding@rafael.kr"
     }
   ],
   "repository": {

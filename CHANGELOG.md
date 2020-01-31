@@ -1,3 +1,9 @@
+## <small>3.0.2 (2020-01-31)</small>
+
+* fix: don't fail on videos when ytdl returns filesize null ([8f6235b](https://github.com/przemyslawpluta/node-youtube-dl/commit/8f6235b))
+
+
+
 ## <small>3.0.1 (2020-01-16)</small>
 
 * fix: args check ([504419b](https://github.com/przemyslawpluta/node-youtube-dl/commit/504419b))
