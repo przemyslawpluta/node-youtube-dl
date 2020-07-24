@@ -272,6 +272,29 @@ playlist('https://www.youtube.com/playlist?list=PLEFA9E9D96CB7F807')
 
 ```
 
+Note node-youtube-dl does not currently support playlist urls with the "list" format:
+```
+https://www.youtube.com/watch?v=<video-id>&list=<playlist id>
+```
+Please use instead the equivalent "playlist" format as the example below:
+```
+https://www.youtube.com/playlist?list=<playlist id>
+```
+The following snippet could be of use when making this format conversion.
+```
+function toSupportedFormat(url) {
+    if (url.includes("list=")) {
+        var playlistId = url.substring(url.indexOf('list=') + 5);
+        return "https://www.youtube.com/playlist?list=" + playlistId;
+    }
+    return url;
+}
+
+var url = "https://www.youtube.com/watch?v=shF8Sv-OswM&list=PLzIUZKHPb1HbqsPMIFdE0My54iektZrNU"
+url = toSupportedFormat(url);
+console.log(url) // "https://www.youtube.com/playlist?list=PLzIUZKHPb1HbqsPMIFdE0My54iektZrNU"
+```
+
 ### Getting the list of extractors
 
 ``` js
