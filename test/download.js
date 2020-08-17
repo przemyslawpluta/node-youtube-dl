@@ -10,7 +10,7 @@ var video4 = 'https://www.youtube.com/watch?v=yy7EUIR0fic'
 var video5 = 'https://www.youtube.com/watch?v=LDDy4m_TiVk'
 var video6 = 'http://www.youtube.com/watch?v=NOaxV9N108g'
 var subtitleFile = '1 1 1-179MiZSibco.en.vtt'
-var thumbnailFile = 'Too Many Twists (Heist Night 5_5)-yy7EUIR0fic.jpg'
+var thumbnailFile = 'Too Many Twists (Heist Night 5_5)-yy7EUIR0fic.webp'
 
 vows
   .describe('download')
