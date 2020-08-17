@@ -346,6 +346,30 @@ downloader('path/to-binary', function error(err, done) {
 })
 ```
 
+This script parses a couple of flags from `argv`:
+
+* `--platform=windows` forces downloading the Windows version of youtube-dl.
+* `--overwrite` overwrites the existing youtube-dl executable if it exists.
+
+
+### Update (promise version)
+
+If you are using promises there's now a promise version.
+
+``` js
+const downloader = require('youtube-dl/lib/downloaderPromise')
+
+downloader('path/to-binary')
+.then((message) => {
+    console.log(message);
+}).catch((err) => {
+    console.log("err", err);
+    exit(1);
+});
+
+```
+
+
 ### Environment Variables
 
 Youtube-dl looks for certain environment variables to aid its operations. If Youtube-dl doesn't find them in the environment during the installation step, a lowercased variant of these variables will be used from the [npm config](https://docs.npmjs.com/cli/config) or [yarn config](https://yarnpkg.com/lang/en/docs/cli/config/).
