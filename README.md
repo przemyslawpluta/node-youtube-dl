@@ -354,10 +354,10 @@ This script parses a couple of flags from `argv`:
 
 ### Update (promise version)
 
-If you are using promises there's now a promise version.
+If you are using promises there's now a promise version, if you don't pass a function as second argument:
 
 ``` js
-const downloader = require('youtube-dl/lib/downloaderPromise')
+const downloader = require('youtube-dl/lib/downloader')
 
 downloader('path/to-binary')
 .then((message) => {
