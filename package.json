@@ -181,7 +181,7 @@
   "dependencies": {
     "debug": "~4.1.1",
     "execa": "~3.2.0",
-    "got": "~10.6.0",
+    "got": "~11.6.0",
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~0.5.1",
     "streamify": "~0.2.9",
