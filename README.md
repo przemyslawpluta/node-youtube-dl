@@ -399,6 +399,12 @@ Youtube-dl looks for certain environment variables to aid its operations. If You
 
 - **YOUTUBE\_DL\_DOWNLOAD\_HOST** - overwrite URL prefix that is used to download the binary file of Youtube-dl. Note: this includes protocol and might even include path prefix. Defaults to `https://yt-dl.org/downloads/latest/youtube-dl`.
 
+**Example .yarnrc**
+```
+env:
+  YOUTUBE_DL_DOWNLOAD_HOST "https://xxxxx.s3.eu-central-1.amazonaws.com/xxxxxx"
+```
+
 ### Tests
 
 Tests are written with [vows](http://vowsjs.org/)
