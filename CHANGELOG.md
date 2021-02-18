@@ -1,3 +1,9 @@
+## 3.2.0 (2021-02-18)
+
+* fix: get binary url from github releases ([173c5fa](https://github.com/przemyslawpluta/node-youtube-dl/commit/173c5fa))
+
+
+
 ## 3.1.0 (2021-01-10)
 
 * build: add contributors ([c01efab](https://github.com/przemyslawpluta/node-youtube-dl/commit/c01efab))
