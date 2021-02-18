@@ -1,3 +1,34 @@
+## 3.3.0 (2021-02-18)
+
+* ci: only lts ([cfa8056](https://github.com/przemyslawpluta/node-youtube-dl/commit/cfa8056))
+* refactor: avoid url.pase ([b9633c7](https://github.com/przemyslawpluta/node-youtube-dl/commit/b9633c7))
+* refactor: remove unnecessary code ([54f5234](https://github.com/przemyslawpluta/node-youtube-dl/commit/54f5234))
+* refactor: tweak style ([51c619e](https://github.com/przemyslawpluta/node-youtube-dl/commit/51c619e))
+* removes details file ([60afa91](https://github.com/przemyslawpluta/node-youtube-dl/commit/60afa91))
+
+
+
+## 3.2.0 (2021-02-18)
+
+* fix: get binary url from github releases ([173c5fa](https://github.com/przemyslawpluta/node-youtube-dl/commit/173c5fa))
+
+
+
+## 3.1.0 (2021-01-10)
+
+* build: add contributors ([c01efab](https://github.com/przemyslawpluta/node-youtube-dl/commit/c01efab))
+* build: remove git add from git pre hooks ([8f779b7](https://github.com/przemyslawpluta/node-youtube-dl/commit/8f779b7))
+* build: update dependencies ([ea20196](https://github.com/przemyslawpluta/node-youtube-dl/commit/ea20196))
+* ci: update node builds ([9b87bad](https://github.com/przemyslawpluta/node-youtube-dl/commit/9b87bad))
+* Execa function may not pass stdout in callback function if run it with the `{ stdio: 'inherit' }` op ([a85b449](https://github.com/przemyslawpluta/node-youtube-dl/commit/a85b449))
+* fix #320: webp and not jpeg ([bae7c99](https://github.com/przemyslawpluta/node-youtube-dl/commit/bae7c99)), closes [#320](https://github.com/przemyslawpluta/node-youtube-dl/issues/320)
+* handles overwriting ([a3551d1](https://github.com/przemyslawpluta/node-youtube-dl/commit/a3551d1))
+* promise version of downloader ([e11831a](https://github.com/przemyslawpluta/node-youtube-dl/commit/e11831a))
+* promise when there's no argument ([d6133fc](https://github.com/przemyslawpluta/node-youtube-dl/commit/d6133fc))
+* README documentation for #271 ([2ab626e](https://github.com/przemyslawpluta/node-youtube-dl/commit/2ab626e)), closes [#271](https://github.com/przemyslawpluta/node-youtube-dl/issues/271)
+
+
+
 ## <small>3.0.2 (2020-01-31)</small>
 
 * fix: don't fail on videos when ytdl returns filesize null ([8f6235b](https://github.com/przemyslawpluta/node-youtube-dl/commit/8f6235b))

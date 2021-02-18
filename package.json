@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.0.2",
+  "version": "3.3.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -22,6 +22,10 @@
       "email": "josefrancisco.verdu@gmail.com"
     },
     {
+      "name": "Bruno",
+      "email": "brunobg@gmail.com"
+    },
+    {
       "name": "Jay Salvat",
       "email": "jay@jaysalvat.com"
     },
@@ -30,12 +34,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Gregoire Guémas",
-      "email": "gregoire.guemas@navispeed.eu"
-    },
-    {
       "name": "Jaime Marquínez Ferrándiz",
       "email": "jaime.marquinez.ferrandiz@gmail.com"
+    },
+    {
+      "name": "Gregoire Guémas",
+      "email": "gregoire.guemas@navispeed.eu"
     },
     {
       "name": "Jay Baker",
@@ -46,40 +50,40 @@
       "email": "dsmoosh@Davids-MacBook-Pro.local"
     },
     {
-      "name": "Jack Li",
-      "email": "jack.lee2980@gmail.com"
-    },
-    {
       "name": "Frederic Germain",
       "email": "frederic.germain@gmail.com"
     },
     {
-      "name": "Calvin",
-      "email": "calvin@sealtelecom.com.br"
-    },
-    {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
-    },
-    {
-      "name": "Jeremy Louie",
-      "email": "jeremy@jeremylouie.com"
-    },
-    {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
+      "name": "Jack Li",
+      "email": "jack.lee2980@gmail.com"
     },
     {
       "name": "optikfluffel",
       "email": "optik@fluffel.io"
     },
     {
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
+    },
+    {
       "name": "t3rr0r",
       "email": "mail@t3rr0r.com"
     },
     {
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
+    },
+    {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
+    },
+    {
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
     },
     {
       "name": "coderaiser",
@@ -110,6 +114,10 @@
       "email": "pasdavide@gmail.com"
     },
     {
+      "name": "DiegoFleitas",
+      "email": "diego.fleitas68@gmail.com"
+    },
+    {
       "name": "Farrin Reid",
       "email": "blakmatrix@gmail.com"
     },
@@ -136,6 +144,10 @@
     {
       "name": "Nicolas Gotchac",
       "email": "ngotchac@gmail.com"
+    },
+    {
+      "name": "Nikolay Lapshin",
+      "email": "nlapshin1989@gmail.com"
     },
     {
       "name": "Panayiotis",
@@ -179,13 +191,12 @@
     "youtube"
   ],
   "dependencies": {
-    "debug": "~4.1.1",
-    "execa": "~3.2.0",
-    "got": "~11.6.0",
+    "debug": "~4.3.1",
+    "execa": "~5.0.0",
     "hh-mm-ss": "~1.2.0",
-    "mkdirp": "~0.5.1",
+    "mkdirp": "~1.0.4",
     "streamify": "~0.2.9",
-    "universalify": "~0.1.2"
+    "universalify": "~2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -228,16 +239,13 @@
   },
   "lint-staged": {
     "package.json": [
-      "finepack",
-      "git add"
+      "finepack"
     ],
     "*.js": [
-      "prettier-standard",
-      "git add"
+      "prettier-standard"
     ],
     "*.md": [
-      "standard-markdown",
-      "git add"
+      "standard-markdown"
     ]
   }
 }
