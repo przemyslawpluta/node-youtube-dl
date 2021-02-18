@@ -194,7 +194,7 @@
     "execa": "~5.0.0",
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~1.0.4",
-    "streamify": "~0.2.9",
+    "streamify": "~1.0.0",
     "universalify": "~2.0.0"
   },
   "devDependencies": {
