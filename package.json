@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -22,6 +22,10 @@
       "email": "josefrancisco.verdu@gmail.com"
     },
     {
+      "name": "Bruno",
+      "email": "brunobg@gmail.com"
+    },
+    {
       "name": "Jay Salvat",
       "email": "jay@jaysalvat.com"
     },
@@ -30,16 +34,12 @@
       "email": "benjamin@coriou.net"
     },
     {
-      "name": "Gregoire Guémas",
-      "email": "gregoire.guemas@navispeed.eu"
-    },
-    {
       "name": "Jaime Marquínez Ferrándiz",
       "email": "jaime.marquinez.ferrandiz@gmail.com"
     },
     {
-      "name": "Bruno",
-      "email": "brunobg@gmail.com"
+      "name": "Gregoire Guémas",
+      "email": "gregoire.guemas@navispeed.eu"
     },
     {
       "name": "Jay Baker",
@@ -58,36 +58,80 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "Calvin",
-      "email": "calvin@sealtelecom.com.br"
-    },
-    {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
-    },
-    {
-      "name": "Jeremy Louie",
-      "email": "jeremy@jeremylouie.com"
-    },
-    {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
-    },
-    {
       "name": "optikfluffel",
       "email": "optik@fluffel.io"
+    },
+    {
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
     },
     {
       "name": "t3rr0r",
       "email": "mail@t3rr0r.com"
     },
     {
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
+    },
+    {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
     },
     {
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
+    },
+    {
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
+    },
+    {
+      "name": "coderaiser",
+      "email": "mnemonic.enemy@gmail.com"
+    },
+    {
+      "name": "liuye.adam",
+      "email": "liuye.adam@bytedance.com"
+    },
+    {
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
+    },
+    {
+      "name": "Alireza Mirian",
+      "email": "alireza.mirian@gmail.com"
+    },
+    {
+      "name": "▟ ▖▟ ▖",
+      "email": "dodo.the.last@gmail.com"
+    },
+    {
+      "name": "AndriiHryhorovskyi",
+      "email": "private_ukr_pochta@ukr.net"
+    },
+    {
+      "name": "Davide Pastore",
+      "email": "pasdavide@gmail.com"
+    },
+    {
+      "name": "DiegoFleitas",
+      "email": "diego.fleitas68@gmail.com"
+    },
+    {
       "name": "Farrin Reid",
       "email": "blakmatrix@gmail.com"
+    },
+    {
+      "name": "Jason Penny",
+      "email": "jason@jooraccess.com"
+    },
+    {
+      "name": "Juan C. Olivares",
+      "email": "cristobal@cxsoftware.com"
+    },
+    {
+      "name": "Lopez Hugo",
+      "email": "hugo.lpz@gmail.com"
     },
     {
       "name": "Meral",
@@ -118,20 +162,8 @@
       "email": "pietro.passarelli@gmail.com"
     },
     {
-      "name": "DiegoFleitas",
-      "email": "diego.fleitas68@gmail.com"
-    },
-    {
-      "name": "Davide Pastore",
-      "email": "pasdavide@gmail.com"
-    },
-    {
       "name": "Rafael Kraut",
       "email": "rk@vi-arise.com"
-    },
-    {
-      "name": "Alireza Mirian",
-      "email": "alireza.mirian@gmail.com"
     },
     {
       "name": "Sagi Nadir",
@@ -144,38 +176,6 @@
     {
       "name": "btmdave",
       "email": "dave@bluetopmedia.com"
-    },
-    {
-      "name": "coderaiser",
-      "email": "mnemonic.enemy@gmail.com"
-    },
-    {
-      "name": "liuye.adam",
-      "email": "liuye.adam@bytedance.com"
-    },
-    {
-      "name": "▟ ▖▟ ▖",
-      "email": "dodo.the.last@gmail.com"
-    },
-    {
-      "name": "AndriiHryhorovskyi",
-      "email": "private_ukr_pochta@ukr.net"
-    },
-    {
-      "name": "Jason Penny",
-      "email": "jason@jooraccess.com"
-    },
-    {
-      "name": "walheresq",
-      "email": "walheresq@hotmail.com"
-    },
-    {
-      "name": "Juan C. Olivares",
-      "email": "cristobal@cxsoftware.com"
-    },
-    {
-      "name": "Lopez Hugo",
-      "email": "hugo.lpz@gmail.com"
     }
   ],
   "repository": {

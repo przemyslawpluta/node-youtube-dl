@@ -1,3 +1,13 @@
+## 3.3.0 (2021-02-18)
+
+* ci: only lts ([cfa8056](https://github.com/przemyslawpluta/node-youtube-dl/commit/cfa8056))
+* refactor: avoid url.pase ([b9633c7](https://github.com/przemyslawpluta/node-youtube-dl/commit/b9633c7))
+* refactor: remove unnecessary code ([54f5234](https://github.com/przemyslawpluta/node-youtube-dl/commit/54f5234))
+* refactor: tweak style ([51c619e](https://github.com/przemyslawpluta/node-youtube-dl/commit/51c619e))
+* removes details file ([60afa91](https://github.com/przemyslawpluta/node-youtube-dl/commit/60afa91))
+
+
+
 ## 3.2.0 (2021-02-18)
 
 * fix: get binary url from github releases ([173c5fa](https://github.com/przemyslawpluta/node-youtube-dl/commit/173c5fa))
