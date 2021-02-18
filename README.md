@@ -397,7 +397,7 @@ downloader('path/to-binary')
 
 Youtube-dl looks for certain environment variables to aid its operations. If Youtube-dl doesn't find them in the environment during the installation step, a lowercased variant of these variables will be used from the [npm config](https://docs.npmjs.com/cli/config) or [yarn config](https://yarnpkg.com/lang/en/docs/cli/config/).
 
-- **YOUTUBE\_DL\_DOWNLOAD\_HOST** - overwrite URL prefix that is used to download the binary file of Youtube-dl. Note: this includes protocol and might even include path prefix. Defaults to `https://yt-dl.org/downloads/latest/youtube-dl`.
+- **YOUTUBE\_DL\_DOWNLOAD\_HOST** - overwrite URL prefix that is used to download the binary file of Youtube-dl. Note: this includes protocol and might even include path prefix. Defaults to `https://youtube-dl.org/downloads/latest/youtube-dl`.
 
 ### Tests
 
