@@ -399,6 +399,9 @@ Youtube-dl looks for certain environment variables to aid its operations. If You
 
 - **YOUTUBE\_DL\_DOWNLOAD\_HOST** - overwrite URL prefix that is used to download the binary file of Youtube-dl. Note: this includes protocol and might even include path prefix. Defaults to `https://yt-dl.org/downloads/latest/youtube-dl`.
 
+- **YOUTUBE_DL_DIRECT_BINARY_DOWNLOAD_URL** - download the youtube-dl binary from the given download url, completely ignoring the `**YOUTUBE\_DL\_DOWNLOAD\_HOST**` option, while performing no lookup for retrieving the latest version of the binary. This is useful if you are hosting the youtube-dl binary on your own S3 bucket. The platform specific extension will be appended.
+E.g. the value `https://xxxxx.s3.xxxxxx.amazonaws.com/2020.11.12-youtube-dl` will result in downloading `https://xxxxx.s3.xxxxxx.amazonaws.com/2020.11.12-youtube-dl.exe` on windows.
+
 ### Tests
 
 Tests are written with [vows](http://vowsjs.org/)
