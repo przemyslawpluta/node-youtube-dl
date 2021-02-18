@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -50,40 +50,44 @@
       "email": "dsmoosh@Davids-MacBook-Pro.local"
     },
     {
-      "name": "Frederic Germain",
-      "email": "frederic.germain@gmail.com"
-    },
-    {
       "name": "Jack Li",
       "email": "jack.lee2980@gmail.com"
+    },
+    {
+      "name": "Barry Carlyon | Kora",
+      "email": "barry@barrycarlyon.co.uk"
+    },
+    {
+      "name": "Frederic Germain",
+      "email": "frederic.germain@gmail.com"
     },
     {
       "name": "optikfluffel",
       "email": "optik@fluffel.io"
     },
     {
-      "name": "Calvin",
-      "email": "calvin@sealtelecom.com.br"
+      "name": "Jeremy Louie",
+      "email": "jeremy@jeremylouie.com"
     },
     {
       "name": "t3rr0r",
       "email": "mail@t3rr0r.com"
     },
     {
-      "name": "Jeremy Louie",
-      "email": "jeremy@jeremylouie.com"
+      "name": "Sergey M․",
+      "email": "dstftw@gmail.com"
     },
     {
       "name": "tifroz",
       "email": "hhardel@gmail.com"
     },
     {
-      "name": "EragonJ",
-      "email": "eragonj@eragonj.me"
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
     },
     {
-      "name": "Sergey M․",
-      "email": "dstftw@gmail.com"
+      "name": "EragonJ",
+      "email": "eragonj@eragonj.me"
     },
     {
       "name": "coderaiser",

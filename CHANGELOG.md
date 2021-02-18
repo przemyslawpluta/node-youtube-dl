@@ -1,3 +1,14 @@
+## 3.4.0 (2021-02-18)
+
+* build: remove unnecessary dependency ([375ae5e](https://github.com/przemyslawpluta/node-youtube-dl/commit/375ae5e))
+* build: update dependencies ([abedf17](https://github.com/przemyslawpluta/node-youtube-dl/commit/abedf17))
+* refactor: sort ([9d36ad5](https://github.com/przemyslawpluta/node-youtube-dl/commit/9d36ad5))
+* chore: update got to v11 ([4def2dd](https://github.com/przemyslawpluta/node-youtube-dl/commit/4def2dd))
+* fix(test): youtube service webp images instead of jpg and youtube-dl doesn't have a switch ([645964f](https://github.com/przemyslawpluta/node-youtube-dl/commit/645964f))
+* Replace Request with Got ([c9670e3](https://github.com/przemyslawpluta/node-youtube-dl/commit/c9670e3))
+
+
+
 ## 3.3.0 (2021-02-18)
 
 * ci: only lts ([cfa8056](https://github.com/przemyslawpluta/node-youtube-dl/commit/cfa8056))
