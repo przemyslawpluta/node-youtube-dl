@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - 12
-  - 10
+  - lts/*
+  - node
 notifications:
   email:
     on_success: change
