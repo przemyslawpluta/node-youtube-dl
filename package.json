@@ -196,6 +196,7 @@
   ],
   "dependencies": {
     "execa": "~5.0.0",
+    "got": "~11.8.1",
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~1.0.4",
     "streamify": "~1.0.0",
