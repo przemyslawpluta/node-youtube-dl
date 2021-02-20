@@ -1,3 +1,9 @@
+## <small>3.4.1 (2021-02-20)</small>
+
+* Add got dependency ([34ac819](https://github.com/przemyslawpluta/node-youtube-dl/commit/34ac819))
+
+
+
 ## 3.4.0 (2021-02-18)
 
 * build: remove unnecessary dependency ([375ae5e](https://github.com/przemyslawpluta/node-youtube-dl/commit/375ae5e))
