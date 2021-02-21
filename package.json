@@ -199,6 +199,7 @@
     "youtube"
   ],
   "dependencies": {
+    "bin-version-check-cli": "~2.0.0",
     "execa": "~5.0.0",
     "got": "~11.8.1",
     "hh-mm-ss": "~1.2.0",
@@ -227,8 +228,10 @@
     "scripts"
   ],
   "scripts": {
+    "check": "bin-version-check python '>=2'",
+    "download": "node ./scripts/download.js",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "node ./scripts/download.js",
+    "postinstall": "npm run check && npm run download",
     "release": "bumped release",
     "test": "vows ./test/*.js --spec",
     "update": "node ./scripts/download.js"
