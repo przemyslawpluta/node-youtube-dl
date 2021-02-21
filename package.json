@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -14,12 +14,12 @@
       "email": "roly426@gmail.com"
     },
     {
-      "name": "przemyslawpluta",
-      "email": "przemekpluta@hotmail.com"
-    },
-    {
       "name": "Kiko Beats",
       "email": "josefrancisco.verdu@gmail.com"
+    },
+    {
+      "name": "przemyslawpluta",
+      "email": "przemekpluta@hotmail.com"
     },
     {
       "name": "Bruno",

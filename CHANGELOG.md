@@ -1,3 +1,9 @@
+## 3.5.0 (2021-02-21)
+
+* feat: ensure python is available on the machine ([102de70](https://github.com/przemyslawpluta/node-youtube-dl/commit/102de70))
+
+
+
 ## <small>3.4.1 (2021-02-20)</small>
 
 * Add got dependency ([34ac819](https://github.com/przemyslawpluta/node-youtube-dl/commit/34ac819))
