@@ -1,4 +1,5 @@
-# youtube-dl
+# youtube-dl 
+# **Deprecate notice**: use [youtube-dl-exec](https://github.com/microlinkhq/youtube-dl-exec) instead.
 
 [![Build Status](https://travis-ci.org/przemyslawpluta/node-youtube-dl.svg?branch=master)](https://travis-ci.org/przemyslawpluta/node-youtube-dl) [![npm version](https://badge.fury.io/js/youtube-dl.svg)](https://badge.fury.io/js/youtube-dl)
 
